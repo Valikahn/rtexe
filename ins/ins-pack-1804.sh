@@ -10,6 +10,7 @@ if [ "$(id -u)" != "0" ]; then
 	exit 1
 fi
 
+
 ####################################
 ##  Updating Packages and Builds  ##
 ####################################
@@ -25,6 +26,7 @@ echo 'Installing ca-certificates'
 sudo apt-get -yqq install ca-certificates 2>&1 >> /dev/null
 fi
 
+
 ##################################
 ##  Installing Apache2 and PHP  ##
 ##################################
@@ -33,5 +35,17 @@ sudo apt-get -yqq install apache2 > /dev/null
 sudo apt-get -yqq install php php-cgi libapache2-mod-php > /dev/null
 sudo apt-get -yqq install php-mysql php-gd > /dev/null
 sudo systemctl restart apache2
+
+
+#########################
+##  Installing vsftpd  ##
+#########################
+echo 'Installing vsftpd'
+sudo apt-get -yqq install vsftpd > /dev/null
+sudo systemctl start vsftpd
+sudo systemctl enable vsftpd
+sudo mv /etc/vsftpd.conf /etc/vsftpd.conf.bkp
+sudo cp setup/vsftpd.conf /etc/vsftpd.conf
+sudo systemctl restart vsftpd
 
 fi
