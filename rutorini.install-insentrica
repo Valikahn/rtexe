@@ -382,7 +382,7 @@ cd
 	  1)
 		echo -n "Ubuntu 18.04 (Bionic Beaver)"
 		echo
-		source ins/ins-pack-1804
+		source /ins/ins-pack-1804
 		echo
 		echo "Done!"
 		;;
