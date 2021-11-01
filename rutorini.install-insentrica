@@ -359,7 +359,6 @@ if [ "$val" == "" ]; then
 	
 # was it a y or a yes?
 elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
-cd
 
 ###########  REPASTE BACK IN HERE  ###########
 	
@@ -382,7 +381,7 @@ cd
 	  1)
 		echo -n "Ubuntu 18.04 (Bionic Beaver)"
 		echo
-		source /ins/ins-pack-1804
+		source ins/ins-pack-1804.sh
 		echo
 		echo "Done!"
 		;;
