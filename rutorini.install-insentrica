@@ -41,8 +41,8 @@ export logfile="/dev/null"
 unixpass=""
 webpass=''
 passflag=0
-os_repo=0
-major_repo=0
+os_prereq=0
+prereq=0
 homedir=$(cat /etc/passwd | grep "$user": | cut -d: -f6)
 home=$(eval echo "~$user")
 rt_url="https://rakshasa.github.io/rtorrent/"
@@ -229,7 +229,9 @@ else
   fi
 fi
 
-echo "User name is now set to:  $user"
+echo
+echo "User name set to:  $user"
+echo
 
 if id -u $user >/dev/null 2>&1; then
   echo "$user already exists"
@@ -310,40 +312,37 @@ echo
 echo  "Checking $OS mirrors"
 for i in $(cat /etc/apt/sources.list | grep "^deb http" | cut -d' ' -f2 | uniq ); do
   echo -n $i": "
-  up_or_down $i && echo "OK" || { echo "FAIL"; os_repo=1; }
+  up_or_down $i && echo "OK" || { echo "FAIL"; os_prereq=1; }
 done
 
 echo
 echo "Checking major 3rd party components"
-echo -n "Rtorrent: "; up_or_down $rt_url && echo "OK" || { echo "FAIL"; major_repo=1; }
+echo -n "Rtorrent: "; up_or_down $rt_url && echo "OK" || { echo "FAIL"; prereq=1; }
 
-echo -n "xmlrpc-c: "; up_or_down $xmlrpc_url && echo "OK" ||  xmlrpc_repo=1
+echo -n "xmlrpc-c: "; up_or_down $xmlrpc_url && echo "OK" ||  xmlrpc_prereq=1
 
-if [[ $xmlrpc_repo = 1 ]]; then
+if [[ $xmlrpc_prereq = 1 ]]; then
   xmlrpc_url=$xmlrpc_url_alt
-  up_or_down $xmlrpc_url && echo "OK" || { echo "FAIL"; major_repo=1; }
+  up_or_down $xmlrpc_url && echo "OK" || { echo "FAIL"; prereq=1; }
 fi
 
-echo -n "RuTorrent: ";up_or_down $ru_url && echo "OK" || { echo "FAIL"; major_repo=1; }
-echo -n "Autodl-irssi: "; up_or_down $adl_url && echo "OK" || { echo "FAIL"; major_repo=1; }
+echo -n "RuTorrent: ";up_or_down $ru_url && echo "OK" || { echo "FAIL"; prereq=1; }
+echo -n "Autodl-irssi: "; up_or_down $adl_url && echo "OK" || { echo "FAIL"; prereq=1; }
 
-if [ $os_repo = 1 ]; then
+if [ $os_prereq = 1 ]; then
   echo "Some of the $OS mirrors are down, try again later"
   exit 1
 fi
 
-if [ $major_repo = 1 ]; then
+if [ $prereq = 1 ]; then
   echo "Some of the repositories we need are not currently available."
-  echo "We will continue for now, but may not be able to finish"
-  echo "You can rerun rtinst later to complete the installation if needed"
+  echo "We will continue for now, but may not be able to finish or this will finish with errors."
 fi
 echo
 
 #######################
 ### BACKGROUND WORK ###
 #######################
-
-#################################################################
 
 # Lets get started
 ###
@@ -360,8 +359,6 @@ if [ "$val" == "" ]; then
 # was it a y or a yes?
 elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 
-###########  REPASTE BACK IN HERE  ###########
-	
 	clear
 	echo -n "Please pick your Operating System version: "
 	echo
