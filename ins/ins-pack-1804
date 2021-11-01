@@ -1,0 +1,102 @@
+#!/bin/bash
+################################
+##  Checking if user is root  ##
+################################
+if [ "$(id -u)" != "0" ]; then
+	echo
+	echo "This script must be run as root." 1>&2
+	echo
+	exit 1
+fi
+
+####################################
+##  Updating Packages and Builds  ##
+####################################
+echo 'Updating Packages and Builds'
+sudo apt-get -yqq update > /dev/null
+sudo apt-get -yqq update > /dev/null
+sudo apt-get -yqq upgrade > /dev/null
+sudo dpkg --configure -a > /dev/null
+sudo apt-get -yqq dist-upgrade > /dev/null
+
+if [ $(dpkg-query -W -f='${Status}' ca-certificates 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
+echo 'Installing ca-certificates'
+sudo apt-get -yqq install ca-certificates 2>&1 >> /dev/null
+fi
+
+##################################
+##  Installing Apache2 and PHP  ##
+##################################
+echo 'Installing Apache and PHP'
+sudo apt-get -yqq install apache2 > /dev/null
+sudo apt-get -yqq install php php-cgi libapache2-mod-php > /dev/null
+sudo apt-get -yqq install php-mysql php-gd > /dev/null
+sudo systemctl restart apache2
+
+#########################
+##  Installing vsftpd  ##
+#########################
+echo 'Installing vsftpd'
+sudo apt-get -yqq install vsftpd > /dev/null
+sudo systemctl start vsftpd
+sudo systemctl enable vsftpd
+sudo mv /etc/vsftpd.conf /etc/vsftpd.conf.orig
+#sudo systemctl restart vsftpd
+
+#ftpport=$(random 41005 48995)
+
+if [ $(dpkg-query -W -f='${Status}' "vsftpd" 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
+  echo "Installing vsftpd" | tee -a $logfile
+  aptitude -q=5 -y install vsftpd >> $logfile 2>&1
+fi
+
+sed -i '/^\(\s\|#\)*anonymous_enable/ c\anonymous_enable=NO' /etc/vsftpd.conf
+sed -i '/^\(\s\|#\)*local_enable/ c\local_enable=YES' /etc/vsftpd.conf
+sed -i '/^\(\s\|#\)*write_enable/ c\write_enable=YES' /etc/vsftpd.conf
+sed -i '/^\(\s\|#\)*local_umask/ c\local_umask=022' /etc/vsftpd.conf
+sed -i '/^\(\s\|#\)*listen=/ c\listen=YES' /etc/vsftpd.conf
+sed -i '/^\(\s\|#\)*listen_ipv6=/ c\listen_ipv6=YES' /etc/vsftpd.conf
+sed -i '/^\(\s\|#\)*rsa_private_key_file/ c\rsa_private_key_file=\/etc\/ssl\/private\/ssl-cert-snakeoil\.key' /etc/vsftpd.conf
+sed -i '/^\(\s\|#\)*rsa_cert_file/ c\rsa_cert_file=\/etc\/ssl\/ssl-cert-snakeoil\.pem' /etc/vsftpd.conf
+
+#sed -i 's/^\s*listen_ipv6/#listen_ipv6/g' /etc/vsftpd.conf
+#grep ^listen_port /etc/vsftpd.conf > /dev/null || echo "listen_port=$ftpport" >> /etc/vsftpd.conf
+
+grep -Pq "use_sendfile=" /etc/vsftpd.conf && sed -i '/^\(\s\|#\)*use_sendfile=/ c\use_sendfile=NO' /etc/vsftpd.conf ||  echo "use_sendfile=NO" >> /etc/vsftpd.conf
+grep -Pq "^\s*ssl_enable" /etc/vsftpd.conf && sed -i '/^\s*ssl_enable/ c\ssl_enable=NO' /etc/vsftpd.conf ||  echo "ssl_enable=YES" >> /etc/vsftpd.conf
+grep -Pq "^\s*chroot_local_user" /etc/vsftpd.conf &&  sed -i '/^\s*chroot_local_user/ c\chroot_local_user=NO' /etc/vsftpd.conf || echo "chroot_local_user=YES" >> /etc/vsftpd.conf
+grep -Pq "^\s*allow_writeable_chroot" /etc/vsftpd.conf &&  sed -i '/^\s*allow_writeable_chroot/ c\allow_writeable_chroot=YES' /etc/vsftpd.conf || echo "allow_writeable_chroot=YES" >> /etc/vsftpd.conf
+grep -Pq "^\s*allow_anon_ssl" /etc/vsftpd.conf && sed -i '/^\s*allow_anon_ssl/ c\allow_anon_ssl=NO' /etc/vsftpd.conf || echo "allow_anon_ssl=NO" >> /etc/vsftpd.conf
+grep -Pq "^\s*force_local_data_ssl" /etc/vsftpd.conf && sed -i '/^\s*force_local_data_ssl/ c\force_local_data_ssl=YES' /etc/vsftpd.conf || echo "force_local_data_ssl=YES" >> /etc/vsftpd.conf
+grep -Pq "^\s*force_local_logins_ssl" /etc/vsftpd.conf && sed -i '/^\s*force_local_logins_ssl/ c\force_local_logins_ssl=YES' /etc/vsftpd.conf || echo "force_local_logins_ssl=YES" >> /etc/vsftpd.conf
+grep -Pq "^\s*ssl_sslv2" /etc/vsftpd.conf &&  sed -i '/^\s*ssl_sslv2/ c\ssl_sslv2=YES' /etc/vsftpd.conf || echo "ssl_sslv2=YES" >> /etc/vsftpd.conf
+grep -Pq "^\s*ssl_sslv3" /etc/vsftpd.conf &&  sed -i '/^\s*ssl_sslv3/ c\ssl_sslv3=YES' /etc/vsftpd.conf || echo "ssl_sslv3=YES" >> /etc/vsftpd.conf
+grep -Pq "^\s*ssl_tlsv1" /etc/vsftpd.conf &&  sed -i '/^\s*ssl_tlsv1/ c\ssl_tlsv1=YES' /etc/vsftpd.conf || echo "ssl_tlsv1=YES" >> /etc/vsftpd.conf
+grep -Pq "^\s*require_ssl_reuse" /etc/vsftpd.conf &&  sed -i '/^\s*require_ssl_reuse/ c\require_ssl_reuse=NO' /etc/vsftpd.conf || echo "require_ssl_reuse=NO" >> /etc/vsftpd.conf
+grep -Pq "^\s*ssl_ciphers" /etc/vsftpd.conf &&  sed -i '/^\s*ssl_ciphers/ c\ssl_ciphers=HIGH' /etc/vsftpd.conf || echo "ssl_ciphers=HIGH" >> /etc/vsftpd.conf
+
+grep -Pq "^\s*dirmessage_enable" /etc/vsftpd.conf &&  sed -i '/^\s*dirmessage_enable/ c\dirmessage_enable=YES' /etc/vsftpd.conf || echo "ssl_ciphers=HIGH" >> /etc/vsftpd.conf
+grep -Pq "^\s*use_localtime" /etc/vsftpd.conf &&  sed -i '/^\s*use_localtime/ c\use_localtime=YES' /etc/vsftpd.conf || echo "ssl_ciphers=HIGH" >> /etc/vsftpd.conf
+grep -Pq "^\s*xferlog_enable" /etc/vsftpd.conf &&  sed -i '/^\s*xferlog_enable/ c\xferlog_enable=YES' /etc/vsftpd.conf || echo "ssl_ciphers=HIGH" >> /etc/vsftpd.conf
+grep -Pq "^\s*connect_from_port_20" /etc/vsftpd.conf &&  sed -i '/^\s*connect_from_port_20/ c\connect_from_port_20=YES' /etc/vsftpd.conf || echo "ssl_ciphers=HIGH" >> /etc/vsftpd.conf
+grep -Pq "^\s*pam_service_name" /etc/vsftpd.conf &&  sed -i '/^\s*pam_service_name/ c\pam_service_name=vsftpd' /etc/vsftpd.conf || echo "ssl_ciphers=HIGH" >> /etc/vsftpd.conf
+grep -Pq "^\s*pasv_enable" /etc/vsftpd.conf &&  sed -i '/^\s*pasv_enable/ c\pasv_enable=YES' /etc/vsftpd.conf || echo "ssl_ciphers=HIGH" >> /etc/vsftpd.conf
+grep -Pq "^\s*pasv_min_port" /etc/vsftpd.conf &&  sed -i '/^\s*pasv_min_port/ c\pasv_min_port=10000' /etc/vsftpd.conf || echo "ssl_ciphers=HIGH" >> /etc/vsftpd.conf
+grep -Pq "^\s*pasv_max_port" /etc/vsftpd.conf &&  sed -i '/^\s*pasv_max_port/ c\pasv_max_port=10100' /etc/vsftpd.conf || echo "ssl_ciphers=HIGH" >> /etc/vsftpd.conf
+grep -Pq "^\s*secure_chroot_dir" /etc/vsftpd.conf &&  sed -i '/^\s*secure_chroot_dir/ c\secure_chroot_dir=/var/run/vsftpd/empty' /etc/vsftpd.conf || echo "ssl_ciphers=HIGH" >> /etc/vsftpd.conf
+
+if [[ $LANG =~ .*[Uu][Tt][Ff]-?8.* ]]; then
+  grep -Pq "utf8_filesystem=" /etc/vsftpd.conf && sed -i '/^\(\s\|#\)*utf8_filesystem=/ c\utf8_filesystem=YES' /etc/vsftpd.conf ||  echo "utf8_filesystem=YES" >> /etc/vsftpd.conf
+fi
+
+#if [ $leflag = 0 ]; then
+#  sed -i "/^\(\s\|#\)*rsa_cert_file/ c\rsa_cert_file=/etc/letsencrypt/live/$serverdn/fullchain.pem" /etc/vsftpd.conf
+#  sed -i "/^\(\s\|#\)*rsa_private_key_file/ c\rsa_private_key_file=/etc/letsencrypt/live/$serverdn/privkey.pem" /etc/vsftpd.conf
+#fi
+
+service vsftpd restart 1>> $logfile
+
+#ftpport=$(grep 'listen_port=' /etc/vsftpd.conf | sed 's/[^0-9]*//g')
+#echo "FTP port set to $ftpport"
+
+fi
