@@ -43,6 +43,8 @@ sudo apt-get -yqq install apache2 > /dev/null
 sudo apt-get -yqq install php php-cgi libapache2-mod-php > /dev/null
 sudo apt-get -yqq install php-mysql php-gd > /dev/null
 sudo systemctl restart apache2
+chown -R www-data.www-data /var/www/html/
+chmod -R 777 /var/www/html/
 
 
 #########################
@@ -52,7 +54,7 @@ echo 'Installing vsftpd'
 sudo apt-get -yqq install vsftpd > /dev/null
 sudo systemctl start -qq vsftpd
 sudo systemctl enable -qq vsftpd
-sudo mv /etc/vsftpd.conf /etc/vsftpd.conf.bkp
+sudo mv /etc/vsftpd.conf /etc/vsftpd.conf.orig
 sudo cp ins/1804-BionicBeaver/setup/vsftpd.conf /etc/vsftpd.conf
 sudo systemctl restart -qq vsftpd
 
@@ -61,11 +63,11 @@ sudo systemctl restart -qq vsftpd
 ##  Installing Dependencies  ##
 ###############################
 echo 'Installing Dependencies List 1'
-sudo apt-get -yqqf install openssl git apache2-utils build-essential libsigc++-2.0-dev libcurl4-openssl-dev automake ffmpeg cmake mediainfo wget git > /dev/null
+sudo apt-get -yqqf install openssl git apache2-utils build-essential libsigc++-2.0-dev libcurl4-openssl-dev automake ffmpeg cmake mediainfo wget git > /dev/null 2>&1
 echo 'Installing Dependencies List 2'
-sudo apt-get -yqqf install libcppunit-dev libncurses5-dev curl tmux unzip libssl-dev autoconf ca-certificates mediainfo-gui libfcgi-perl > /dev/null
+sudo apt-get -yqqf install libcppunit-dev libncurses5-dev curl tmux unzip libssl-dev autoconf ca-certificates mediainfo-gui libfcgi-perl > /dev/null 2>&1
 echo 'Installing Dependencies List 3'
-sudo apt-get -yqqf install unrar libtool libwandio-dev python-libtorrent zlib1g zlib1g-dev > /dev/null
+sudo apt-get -yqqf install unrar libtool libwandio-dev python-libtorrent zlib1g zlib1g-dev > /dev/null 2>&1
 
 
 ############################################
