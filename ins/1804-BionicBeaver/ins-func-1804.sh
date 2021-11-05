@@ -1,6 +1,5 @@
 #!/bin/bash
-echo
-pause 3
+sleep 3
 
 ################################
 ##  Checking if user is root  ##
@@ -13,6 +12,23 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 
-####################################
-##  Updating Packages and Builds  ##
-####################################
+########################
+##  SSL Certificates  ##
+########################
+echo 'Installing SSL Certificate'
+
+
+
+
+########################
+##  Install rTorrent  ##
+########################
+echo 'Installing rTorrent'
+
+
+
+
+#########################
+##  Install ruTorrent  ##
+#########################
+echo 'Installing ruTorrent'
