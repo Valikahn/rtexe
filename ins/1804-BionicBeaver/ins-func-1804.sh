@@ -38,7 +38,7 @@ sudo a2enmod reqtimeout > /dev/null
 sudo systemctl restart apache2 > /dev/null
 
 sudo mv /etc/apache2/apache2.conf /etc/apache2/apache2.conf.orig
-sudo cp ins/setup/apache2.conf /etc/apache2/apache2.conf
+sudo cp ins/1804-BionicBeaver/setup/apache2.conf /etc/apache2/apache2.conf
 sudo systemctl restart apache2 > /dev/null
 
 sudo openssl req -nodes -newkey rsa:2048 -keyout /etc/apache2/apache.pem -out /etc/apache2/apache.pem -subj "/C=GB/ST=London/L=London/O=Global Security/OU=IT Department/CN=example.com"
