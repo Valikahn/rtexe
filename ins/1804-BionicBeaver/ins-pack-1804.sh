@@ -53,7 +53,7 @@ sudo apt-get -yqq install vsftpd > /dev/null
 sudo systemctl start -qq vsftpd
 sudo systemctl enable -qq vsftpd
 sudo mv /etc/vsftpd.conf /etc/vsftpd.conf.bkp
-sudo cp ins/setup/vsftpd.conf /etc/vsftpd.conf
+sudo cp ins/1804-BionicBeaver/setup/vsftpd.conf /etc/vsftpd.conf
 sudo systemctl restart -qq vsftpd
 
 
