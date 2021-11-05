@@ -3,7 +3,7 @@ clear
 
 # VERSION CONTROL
 ###
-SCRIPTVERSION="v0.9.6-beta"
+SCRIPTVERSION="v1.0.1-charlie"
 REVDATE="05 November 2021"
 DEVNAME="Ra"
 GITHUB="https://github.com/Valikahn/rutorrent-auto-install"
@@ -40,18 +40,32 @@ fi
 # Set Variables
 ###
 export logfile="/dev/null"
-unixpass=""
 webpass=''
+forceyes=1
 passflag=0
+passfile='/etc/apache2/.htpasswd'
+
+unixpass=""
 os_prereq=0
 prereq=0
-homedir=$(cat /etc/passwd | grep "$user": | cut -d: -f6)
-home=$(eval echo "~$user")
+
 rt_url="https://rakshasa.github.io/rtorrent/"
 xmlrpc_url="https://svn.code.sf.net/p/xmlrpc-c/code/advanced/"
 ru_url="https://github.com/Novik/ruTorrent/"
 adl_url="https://github.com/autodl-community/"
 
+homedir=$(cat /etc/passwd | grep "$user": | cut -d: -f6)
+home=$(eval echo "~$user")
+
+
+# Directory Creation
+###
+mkdir -p "$HOME"/rutorrent-auto-install/temp/xmlrpc-c
+mkdir -p "$HOME"/rutorrent-auto-install/temp/libtorrent
+mkdir -p "$HOME"/rutorrent-auto-install/temp/rTorrent
+mkdir -p "$HOME"/rutorrent-auto-install/temp/ruTorrent
+mkdir -p "$HOME"/rutorrent-auto-install/temp/plugins
+clear
 
 # Brief info on script
 ###
@@ -258,16 +272,18 @@ else
 
 fi
 
-#set password for rutorrent
-#if [ -z "$webpass" ] && [ $forceyes = 0 ]; then
-#  if [ -z $(grep -s $user $passfile) ]; then
-#    webpass=$(passgen)
-#    passflag=1
-#  else
-#    passflag=2
-#  fi
-#fi
-#
+# set password for rutorrent
+###
+
+if [ -z "$webpass" ] && [ $forceyes = 0 ]; then
+  if [ -z $(grep -s $user $passfile) ]; then
+    webpass=$(passgen)
+    passflag=1
+  else
+    passflag=2
+  fi
+fi
+
 #if [ -z "$webpass" ]  && [ $passflag != 2 ]; then
 #  if [ ! -z $(grep -s $user $passfile) ]; then
 #    echo "There is an existing RuTorrent password for $user"
@@ -284,6 +300,12 @@ fi
 #  fi
 #fi
 
+if [ $passflag != 2 ]; then
+	echo "Set Password for RuTorrent web client"
+	webpass=$(set_pass)
+	passflag=$?
+fi
+
 rut_user_list=$(ls /var/www/rutorrent/conf/users 2>/dev/null | sed "s/$user//g")
 
 for rut_user in $rut_user_list; do
@@ -292,24 +314,6 @@ for rut_user in $rut_user_list; do
   fi
 done
 
-if [ -z "$rut_user_list" ]; then
-  echo "No additional users to add"
-else
-  echo "These users have been detected:"
-  for rut_user in $rut_user_list; do
-    echo $rut_user
-  done
-
-  if [ $forceyes = 0 ]; then
-    echo "Users will be added"
-    rut_add_users=0
-  else
-    echo -n "Add them to rutorrent y/n ? "
-    if ask_user; then
-      rut_add_users=0
-    fi
-  fi
-fi
 
 # check required web repos are accessible
 sed  -i "s/\/debian\s/\/debian\/ /g" /etc/apt/sources.list
