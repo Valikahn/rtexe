@@ -17,18 +17,18 @@ fi
 ########################
 echo 'Installing SSL Certificate'
 
-wget http://www.openssl.org/source/openssl-1.0.1g.tar.gz > /dev/null
-wget http://www.openssl.org/source/openssl-1.0.1g.tar.gz.md5 > /dev/null
-md5sum openssl-1.0.1g.tar.gz > /dev/null
-cat openssl-1.0.1g.tar.gz.md5 > /dev/null
+#wget http://www.openssl.org/source/openssl-1.0.1g.tar.gz > /dev/null
+#wget http://www.openssl.org/source/openssl-1.0.1g.tar.gz.md5 > /dev/null
+#md5sum openssl-1.0.1g.tar.gz > /dev/null
+#cat openssl-1.0.1g.tar.gz.md5 > /dev/null
 
-tar -xvzf openssl-1.0.1g.tar.gz > /dev/null
-cd openssl-1.0.1g > /dev/null
+#tar -xvzf openssl-1.0.1g.tar.gz > /dev/null
+#cd openssl-1.0.1g > /dev/null
 
-./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl > /dev/null
-make > /dev/null
-sudo make install > /dev/null
-make install > /dev/null
+#./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl > /dev/null
+#make > /dev/null
+#sudo make install > /dev/null
+#make install > /dev/null
 
 sudo a2enmod ssl > /dev/null
 sudo systemctl restart apache2 > /dev/null
@@ -60,3 +60,11 @@ echo 'Installing rTorrent'
 ##  Install ruTorrent  ##
 #########################
 echo 'Installing ruTorrent'
+
+
+
+
+########################
+## Installing Webmin  ##
+########################
+echo 'Installing Webmin'
