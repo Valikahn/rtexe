@@ -2,7 +2,7 @@
 clear
 
 # VERSION CONTROL
-SCRIPTVERSION="v0.9.3-beta"
+SCRIPTVERSION="v0.9.4-beta"
 REVDATE="05 November 2021"
 GITHUB="https://github.com/Valikahn/rutorrent-auto-install"
 
@@ -346,14 +346,17 @@ echo
 export reverse=$(perl -MSocket -le "print((gethostbyaddr(inet_aton('$serverip'), AF_INET))[0])")
 if [ -z "$reverse" ]; then
   echo "Unable to determine domain"
+  echo "You IP Address is:  $ip"
 else
   echo "Your domain is set to $reverse"
+  echo "You IP Address is:  $ip"
 fi
 
 ##############################
 ##  FINAL USER INTERACTION  ##
 ##############################
 
+echo
 echo "OK, Lets get started - This is your last change to change your mind."
 echo "Are you happy to proceed? [y,n]"
 read val
@@ -384,7 +387,6 @@ elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 
 	  1)
 		echo -n "Ubuntu 18.04 (Bionic Beaver)"
-		echo
 		source ins/InteractionMessage.sh
 		source ins/1804-BionicBeaver/ins-pack-1804.sh
 		source ins/1804-BionicBeaver/ins-func-1804.sh
