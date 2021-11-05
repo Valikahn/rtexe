@@ -1,6 +1,5 @@
 #!/bin/bash
-echo
-pause 3
+sleep 3
 
 ################################
 ##  Checking if user is root  ##
@@ -76,11 +75,12 @@ if groups $user | grep -q -E ' sudo(\s|$)'; then
   echo "$user already has sudo privileges"
   echo "WARNING:  With great power comes great responsibility"
 else
-  adduser -aG sudo $user
+  adduser $user sudo
   echo "$user added to the sudo group of users"
   echo "WARNING:  With great power comes great responsibility"
 fi
-pause 5
+sleep 5
+echo
 
 
 ##############################################
