@@ -2,10 +2,17 @@
 clear
 
 # VERSION CONTROL
-SCRIPTVERSION="v0.9.5-beta"
+SCRIPTVERSION="v0.9.6-beta"
 REVDATE="05 November 2021"
 DEVNAME="Ra"
 GITHUB="https://github.com/Valikahn/rutorrent-auto-install"
+
+# UBUNTU VERSIONS
+###
+1804="Ubuntu 18.04 (Bionic Beaver)"
+2004="Ubuntu 20.04 (Focal Fossa)"
+2104="Ubuntu 21.04 (Hirsute Hippo)"
+2110="Ubuntu 21.10 (Impish Indri)"
 
 # Checking if user is root.
 ###
@@ -55,8 +62,8 @@ adl_url="https://github.com/autodl-community/"
 # Brief info on script
 ###
 echo "Valikahn's rutorrent-auto-install script."
-echo "Version $SCRIPTVERSION DevName $DEVNAME"
-echo "Released $REVDATE"
+echo "Version: $SCRIPTVERSION DevName: $DEVNAME"
+echo "Released: $REVDATE"
 echo
 echo "Remember to run as root or with sudo."
 echo
@@ -383,13 +390,11 @@ elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 		echo "5)  Operating System Version Not Listed"
 		echo
 	read OSVERSION
-	echo
-	echo -n "You have chosen your Operating System version as option: $OSVERSION"
-	echo
+	clear
 	case $OSVERSION in
 
 	  1)
-		echo -n "Ubuntu 18.04 (Bionic Beaver)"
+		echo -n "You have chosen your Operating System version as Ubuntu 18.04 (Bionic Beaver)"
 		source ins/InteractionMessage.sh
 		source ins/1804-BionicBeaver/ins-pack-1804.sh
 		source ins/1804-BionicBeaver/ins-func-1804.sh
@@ -398,17 +403,17 @@ elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 		;;
 
 	  2)
-		echo -n "Ubuntu 20.04 (Focal Fossa)"
+		echo -n "You have chosen your Operating System version as Ubuntu 20.04 (Focal Fossa)"
 		echo
 		;;
 
 	  3)
-		echo -n "Ubuntu 21.04 (Hirsute Hippo)"
+		echo -n "You have chosen your Operating System version as Ubuntu 21.04 (Hirsute Hippo)"
 		echo
 		;;
 		
 	  4)
-		echo -n "Ubuntu 21.10 (Impish Indri)"
+		echo -n "You have chosen your Operating System version as Ubuntu 21.10 (Impish Indri)"
 		echo
 		;;
 
