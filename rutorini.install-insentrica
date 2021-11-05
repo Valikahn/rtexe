@@ -2,7 +2,7 @@
 clear
 
 # VERSION CONTROL
-SCRIPTVERSION="v0.9.4-beta"
+SCRIPTVERSION="v0.9.5-beta"
 REVDATE="05 November 2021"
 GITHUB="https://github.com/Valikahn/rutorrent-auto-install"
 
