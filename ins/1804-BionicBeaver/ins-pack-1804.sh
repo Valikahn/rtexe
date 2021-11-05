@@ -76,6 +76,7 @@ if groups $user | grep -q -E ' sudo(\s|$)'; then
   echo "WARNING:  With great power comes great responsibility"
 else
   adduser $user sudo
+  echo
   echo "$user added to the sudo group of users"
   echo "WARNING:  With great power comes great responsibility"
 fi
@@ -87,3 +88,4 @@ echo
 ##  Required Pacakge Installation Complete  ##
 ##############################################
 echo "Required package installation is now complete...  Moving on to Functional Programs"
+echo
