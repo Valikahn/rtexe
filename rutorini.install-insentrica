@@ -4,6 +4,7 @@ clear
 # VERSION CONTROL
 SCRIPTVERSION="v0.9.5-beta"
 REVDATE="05 November 2021"
+DEVNAME="Ra"
 GITHUB="https://github.com/Valikahn/rutorrent-auto-install"
 
 # Checking if user is root.
@@ -53,7 +54,9 @@ adl_url="https://github.com/autodl-community/"
 
 # Brief info on script
 ###
-echo "Valikahn's rutorrent-auto-install script. Version $SCRIPTVERSION released $REVDATE"
+echo "Valikahn's rutorrent-auto-install script."
+echo "Version $SCRIPTVERSION DevName $DEVNAME"
+echo "Released $REVDATE"
 echo
 echo "Remember to run as root or with sudo."
 echo
