@@ -8,13 +8,6 @@ REVDATE="05 November 2021"
 DEVNAME="Ra"
 GITHUB="https://github.com/Valikahn/rutorrent-auto-install"
 
-# UBUNTU VERSIONS
-###
-1804="Ubuntu 18.04 (Bionic Beaver)"
-2004="Ubuntu 20.04 (Focal Fossa)"
-2104="Ubuntu 21.04 (Hirsute Hippo)"
-2110="Ubuntu 21.10 (Impish Indri)"
-
 # Checking if user is root.
 ###
 if [ "$(id -u)" != "0" ]; then
