@@ -13,7 +13,6 @@ This script is for the installation of Apache, PHP, OpenSSL, MySQL, phpMyAdmin a
 * [Tested Operating Systems](#tested-operating-systems)
 * [Installed Software Module Versions](#installed-software-module-versions)
 * [Install Commands](#install-commands)
-* [Script Process](#script-process)
 * [Copyright](#copyright)
 * [Bugs & Issues](#bugs--issues)
 * [Licence](#licence)
