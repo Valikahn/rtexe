@@ -17,34 +17,12 @@ fi
 
 
 ########################
-##  SSL Certificates  ##
-########################
-echo 'Installing SSL Certificate'
-sudo a2enmod ssl > /dev/null
-sudo systemctl restart apache2 > /dev/null
-sudo a2enmod auth_digest > /dev/null
-sudo systemctl restart apache2 > /dev/null
-sudo a2enmod reqtimeout > /dev/null
-sudo systemctl restart apache2 > /dev/null
-
-sudo mv /etc/apache2/apache2.conf /etc/apache2/apache2.conf.orig > /dev/null 2>&1
-sudo cp $apache2_conf /etc/apache2/apache2.conf > /dev/null 2>&1
-sudo systemctl restart apache2 > /dev/null 2>&1
-
-sudo openssl req -nodes -newkey rsa:2048 -keyout /etc/apache2/apache.pem -out /etc/apache2/apache.pem -subj "/C=GB/ST=London/L=London/O=Global Security/OU=IT Department/CN=example.com" > /dev/null 2>&1
-sudo chmod 600 /etc/apache2/apache.pem > /dev/null 2>&1
-
-sudo a2ensite default-ssl > /dev/null
-sudo systemctl reload apache2 > /dev/null
-
-
-########################
 ##  Install xmlrpc-c  ##
 ########################
 echo 'Installing xmlrpc-c'
 cd "$HOME"/rutorrent-auto-install/temp/xmlrpc-c
 sudo apt-get -yqq install subversion > /dev/null
-svn checkout http://svn.code.sf.net/p/xmlrpc-c/code/stable xmlrpc-c > /dev/null
+svn checkout $xmlrpcc_dl xmlrpc-c > /dev/null
 cd xmlrpc-c
 ./configure --disable-cplusplus > /dev/null 2>&1
 make > /dev/null 2>&1
@@ -57,7 +35,7 @@ cd ../..
 ##########################
 echo 'Installing libtorrent'
 cd "$HOME"/rutorrent-auto-install/temp/libtorrent
-curl -sL https://github.com/rakshasa/rtorrent-archive/raw/master/libtorrent-0.13.8.tar.gz -o libtorrent.tar.gz > /dev/null
+curl -sL $libtorrent_dl -o libtorrent.tar.gz > /dev/null
 tar -zxvf libtorrent.tar.gz > /dev/null
 rm libtorrent.tar.gz
 cd libtorrent-0.13.8
@@ -73,7 +51,7 @@ cd ../..
 ########################
 echo 'Installing rTorrent'
 cd "$HOME"/rutorrent-auto-install/temp/rTorrent
-curl -sL https://github.com/rakshasa/rtorrent-archive/raw/master/rtorrent-0.9.8.tar.gz -o rtorrent.tar.gz > /dev/null
+curl -sL $rTorrent_dl -o rtorrent.tar.gz > /dev/null
 tar -zxvf rtorrent.tar.gz > /dev/null
 rm rtorrent.tar.gz
 cd rtorrent-0.9.8
@@ -83,29 +61,29 @@ make > /dev/null 2>&1
 make install > /dev/null 2>&1
 cd ../..
 
-if [ ! -d "$HOME"/.rtorrent-session ]; then
-	mkdir "$HOME"/.rtorrent-session
-	chown "$user"."$user" "$HOME"/.rtorrent-session
+if [ ! -d "/home/$user"/.rtorrent-session ]; then
+	mkdir "/home/$user"/.rtorrent-session
+	chown "$user"."$user" "/home/$user"/.rtorrent-session
 else
-	chown "$user"."$user" "$HOME"/.rtorrent-session
+	chown "$user"."$user" "/home/$user"/.rtorrent-session
 fi
 	
 # Creating downloads folder
 ###
-if [ ! -d "$HOME"/Downloads ]; then
-	mkdir "$HOME"/Downloads
-	chown "$user"."$user" "$HOME"/Downloads
+if [ ! -d "/home/$user"/Downloads ]; then
+	mkdir "/home/$user"/Downloads
+	chown "$user"."$user" "/home/$user"/Downloads
 else
-	chown "$user"."$user" "$HOME"/Downloads
+	chown "$user"."$user" "/home/$user"/Downloads
 fi
 	
 # Creating unpack folder
 ###
-if [ ! -d "$HOME"/Downloads/unpack ]; then
-	mkdir "$HOME"/Downloads/unpack
-	chown "$user"."$user" "$HOME"/Downloads/unpack
+if [ ! -d "/home/$user"/Downloads/unpack ]; then
+	mkdir "/home/$user"/Downloads/unpack
+	chown "$user"."$user" "/home/$user"/Downloads/unpack
 else
-	chown "$user"."$user" "$HOME"/Downloads/unpack
+	chown "$user"."$user" "/home/$user"/Downloads/unpack
 fi
 
 sudo cp "$HOME"/$rt_rc $HOME/.rtorrent.rc
@@ -116,9 +94,9 @@ sed -i "s@HOMEDIRHERE@$HOME@g" $HOME/.rtorrent.rc
 #########################
 ##  Install ruTorrent  ##
 #########################
-echo 'Installing rTorrent'
+echo 'Installing ruTorrent'
 cd "$HOME"/rutorrent-auto-install/temp/ruTorrent
-curl -sL https://github.com/Novik/ruTorrent/archive/master.tar.gz -o ruTorrent-master.tar.gz > /dev/null
+curl -sL $ruTorrent_dl -o ruTorrent-master.tar.gz > /dev/null
 tar -zxvf ruTorrent-master.tar.gz > /dev/null
 rm ruTorrent-master.tar.gz
 
@@ -144,7 +122,7 @@ fi
 #	SSLCertificateFile /etc/apache2/apache.pem
 
 #	<Directory "/var/www/html/rutorrent">
-#		AuthName "Tits or GTFO"
+#		AuthName "GTFO"
 #		AuthType Basic
 #		Require valid-user
 #		AuthUserFile /var/www/html/rutorrent/.htpasswd
@@ -221,5 +199,3 @@ fi
 #wget -q -O- http://www.webmin.com/jcameron-key.asc | sudo apt-key add
 #sudo apt-get -y update
 #sudo apt-get -y install webmin
-
-
