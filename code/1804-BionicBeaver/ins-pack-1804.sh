@@ -47,6 +47,28 @@ chown -R www-data.www-data /var/www/html/
 chmod -R 777 /var/www/html/
 
 
+########################
+##  SSL Certificates  ##
+########################
+echo 'Installing SSL Certificate'
+sudo a2enmod ssl > /dev/null
+sudo systemctl restart apache2 > /dev/null
+sudo a2enmod auth_digest > /dev/null
+sudo systemctl restart apache2 > /dev/null
+sudo a2enmod reqtimeout > /dev/null
+sudo systemctl restart apache2 > /dev/null
+
+sudo mv /etc/apache2/apache2.conf /etc/apache2/apache2.conf.orig > /dev/null 2>&1
+sudo cp $apache2_conf /etc/apache2/apache2.conf > /dev/null 2>&1
+sudo systemctl restart apache2 > /dev/null 2>&1
+
+sudo openssl req -nodes -newkey rsa:2048 -keyout /etc/apache2/apache.pem -out /etc/apache2/apache.pem -subj "/C=VK/ST=Amun/L=Anubis/O=Nephthys/OU=Khnum Nut/CN=Seth.tech" > /dev/null 2>&1
+sudo chmod 600 /etc/apache2/apache.pem > /dev/null 2>&1
+
+sudo a2ensite default-ssl > /dev/null
+sudo systemctl reload apache2 > /dev/null
+
+
 #########################
 ##  Installing vsftpd  ##
 #########################
