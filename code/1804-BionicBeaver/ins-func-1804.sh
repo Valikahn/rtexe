@@ -126,35 +126,35 @@ if [ -d /var/www/html/rutorrent ]; then
 		rm -r /var/www/html/rutorrent
 fi
 
-echo 'Creating Apache virtual host'
-if [ ! -f /etc/apache2/sites-available/rutorrent.conf ]; then
+#echo 'Creating Apache virtual host'
+#if [ ! -f /etc/apache2/sites-available/rutorrent.conf ]; then
+#
+#cat > /etc/apache2/sites-available/rutorrent.conf << EOF
+#<VirtualHost *:80>
 
-cat > /etc/apache2/sites-available/rutorrent.conf << EOF
-<VirtualHost *:80>
+#	ServerAlias *
 
-	ServerAlias *
+#	DocumentRoot /var/www/html/
 
-	DocumentRoot /var/www/html/
+#	CustomLog /var/log/apache2/rutorrent.log vhost_combined
 
-	CustomLog /var/log/apache2/rutorrent.log vhost_combined
+#	ErrorLog /var/log/apache2/rutorrent_error.log
 
-	ErrorLog /var/log/apache2/rutorrent_error.log
+#	SSLEngine on
+#	SSLCertificateFile /etc/apache2/apache.pem
 
-	SSLEngine on
-	SSLCertificateFile /etc/apache2/apache.pem
+#	<Directory "/var/www/html/rutorrent">
+#		AuthName "Tits or GTFO"
+#		AuthType Basic
+#		Require valid-user
+#		AuthUserFile /var/www/html/rutorrent/.htpasswd
+#	</Directory>
+#</VirtualHost>
+#EOF
 
-	<Directory "/var/www/html/rutorrent">
-		AuthName "Tits or GTFO"
-		AuthType Basic
-		Require valid-user
-		AuthUserFile /var/www/html/rutorrent/.htpasswd
-	</Directory>
-</VirtualHost>
-EOF
+#a2ensite rutorrent
 
-a2ensite rutorrent
-
-fi
+#fi
 
 ##################################################################
 ####################  SCRIPT FAILS FROM HERE  ####################
