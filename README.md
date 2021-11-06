@@ -3,7 +3,7 @@ rutorrent-auto-install
 
 <div align="center">
     <a href="https://insentrica.net/" target="_blank">
-        <img alt="lamp" src="https://github.com/Valikahn/lamp/blob/main/img/lamp_img.png">
+        <img alt="lamp" src="https://github.com/Valikahn/lamp/blob/main/img/logo.jpg">
     </a>
 </div>
 
