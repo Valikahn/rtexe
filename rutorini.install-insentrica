@@ -309,15 +309,16 @@ export reverse=$(perl -MSocket -le "print((gethostbyaddr(inet_aton('$serverip'),
 if [ -z "$reverse" ]; then
   echo "Unable to determine domain"
   echo "You IP Address is:  $ip"
+  echo
 else
   echo "Your domain is set to $reverse"
   echo "You IP Address is:  $ip"
+  echo
 fi
 
 # Including user to SUDO group of users
 if groups $user | grep -q -E ' sudo(\s|$)'; then
   echo "$user already has sudo privileges"
-  echo "WARNING:  With great power comes great responsibility"
 else
   adduser $user sudo
   echo
@@ -325,12 +326,8 @@ else
   echo "WARNING:  With great power comes great responsibility"
 fi
 sleep 5
-echo
 
-##############################
-##  FINAL USER INTERACTION  ##
-##############################
-
+# Final warning to the user user
 echo
 echo "OK, Lets get started - This is your last change to change your mind."
 echo "Are you happy to proceed? [y,n]"
@@ -348,11 +345,11 @@ elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 	clear
 	echo -n "Please pick your Operating System version: "
 	echo
-		echo "1)  Ubuntu 18.04 (Bionic Beaver)"
-		echo "2)  Ubuntu 20.04 (Focal Fossa)"
-		echo "3)  Ubuntu 21.04 (Hirsute Hippo)"
-		echo "4)  Ubuntu 21.10 (Impish Indri)"
-		echo "5)  Operating System Version Not Listed"
+		echo "$bb_1804"
+		echo "$ff_2004"
+		echo "$hh_2104"
+		echo "$ii_2110"
+		echo "$osnot_listed"
 		echo
 	read OSVERSION
 	clear
