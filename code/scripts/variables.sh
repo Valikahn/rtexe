@@ -22,6 +22,13 @@ if [ -z "$VERSION" ]; then
 VERSION=$(awk '{print $3}' /etc/*-release)
 fi
 	
+	
+# Version Control
+SCRIPTVERSION="v1.0.2-charlie"
+REVDATE="06 November 2021"
+DEVNAME="Ra"
+GITHUB="https://github.com/Valikahn/rutorrent-auto-install"
+
 
 # List of variables
 export logfile="/dev/null"
