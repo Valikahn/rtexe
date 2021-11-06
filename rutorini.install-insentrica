@@ -14,11 +14,11 @@ fi
 
 # Directory Creation
 ###
-mkdir -p "$HOME"/rutorrent-auto-install/temp/xmlrpc-c
-mkdir -p "$HOME"/rutorrent-auto-install/temp/libtorrent
-mkdir -p "$HOME"/rutorrent-auto-install/temp/rTorrent
-mkdir -p "$HOME"/rutorrent-auto-install/temp/ruTorrent
-mkdir -p "$HOME"/rutorrent-auto-install/temp/plugins
+mkdir -p "$HOME"/$dirxmlrpcc
+mkdir -p "$HOME"/$dirlibtorrent
+mkdir -p "$HOME"/$dirrTorrent
+mkdir -p "$HOME"/$dirruTorrent
+mkdir -p "$HOME"/$dirplugins
 clear
 
 # Brief info on script
