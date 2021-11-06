@@ -24,7 +24,7 @@ fi
 	
 	
 # Version Control
-SCRIPTVERSION="v1.0.3-charlie"
+SCRIPTVERSION="v1.0.4-charlie"
 REVDATE="06 November 2021"
 DEVNAME="Ra"
 GITHUB="https://github.com/Valikahn/rutorrent-auto-install"
