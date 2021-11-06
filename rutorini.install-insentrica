@@ -1,12 +1,6 @@
 #!/bin/bash
 clear
-
-# VERSION CONTROL
-###
-SCRIPTVERSION="v1.0.2-charlie"
-REVDATE="06 November 2021"
-DEVNAME="Ra"
-GITHUB="https://github.com/Valikahn/rutorrent-auto-install"
+source code/scripts/variables.sh
 
 # Checking if user is root.
 ###
@@ -16,12 +10,6 @@ if [ "$(id -u)" != "0" ]; then
 	echo
 	exit 1
 fi
-
-
-######################
-##  LOAD VARIABLES  ##
-######################
-source code/scripts/variables.sh
 
 
 # Directory Creation
