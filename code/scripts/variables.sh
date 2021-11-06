@@ -24,7 +24,7 @@ fi
 	
 	
 # Version Control
-SCRIPTVERSION="v1.0.2-charlie"
+SCRIPTVERSION="v1.0.3-charlie"
 REVDATE="06 November 2021"
 DEVNAME="Ra"
 GITHUB="https://github.com/Valikahn/rutorrent-auto-install"
@@ -41,10 +41,11 @@ unixpass=""
 os_prereq=0
 prereq=0
 
-bb_1804='1804-BionicBeaver'
-ff_2004='2004-FocalFossa'
-hh_2104='2104-HirsuteHippo'
-ii_2110='2110-ImpishIndri'
+bb_1804='1)  Ubuntu 18.04 (Bionic Beaver)'
+ff_2004='2)  Ubuntu 20.04 (Focal Fossa)'
+hh_2104='3)  Ubuntu 21.04 (Hirsute Hippo)'
+ii_2110='4)  Ubuntu 21.10 (Impish Indri)'
+osnot_listed='5)  Operating System Version Not Listed'
 
 intermess='code/scripts/InteractionMessage.sh'
 bb_pack_1804='code/1804-BionicBeaver/ins-pack-1804.sh'
