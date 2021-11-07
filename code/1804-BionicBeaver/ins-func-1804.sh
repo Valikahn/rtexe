@@ -18,7 +18,7 @@ fi
 ########################
 echo 'Installing xmlrpc-c'
 mkdir -p "$HOME"/$dirxmlrpcc
-cd "$HOME"/rutorrent-auto-install/temp/xmlrpc-c
+cd "$HOME"/rtexe/temp/xmlrpc-c
 sudo apt-get -yqq install subversion > /dev/null
 svn checkout $xmlrpcc_dl xmlrpc-c > /dev/null
 cd xmlrpc-c
@@ -33,7 +33,7 @@ cd ../..
 ##########################
 echo 'Installing libtorrent'
 mkdir -p "$HOME"/$dirlibtorrent
-cd "$HOME"/rutorrent-auto-install/temp/libtorrent
+cd "$HOME"/rtexe/temp/libtorrent
 curl -sL $libtorrent_dl -o libtorrent.tar.gz > /dev/null
 tar -zxvf libtorrent.tar.gz > /dev/null
 rm libtorrent.tar.gz
@@ -50,7 +50,7 @@ cd ../..
 ########################
 echo 'Installing rTorrent'
 mkdir -p "$HOME"/$dirrTorrent
-cd "$HOME"/rutorrent-auto-install/temp/rTorrent
+cd "$HOME"/rtexe/temp/rTorrent
 curl -sL $rTorrent_dl -o rtorrent.tar.gz > /dev/null
 tar -zxvf rtorrent.tar.gz > /dev/null
 rm rtorrent.tar.gz
@@ -76,7 +76,7 @@ sed -i "s/<user name>/$user/g" $home/.rtorrent.rc
 echo 'Installing ruTorrent'
 sudo apt-get -yqq install rtorrent > /dev/null
 mkdir -p "$HOME"/$dirruTorrent
-cd "$HOME"/rutorrent-auto-install/temp/ruTorrent
+cd "$HOME"/rtexe/temp/ruTorrent
 curl -sL $ruTorrent_dl -o ruTorrent-master.tar.gz > /dev/null
 tar -zxvf ruTorrent-master.tar.gz > /dev/null
 rm ruTorrent-master.tar.gz
@@ -99,7 +99,7 @@ echo 'Configuring Rutorrent'
 cd
 
 rm /var/www/html/rutorrent/conf/config.php
-cp -f $HOME/rutorrent-auto-install/config/ruTorrent.config /var/www/html/rutorrent/conf/config.php
+cp -f $HOME/rtexe/config/ruTorrent.config /var/www/html/rutorrent/conf/config.php
 mkdir -p /var/www/html/rutorrent/conf/users/$user/plugins
 cd /var/www/html/rutorrent/conf/users/$user/plugins
 
@@ -114,8 +114,8 @@ echo "?>" >> config.php
 cd ../../..
 
 sudo mv plugins.ini plugins.ini.orig
-sudo cp -f $HOME/rutorrent-auto-install/config/ruTorrent.ini /var/www/html/rutorrent/conf/plugins.ini
-sudo cp -f $HOME/rutorrent-auto-install/config/rtorrent-init /etc/init.d/rtorrent-init
+sudo cp -f $HOME/rtexe/config/ruTorrent.ini /var/www/html/rutorrent/conf/plugins.ini
+sudo cp -f $HOME/rtexe/config/rtorrent-init /etc/init.d/rtorrent-init
 
 chmod +x /etc/init.d/rtorrent-init
 sed -i "s/<user name>/$user/g" /etc/init.d/rtorrent-init
@@ -130,7 +130,7 @@ sudo /etc/init.d/rtorrent-init start
 ########################
 #echo 'Installing Webmin'
 #mkdir -p "$HOME"/$dirvar
-#cd "$HOME"/rutorrent-auto-install/temp/webmin
+#cd "$HOME"/rtexe/temp/webmin
 #sudo apt-get -y update
 #sudo cp ins/1804-BionicBeaver/setup/phpinfo.php /var/www/html/phpinfo.php
 #sudo cp ins/1804-BionicBeaver/setup/php.ini /var/www/html/php.ini
