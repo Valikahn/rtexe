@@ -92,21 +92,6 @@ echo 'Installing Dependencies List 3'
 sudo apt-get -yqqf install unrar libtool libwandio-dev python-libtorrent zlib1g zlib1g-dev > /dev/null 2>&1
 echo
 
-############################################
-## Including user to SUDO group of users  ##
-############################################
-#if groups $user | grep -q -E ' sudo(\s|$)'; then
-#  echo "$user already has sudo privileges"
-#  echo "WARNING:  With great power comes great responsibility"
-#else
-#  adduser $user sudo
-#  echo
-#  echo "$user added to the sudo group of users"
-#  echo "WARNING:  With great power comes great responsibility"
-#fi
-#sleep 5
-#echo
-
 
 ##############################################
 ##  Required Pacakge Installation Complete  ##

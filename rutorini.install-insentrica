@@ -12,15 +12,6 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 
-# Directory Creation
-###
-mkdir -p "$HOME"/$dirxmlrpcc
-mkdir -p "$HOME"/$dirlibtorrent
-mkdir -p "$HOME"/$dirrTorrent
-mkdir -p "$HOME"/$dirruTorrent
-mkdir -p "$HOME"/$dirplugins
-clear
-
 # Brief info on script
 ###
 echo "Valikahn's rutorrent-auto-install script."

@@ -28,9 +28,9 @@ fi
 
 
 # Version Control
-SCRIPTVERSION="v1.0.4-charlie"
-REVDATE="06 November 2021"
-DEVNAME="Ra"
+SCRIPTVERSION="v1.1.0-delta"
+REVDATE="07 November 2021"
+DEVNAME="Seth"
 GITHUB="https://github.com/Valikahn/rutorrent-auto-install"
 #---------------#
 
@@ -39,7 +39,7 @@ dirxmlrpcc='rutorrent-auto-install/temp/xmlrpc-c'
 dirlibtorrent='rutorrent-auto-install/temp/libtorrent'
 dirrTorrent='rutorrent-auto-install/temp/rTorrent'
 dirruTorrent='rutorrent-auto-install/temp/ruTorrent'
-dirplugins='rutorrent-auto-install/temp/plugins'
+dirvar='rutorrent-auto-install/temp/webmin'
 #----------------#
 
 # Password Variables
