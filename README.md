@@ -1,6 +1,4 @@
 # rutorrent-auto-install
-rutorrent-auto-install
-
 <div align="center">
     <a href="https://insentrica.net/" target="_blank">
         <img alt="lamp" src="https://github.com/Valikahn/rutorrent-auto-install/blob/main/img/logo.PNG?raw=true">
