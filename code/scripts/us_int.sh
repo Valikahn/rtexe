@@ -189,9 +189,9 @@ elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 	echo -n "Please pick your Operating System version: "
 	echo
 		echo "$bb_1804"
-		echo "$ff_2004"
-		echo "$hh_2104"
-		echo "$ii_2110"
+		#echo "$ff_2004"
+		#echo "$hh_2104"
+		#echo "$ii_2110"
 		echo "$osnot_listed"
 		echo
 	read OSVERSION
