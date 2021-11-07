@@ -66,9 +66,10 @@ mkdir -p rtorrent/.session
 mkdir -p rtorrent/download
 mkdir -p rtorrent/watch
 
-cp -f /etc/rtinst/conf/rtorrent.rc $home/.rtorrent.rc
+cp -f "$HOME"/rutorrent-auto-install/config/rtorrent.rc $HOME/.rtorrent.rc
 sed -i "s|<user home>|${home}|g" $home/.rtorrent.rc
 sed -i "s/<user name>/$user/g" $home/.rtorrent.rc
+
 
 #########################
 ##  Install ruTorrent  ##
