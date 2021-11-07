@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+
 clear
 source code/scripts/variables.sh
 
