@@ -31,15 +31,15 @@ fi
 SCRIPTVERSION="v1.1.0-delta"
 REVDATE="07 November 2021"
 DEVNAME="Seth"
-GITHUB="https://github.com/Valikahn/rutorrent-auto-install"
+GITHUB="https://github.com/Valikahn/rtexe"
 #---------------#
 
 # Folder Variables
-dirxmlrpcc='rutorrent-auto-install/temp/xmlrpc-c'
-dirlibtorrent='rutorrent-auto-install/temp/libtorrent'
-dirrTorrent='rutorrent-auto-install/temp/rTorrent'
-dirruTorrent='rutorrent-auto-install/temp/ruTorrent'
-dirvar='rutorrent-auto-install/temp/webmin'
+dirxmlrpcc='rtexe/temp/xmlrpc-c'
+dirlibtorrent='rtexe/temp/libtorrent'
+dirrTorrent='rtexe/temp/rTorrent'
+dirruTorrent='rtexe/temp/ruTorrent'
+dirvar='rtexe/temp/webmin'
 #----------------#
 
 # Password Variables
@@ -68,7 +68,7 @@ bb_func_1804='code/1804-BionicBeaver/ins-func-1804.sh'
 # Pack Variables
 vsftpd_conf='config/vsftpd.conf'
 apache2_conf='config/apache2.conf'
-rt_rc='rutorrent-auto-install/config/rtorrent.rc'
+rt_rc='rtexe/config/rtorrent.rc'
 #--------------#
 
 # Check/Download URL's Variables
