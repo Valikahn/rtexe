@@ -194,6 +194,9 @@ elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 		#echo "$ii_2110"
 		echo "$osnot_listed"
 		echo
+		echo "$ff_2004, $hh_2104 and $ii_2110 are under development."
+		echo "I please be patient while we perfect this script."
+		echo
 	read OSVERSION
 	clear
 	case $OSVERSION in
