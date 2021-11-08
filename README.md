@@ -6,6 +6,10 @@
 </div>
 
 ## Script Description
+During this installation process you have to choose a system user to run rtorrent.<br />
+The script will install a total of 46 plugins for ruTorrent to function.<br />
+The script will include a init script that makes rtorrent start, at a possible reboot, in the given username's screen/tmux session.<br />
+
 This script is for the installation of Apache, PHP, OpenSSL, MySQL, phpMyAdmin and Webmin.  There are a few sections that require human input listed below in the [Script Process](#script-process) section, please read this section to ensure you understand what the program is asking of you.
 
 * [Tested Operating Systems](#tested-operating-systems)
@@ -35,7 +39,6 @@ This script is for the installation of Apache, PHP, OpenSSL, MySQL, phpMyAdmin a
 ## Install Commands
 #### Install Git and clone the "lamp" package
 ```
-sudo -i
 sudo apt-get -y install wget git > /dev/null
 git clone https://github.com/Valikahn/rutorrent-auto-install.git
 ```
@@ -49,6 +52,7 @@ sudo ./rutorini.install-insentrica
 ```
 
 ## Roadmap
+We will continue to develop features until it is feature complete.<br />
 * Incorporate Encrypt SSL Certificates
 * Ubuntu 20.04.x (Focal Fossa)
 * Ubuntu 20.10.x (Groovy Gorilla)
@@ -60,13 +64,25 @@ Please feel free to report any bugs or issues to us.
 * Issues:  <a href="https://github.com/Valikahn/lamp/issues">Via GitHub</a>
 * Website:  https://www.insentrica.net
 * Github:   https://github.com/Valikahn/lamp
+<br />
+You can use the following commands respectively to start and stop the service.<br />
+Start:
+```
+service rtorrent-init start
+```
+Stop:
+```
+service rtorrent-init stop
+```
 
 ## Licence | Copyright
 Copyright (C) 2020 - 2021 Valikahn <git@insentrica.net><br />
-Program v1.4-alpha - Code Name: Anubis<br />
+Program v1.1.1 - Code Name: Seth<br />
 
 Licensed under the GPLv3 License.
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
- 
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 GPLv3 Licence:  https://www.gnu.org/licenses/gpl-3.0.en.html 
