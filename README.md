@@ -60,7 +60,7 @@ Please feel free to report any bugs or issues to us.
 * Website:  https://www.insentrica.net
 * Github:   https://github.com/Valikahn/lamp
 <br />
-You can use the following commands respectively to start and stop the service.<br />
+You can use the following commands respectively to start and stop the service.
 #### Start:
 ```
 service rtorrent-init start
