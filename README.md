@@ -37,18 +37,13 @@ This script is for the installation of Apache, PHP, OpenSSL, MySQL, phpMyAdmin a
 | FTP server (vsftpd)           | 3.0.3
 
 ## Install Commands
-#### Install Git and clone the "lamp" package
+#### Install Git and clone and execute "rtexe" package
 ```
 sudo apt-get -y install wget git > /dev/null
-git clone https://github.com/Valikahn/rutorrent-auto-install.git
-```
-
-#### Execute Script
-
-```
-cd rutorrent-auto-install
-chmod +x rutorini.install-insentrica
-sudo ./rutorini.install-insentrica
+git clone https://github.com/Valikahn/rtexe.git
+cd rtexe
+chmod +x rtexe
+sudo ./rtexe
 ```
 
 ## Roadmap
@@ -66,11 +61,11 @@ Please feel free to report any bugs or issues to us.
 * Github:   https://github.com/Valikahn/lamp
 <br />
 You can use the following commands respectively to start and stop the service.<br />
-Start:
+#### Start:
 ```
 service rtorrent-init start
 ```
-Stop:
+#### Stop:
 ```
 service rtorrent-init stop
 ```
