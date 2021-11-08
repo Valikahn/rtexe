@@ -6,14 +6,14 @@
 </div>
 
 ## Script Description
-During this installation process you have to choose a system user to run rtorrent.  The script will install a total of 46 plugins for ruTorrent to function.  The script will include a init script that makes rtorrent start, at a possible reboot, in the given username's screen/tmux session.<br />
+During this installation process you have to choose a system user to run rtorrent.  The script will install a total of 46 plugins for ruTorrent to function.  The script will include a init script that makes rtorrent start, at a possible reboot, in the given username's screen/tmux session.<br /><br />
 This script is for the installation of Apache, PHP, OpenSSL, ruTorrent and Webmin.  There is minimal sections that require human input, please continue reading to ensure you understand what is entailed in this program.
 
 * [Supported Operating Systems](#supported-operating-systems)
 * [Installed Software Module Versions](#installed-software-module-versions)
 * [Install Commands](#install-commands)
 * [Roadmap / Testing](#roadmap--testing)
-* [Bugs & Issues](#bugs--issues)
+* [Bugs, Issues and Recommendation](#bugs--issues--and--recommendation)
 * [Licence | Copyright](#licence--copyright)
 
 ## Supported Operating Systems
@@ -35,7 +35,7 @@ This script is for the installation of Apache, PHP, OpenSSL, ruTorrent and Webmi
 | FTP server (vsftpd)           | 1.973
 
 ## Install Commands
-#### Install Git and clone and execute "rtexe" package
+#### Install Git, clone and execute "rtexe" package
 ```
 sudo apt-get -y install wget git > /dev/null
 git clone https://github.com/Valikahn/rtexe.git
@@ -58,7 +58,7 @@ We will continue to develop features until it is feature complete.<br />
 * Ubuntu 20.10.x (Groovy Gorilla)
 * Ubuntu 21.04.x (Hirsute Hippo)
 
-## Bugs & Issues
+## Bugs, Issues and Recommendation
 Please feel free to report any bugs or issues to us.
 * Issues:  <a href="https://github.com/Valikahn/rtexe/issues">Via GitHub</a>
 * Website:  https://www.insentrica.net
