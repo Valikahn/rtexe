@@ -66,7 +66,7 @@ mkdir -p rtorrent/.session
 mkdir -p rtorrent/download
 mkdir -p rtorrent/watch
 
-cp -f "$HOME"/rutorrent-auto-install/config/rtorrent.rc $HOME/.rtorrent.rc
+cp -f "$HOME"/rtexe/config/rtorrent.rc $HOME/.rtorrent.rc
 sed -i "s|<user home>|${home}|g" $home/.rtorrent.rc
 sed -i "s/<user name>/$user/g" $home/.rtorrent.rc
 
@@ -92,11 +92,10 @@ cp -r rutorrent /var/www/html/
 chown -R www-data.www-data /var/www/html/rutorrent/
 chmod -R 775 /var/www/html/rutorrent/
 
-
 service apache2 restart
 systemctl reload apache2
 
-echo 'Configuring Rutorrent'
+echo 'Configuring ruTorrent'
 cd
 
 rm /var/www/html/rutorrent/conf/config.php

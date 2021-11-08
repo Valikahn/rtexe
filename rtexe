@@ -16,7 +16,7 @@ fi
 # Brief info on script
 ###
 echo "Valikahn's rutorrent-auto-install script."
-echo "Version: $SCRIPTVERSION DevName: $DEVNAME"
+echo "Version: $SCRIPTVERSION"
 echo "Released: $REVDATE"
 echo
 echo "Remember to run as root or with sudo."
