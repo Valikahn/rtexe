@@ -15,7 +15,11 @@ while true; do
     read -p "Do you accept the above disclaimer?" disc
     case $disc in
         [Yy]* ) clear; break;;
-        [Nn]* ) clear; exit;;
+        [Nn]* ) clear
+                cd
+                rm -rf rtexe
+                exit
+                ;;
         * ) echo "Please answer yes or no.";;
     esac
 done

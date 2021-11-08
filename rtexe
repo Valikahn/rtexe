@@ -24,7 +24,6 @@ echo
 echo "Bugs, feature requests? Visit $GITHUB"
 echo
 echo "-------------------------------------------------------------------------------------------"
-echo
 
 source $func
 source $us_int
