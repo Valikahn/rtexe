@@ -53,7 +53,6 @@ service rtorrent-init stop
 
 ## Roadmap | Testing
 #### Scripting Improvements and Upcoming Features
-We will continue to develop features until it is feature complete.<br />
 * Incorporate Encrypt SSL Certificates
 * Improve install time
 * Limited dependency lists
@@ -65,6 +64,7 @@ We will continue to develop features until it is feature complete.<br />
 
 ## Bugs | Issues | Recommendation
 Please feel free to report any bugs or issues to us.
+We actively encourage recommendations, suggestions, ideas, please let us know.
 * Issues:  <a href="https://github.com/Valikahn/rtexe/issues">Via GitHub</a>
 * Website:  https://www.insentrica.net
 * Github:   https://github.com/Valikahn/rtexe
