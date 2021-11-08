@@ -55,7 +55,6 @@ We will continue to develop features until it is feature complete.<br />
 
 ## Bugs & Issues
 Please feel free to report any bugs or issues to us.
-* Email:  git@insentrica.net 
 * Issues:  <a href="https://github.com/Valikahn/rtexe/issues">Via GitHub</a>
 * Website:  https://www.insentrica.net
 * Github:   https://github.com/Valikahn/rtexe
@@ -63,11 +62,11 @@ Please feel free to report any bugs or issues to us.
 You can use the following commands respectively to start and stop the service.
 #### Start:
 ```
-service rtorrent-init start
-```
-#### Stop:
-```
-service rtorrent-init stop
+sudo apt-get -y install wget git > /dev/null
+git clone https://github.com/Valikahn/rtexe.git
+cd rtexe
+chmod +x rtexe
+sudo ./rtexe
 ```
 
 ## Licence | Copyright
