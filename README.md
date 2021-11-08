@@ -11,6 +11,7 @@ This script is for the installation of Apache, PHP, OpenSSL, MySQL, phpMyAdmin a
 * [Tested Operating Systems](#tested-operating-systems)
 * [Installed Software Module Versions](#installed-software-module-versions)
 * [Install Commands](#install-commands)
+* [Roadmap](#roadmap)
 * [Copyright](#copyright)
 * [Bugs & Issues](#bugs--issues)
 * [Licence](#licence)
@@ -18,13 +19,12 @@ This script is for the installation of Apache, PHP, OpenSSL, MySQL, phpMyAdmin a
 ## Tested Operating Systems
 
 * Ubuntu 18.x (Bionic Beaver)
-* Ubuntu 20.04.x (Focal Fossa)
-* Ubuntu 20.10.x (Groovy Gorilla)
-* Ubuntu 21.04.x (Hirsute Hippo)
 
 ## Installed Software Module Versions
 | Install Modules               | Version
 |-------------------------------|-------------------------------|
+| Apache                        | 2.4.46 (Ubuntu)
+| Apache                        | 2.4.46 (Ubuntu)
 | Apache                        | 2.4.46 (Ubuntu)
 | PHP                           | 7.4.9
 | SSL                           | OpenSSL/1.1.1f
@@ -49,9 +49,11 @@ chmod +x rutorini.install-insentrica
 sudo ./rutorini.install-insentrica
 ```
 
-## Copyright
-Copyright (C) 2020 - 2021 Valikahn <git@insentrica.net><br />
-Program v1.4-alpha - Code Name: Anubis<br />
+## Roadmap
+* Incorporate Encrypt SSL Certificates
+* Ubuntu 20.04.x (Focal Fossa)
+* Ubuntu 20.10.x (Groovy Gorilla)
+* Ubuntu 21.04.x (Hirsute Hippo)
 
 ## Bugs & Issues
 Please feel free to report any bugs or issues to us.
@@ -60,7 +62,10 @@ Please feel free to report any bugs or issues to us.
 * Website:  https://www.insentrica.net
 * Github:   https://github.com/Valikahn/lamp
 
-## Licence
+## Licence | Copyright
+Copyright (C) 2020 - 2021 Valikahn <git@insentrica.net><br />
+Program v1.4-alpha - Code Name: Anubis<br />
+
 Licensed under the GPLv3 License.
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
