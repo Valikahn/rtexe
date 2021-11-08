@@ -13,7 +13,7 @@ This script is for the installation of Apache, PHP, OpenSSL, ruTorrent and Webmi
 * [Installed Software Module Versions](#installed-software-module-versions)
 * [Install Commands](#install-commands)
 * [Roadmap / Testing](#roadmap--testing)
-* [Bugs, Issues and Recommendation](#bugs--issues--and--recommendation)
+* [Bugs, Issues and Recommendation](#bugs--issues--recommendation)
 * [Licence | Copyright](#licence--copyright)
 
 ## Supported Operating Systems
@@ -58,7 +58,7 @@ We will continue to develop features until it is feature complete.<br />
 * Ubuntu 20.10.x (Groovy Gorilla)
 * Ubuntu 21.04.x (Hirsute Hippo)
 
-## Bugs, Issues and Recommendation
+## Bugs, Issues & Recommendation
 Please feel free to report any bugs or issues to us.
 * Issues:  <a href="https://github.com/Valikahn/rtexe/issues">Via GitHub</a>
 * Website:  https://www.insentrica.net
