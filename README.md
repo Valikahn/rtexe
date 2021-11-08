@@ -27,14 +27,15 @@ This script is for the installation of Apache, PHP, OpenSSL, MySQL, phpMyAdmin a
 | Install Modules               | Version
 |-------------------------------|-------------------------------|
 | Apache                        | 2.4.46 (Ubuntu)
-| Apache                        | 2.4.46 (Ubuntu)
-| Apache                        | 2.4.46 (Ubuntu)
+| PHP                           | 7.4.9
+| rTorrent                      | 7.4.9
+| ruTorrent                     | 7.4.9
+| XmlRpc-c                      | 0.0.0
+| libtorrent                    | 0.0.0
+| autodl-irssi                  | 0.0.0
 | PHP                           | 7.4.9
 | SSL                           | OpenSSL/1.1.1f
-| MySQL                         | 8.0.23-0ubuntu0.20.10.1
-| phpMyAdmin                    | 4.9.7deb1
-| Webmin                        | 1.973
-| FTP server (vsftpd)           | 3.0.3
+| FTP server (vsftpd)           | 1.973
 
 ## Install Commands
 #### Install Git and clone and execute "rtexe" package
