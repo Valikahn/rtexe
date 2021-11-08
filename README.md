@@ -56,9 +56,9 @@ We will continue to develop features until it is feature complete.<br />
 ## Bugs & Issues
 Please feel free to report any bugs or issues to us.
 * Email:  git@insentrica.net 
-* Issues:  <a href="https://github.com/Valikahn/lamp/issues">Via GitHub</a>
+* Issues:  <a href="https://github.com/Valikahn/rtexe/issues">Via GitHub</a>
 * Website:  https://www.insentrica.net
-* Github:   https://github.com/Valikahn/lamp
+* Github:   https://github.com/Valikahn/rtexe
 <br />
 You can use the following commands respectively to start and stop the service.
 #### Start:
