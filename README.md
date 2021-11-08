@@ -53,7 +53,6 @@ service rtorrent-init stop
 
 ## Roadmap | Testing
 #### Scripting Improvements and Upcoming Features
-We will continue to develop features until it is feature complete.<br />
 * Incorporate Encrypt SSL Certificates
 * Improve install time
 * Limited dependency lists
