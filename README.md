@@ -45,6 +45,15 @@ cd rtexe
 chmod +x rtexe
 sudo ./rtexe
 ```
+You can use the following commands respectively to start and stop the service.
+#### Start:
+```
+sudo apt-get -y install wget git > /dev/null
+git clone https://github.com/Valikahn/rtexe.git
+cd rtexe
+chmod +x rtexe
+sudo ./rtexe
+```
 
 ## Roadmap
 We will continue to develop features until it is feature complete.<br />
@@ -58,16 +67,6 @@ Please feel free to report any bugs or issues to us.
 * Issues:  <a href="https://github.com/Valikahn/rtexe/issues">Via GitHub</a>
 * Website:  https://www.insentrica.net
 * Github:   https://github.com/Valikahn/rtexe
-<br />
-You can use the following commands respectively to start and stop the service.
-#### Start:
-```
-sudo apt-get -y install wget git > /dev/null
-git clone https://github.com/Valikahn/rtexe.git
-cd rtexe
-chmod +x rtexe
-sudo ./rtexe
-```
 
 ## Licence | Copyright
 Copyright (C) 2020 - 2021 Valikahn <git@insentrica.net><br />
