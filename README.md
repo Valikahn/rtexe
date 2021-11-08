@@ -12,14 +12,14 @@ The script will include a init script that makes rtorrent start, at a possible r
 
 This script is for the installation of Apache, PHP, OpenSSL, MySQL, phpMyAdmin and Webmin.  There are a few sections that require human input listed below in the [Script Process](#script-process) section, please read this section to ensure you understand what the program is asking of you.
 
-* [Tested Operating Systems](#tested-operating-systems)
+* [Supported Operating Systems](#supported-operating-systems)
 * [Installed Software Module Versions](#installed-software-module-versions)
 * [Install Commands](#install-commands)
-* [Roadmap](#roadmap)
+* [Roadmap / Testing](#roadmap--testing)
 * [Bugs & Issues](#bugs--issues)
 * [Licence | Copyright](#licence--copyright)
 
-## Tested Operating Systems
+## Supported Operating Systems
 
 * Ubuntu 18.x (Bionic Beaver)
 
@@ -53,7 +53,7 @@ service rtorrent-init start
 service rtorrent-init stop
 ```
 
-## Roadmap
+## Roadmap / Testing
 We will continue to develop features until it is feature complete.<br />
 * Incorporate Encrypt SSL Certificates
 * Ubuntu 20.04.x (Focal Fossa)
