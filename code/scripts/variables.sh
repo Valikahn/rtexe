@@ -74,6 +74,11 @@ bb_pack_1804='code/1804-BionicBeaver/ins-pack-1804.sh'
 bb_func_1804='code/1804-BionicBeaver/ins-func-1804.sh'
 #---------------------#
 
+# Switch Case Variables
+agreedisc=3
+discl='code/scripts/disclaimer.sh'
+#---------------------#
+
 # Pack Variables
 vsftpd_conf='config/vsftpd.conf'
 apache2_conf='config/apache2.conf'

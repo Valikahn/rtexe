@@ -1,6 +1,7 @@
 #!/bin/bash
 clear
 source code/scripts/variables.sh
+source $discl
 
 # Checking if user is root.
 ###
