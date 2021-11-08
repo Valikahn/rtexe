@@ -13,7 +13,7 @@ This script is for the installation of Apache, PHP, OpenSSL, ruTorrent and Webmi
 * [Installed Software Module Versions](#installed-software-module-versions)
 * [Install Commands](#install-commands)
 * [Roadmap / Testing](#roadmap--testing)
-* [Bugs, Issues and Recommendation](#bugs--issues--recommendation)
+* [Bugs, Issues & Recommendation](#bugs--issues--recommendation)
 * [Licence | Copyright](#licence--copyright)
 
 ## Supported Operating Systems
