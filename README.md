@@ -46,13 +46,11 @@ chmod +x rtexe
 sudo ./rtexe
 ```
 You can use the following commands respectively to start and stop the service.
-#### Start:
 ```
-sudo apt-get -y install wget git > /dev/null
-git clone https://github.com/Valikahn/rtexe.git
-cd rtexe
-chmod +x rtexe
-sudo ./rtexe
+service rtorrent-init start
+```
+```
+service rtorrent-init stop
 ```
 
 ## Roadmap
