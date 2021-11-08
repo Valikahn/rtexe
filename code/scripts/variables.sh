@@ -34,13 +34,16 @@ GITHUB="https://github.com/Valikahn/rtexe"
 #---------------------------------------------------------------------------------------------------------#
 
 # Color Variables
-red='\033[0;31m'
-green='\033[0;32m'
-yellow='\033[0;33m'
-blue='\033[0;34m'
-magenta='\033[0;35m'
-cyan='\033[0;36m'
-clear='\033[0m'
+BOLD=$(tput bold)
+NORMAL=$(tput sgr0)
+GREEN=$(tput setaf 2)
+LBLUE=$(tput setaf 6)
+RED=$(tput setaf 1)
+PURPLE=$(tput setaf 5)
+YELLOW=$(tput setaf 3)
+BLUE=$(tput setaf 4)
+CYAN=$(tput setaf 6)
+WHITE=$(tput setaf 7)
 #---------------------------------------------------------------------------------------------------------#
 
 # Folder Variables

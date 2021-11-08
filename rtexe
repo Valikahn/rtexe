@@ -15,13 +15,13 @@ fi
 
 # Brief info on script
 ###
-echo "Valikahn's rutorrent-auto-install script."
+echo "${PURPLE}Valikahn's rutorrent-auto-install script${NORMAL}"
 echo "Version: $SCRIPTVERSION"
 echo "Released: $REVDATE"
 echo
-echo "Remember to run as root or with sudo."
+echo "${GREEN}Remember to run as root or with sudo.${NORMAL}"
 echo
-echo "Bugs, feature requests? Visit $GITHUB"
+echo "${BOLD}Bugs, feature requests? Visit $GITHUB${NORMAL}"
 echo
 echo "-------------------------------------------------------------------------------------------"
 
