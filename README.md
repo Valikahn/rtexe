@@ -6,11 +6,8 @@
 </div>
 
 ## Script Description
-During this installation process you have to choose a system user to run rtorrent.<br />
-The script will install a total of 46 plugins for ruTorrent to function.<br />
-The script will include a init script that makes rtorrent start, at a possible reboot, in the given username's screen/tmux session.<br />
-
-This script is for the installation of Apache, PHP, OpenSSL, MySQL, phpMyAdmin and Webmin.  There are a few sections that require human input listed below in the [Script Process](#script-process) section, please read this section to ensure you understand what the program is asking of you.
+During this installation process you have to choose a system user to run rtorrent.  The script will install a total of 46 plugins for ruTorrent to function.  The script will include a init script that makes rtorrent start, at a possible reboot, in the given username's screen/tmux session.<br />
+This script is for the installation of Apache, PHP, OpenSSL, ruTorrent and Webmin.  There is minimal sections that require human input, please continue reading to ensure you understand what is entailed in this program.
 
 * [Supported Operating Systems](#supported-operating-systems)
 * [Installed Software Module Versions](#installed-software-module-versions)
@@ -68,7 +65,7 @@ Please feel free to report any bugs or issues to us.
 * Github:   https://github.com/Valikahn/rtexe
 
 ## Licence | Copyright
-Copyright (C) 2020 - 2021 Valikahn <git@insentrica.net><br />
+Copyright (C) 2020 - 2021 Valikahn<br />
 Program v1.1.1 - Code Name: Seth<br />
 
 Licensed under the GPLv3 License.
