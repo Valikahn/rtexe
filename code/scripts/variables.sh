@@ -23,16 +23,16 @@ fi
 
 
 #####################
-##  SET VARIABLES  ##
+##--SET VARIABLES--##
 #####################
 
 
 # Version Control
-SCRIPTVERSION="v1.1.0-delta"
-REVDATE="07 November 2021"
+SCRIPTVERSION="v1.1.1-delta"
+REVDATE="08 November 2021"
 DEVNAME="Seth"
 GITHUB="https://github.com/Valikahn/rtexe"
-#---------------#
+#---------------------------------------------------------------------------------------------------------#
 
 # Color Variables
 red='\033[0;31m'
@@ -42,6 +42,7 @@ blue='\033[0;34m'
 magenta='\033[0;35m'
 cyan='\033[0;36m'
 clear='\033[0m'
+#---------------------------------------------------------------------------------------------------------#
 
 # Folder Variables
 dirxmlrpcc='rtexe/temp/xmlrpc-c'
@@ -49,7 +50,7 @@ dirlibtorrent='rtexe/temp/libtorrent'
 dirrTorrent='rtexe/temp/rTorrent'
 dirruTorrent='rtexe/temp/ruTorrent'
 dirvar='rtexe/temp/webmin'
-#----------------#
+#---------------------------------------------------------------------------------------------------------#
 
 # Password Variables
 webpass=''
@@ -59,7 +60,7 @@ passfile='/etc/apache2/.htpasswd'
 unixpass=""
 os_prereq=0
 prereq=0
-#------------------#
+#---------------------------------------------------------------------------------------------------------#
 
 # Switch Case Variables
 bb_1804='1)  Ubuntu 18.04 (Bionic Beaver)'
@@ -72,18 +73,18 @@ us_int='code/scripts/us_int.sh'
 intermess='code/scripts/intermess.sh'
 bb_pack_1804='code/1804-BionicBeaver/ins-pack-1804.sh'
 bb_func_1804='code/1804-BionicBeaver/ins-func-1804.sh'
-#---------------------#
+#---------------------------------------------------------------------------------------------------------#
 
 # Switch Case Variables
 agreedisc=3
 discl='code/scripts/disclaimer.sh'
-#---------------------#
+#---------------------------------------------------------------------------------------------------------#
 
 # Pack Variables
 vsftpd_conf='config/vsftpd.conf'
 apache2_conf='config/apache2.conf'
 rt_rc='rtexe/config/rtorrent.rc'
-#--------------#
+#---------------------------------------------------------------------------------------------------------#
 
 # Check/Download URL's Variables
 rt_url="https://rakshasa.github.io/rtorrent/"
@@ -94,4 +95,4 @@ xmlrpcc_dl="http://svn.code.sf.net/p/xmlrpc-c/code/stable"
 libtorrent_dl="https://github.com/rakshasa/rtorrent-archive/raw/master/libtorrent-0.13.8.tar.gz"
 rTorrent_dl="https://github.com/rakshasa/rtorrent-archive/raw/master/rtorrent-0.9.8.tar.gz"
 ruTorrent_dl="https://github.com/Novik/ruTorrent/archive/master.tar.gz"
-#------------------------------#
+#---------------------------------------------------------------------------------------------------------#

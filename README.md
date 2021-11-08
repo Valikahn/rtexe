@@ -52,8 +52,13 @@ service rtorrent-init stop
 ```
 
 ## Roadmap | Testing
+#### Scripting Improvements and Upcoming Features
 We will continue to develop features until it is feature complete.<br />
 * Incorporate Encrypt SSL Certificates
+* Improve install time
+* Limited dependency lists
+
+#### Additional Operating System Support
 * Ubuntu 20.04.x (Focal Fossa)
 * Ubuntu 20.10.x (Groovy Gorilla)
 * Ubuntu 21.04.x (Hirsute Hippo)
