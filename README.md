@@ -63,7 +63,7 @@ service rtorrent-init stop
 * Ubuntu 21.04.x (Hirsute Hippo)
 
 ## Bugs | Issues | Recommendation
-Please feel free to report any bugs or issues to us.
+Please feel free to report any bugs or issues to us.<br />
 We actively encourage recommendations, suggestions, ideas, please let us know.
 * Issues:  <a href="https://github.com/Valikahn/rtexe/issues">Via GitHub</a>
 * Website:  https://www.insentrica.net
