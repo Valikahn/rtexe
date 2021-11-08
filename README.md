@@ -12,7 +12,7 @@ This script is for the installation of Apache, PHP, OpenSSL, ruTorrent and Webmi
 * [Supported Operating Systems](#supported-operating-systems)
 * [Installed Software Module Versions](#installed-software-module-versions)
 * [Install Commands](#install-commands)
-* [Roadmap / Testing](#roadmap--testing)
+* [Roadmap | Testing](#roadmap--testing)
 * [Bugs | Issues | Recommendation](#bugs--issues--recommendation)
 * [Licence | Copyright](#licence--copyright)
 
@@ -51,7 +51,7 @@ service rtorrent-init start
 service rtorrent-init stop
 ```
 
-## Roadmap / Testing
+## Roadmap | Testing
 We will continue to develop features until it is feature complete.<br />
 * Incorporate Encrypt SSL Certificates
 * Ubuntu 20.04.x (Focal Fossa)
