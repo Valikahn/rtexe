@@ -58,7 +58,7 @@ We will continue to develop features until it is feature complete.<br />
 * Ubuntu 20.10.x (Groovy Gorilla)
 * Ubuntu 21.04.x (Hirsute Hippo)
 
-## Bugs  Issues
+## Bugs, Issues
 Please feel free to report any bugs or issues to us.
 * Issues:  <a href="https://github.com/Valikahn/rtexe/issues">Via GitHub</a>
 * Website:  https://www.insentrica.net
