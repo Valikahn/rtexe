@@ -17,15 +17,9 @@ fi
 ####################################
 echo 'Updating Packages and Builds'
 sudo apt-get -yqq update > /dev/null
-sudo apt-get -yqq update > /dev/null
 sudo apt-get -yqq upgrade > /dev/null
 sudo dpkg --configure -a > /dev/null
 sudo apt-get -yqq dist-upgrade > /dev/null
-
-if [ $(dpkg-query -W -f='${Status}' ca-certificates 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
-echo 'Installing ca-certificates'
-sudo apt-get -yqq install ca-certificates 2>&1 >> /dev/null
-fi
 
 
 ###########################
@@ -46,7 +40,12 @@ sudo systemctl restart apache2
 chown -R www-data.www-data /var/www/html/
 chmod -R 777 /var/www/html/
 
-htpasswd -b $passfile $user $webpass >> $logfile 2>&1
+if [ -f $passfile ]; then
+    htpasswd -b $passfile $user $webpass >> $logfile 2>&1
+  else
+    htpasswd -c -b $passfile $user $webpass >> $logfile 2>&1
+fi
+
 chown www-data:www-data $passfile
 chmod 640 $passfile
 
