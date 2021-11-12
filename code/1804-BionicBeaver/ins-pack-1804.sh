@@ -84,7 +84,7 @@ sudo systemctl restart -qq vsftpd
 ###############################
 ##  Installing Dependencies  ##
 ###############################
-echo 'Installing Dependencies List - Please be patient at this part!'
+echo 'Installing Dependencies List'
 sudo apt-get -yqqf install build-essential libsigc++-2.0-dev libcurl4-openssl-dev automake cmake wget git > /dev/null 2>&1
 sudo apt-get -yqqf install libcppunit-dev libncurses5-dev libssl-dev autoconf ca-certificates mediainfo-gui libfcgi-perl > /dev/null 2>&1
 sudo apt-get -yqqf install libtool libwandio-dev python-libtorrent zlib1g zlib1g-dev > /dev/null 2>&1
