@@ -2,6 +2,7 @@
 export logfile="/dev/null"
 homedir=$(cat /etc/passwd | grep "$user": | cut -d: -f6)
 HOME=$(eval echo "~$user")
+export logfile="/dev/null"
 
 # Server IP Address - Ipv4 only
 # grep 'inet6' instead of 'inet ' for ipv6
@@ -28,7 +29,7 @@ fi
 
 
 # Version Control
-SCRIPTVERSION="v1.1.3-Seth"
+SCRIPTVERSION="v1.1.4-Seth"
 REVDATE="12 November 2021"
 GITHUB="https://github.com/Valikahn/rtexe"
 #---------------------------------------------------------------------------------------------------------#

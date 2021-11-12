@@ -70,7 +70,6 @@ fi
 
 # set password for rutorrent
 ###
-
 if [ -z "$webpass" ] && [ $forceyes = 0 ]; then
   if [ -z $(grep -s $user $passfile) ]; then
     webpass=$(passgen)
@@ -103,7 +102,7 @@ if [ $passflag != 2 ]; then
 	passflag=$?
 fi
 
-rut_user_list=$(ls /var/www/rutorrent/conf/users 2>/dev/null | sed "s/$user//g")
+rut_user_list=$(ls /var/www/html/rutorrent/conf/users 2>/dev/null | sed "s/$user//g")
 
 for rut_user in $rut_user_list; do
   if ! id -u $rut_user >/dev/null 2>&1; then

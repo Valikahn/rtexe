@@ -39,18 +39,25 @@ sudo apt-get -qqy install aptitude > /dev/null
 ##  Installing Apache2 and PHP  ##
 ##################################
 echo 'Installing Apache and PHP'
-sudo apt-get -yqq install apache2 > /dev/null
+sudo apt-get -yqq install apache2 apache2-utils > /dev/null
 sudo apt-get -yqq install php php-cgi libapache2-mod-php > /dev/null
 sudo apt-get -yqq install php-mysql php-gd > /dev/null
 sudo systemctl restart apache2
 chown -R www-data.www-data /var/www/html/
 chmod -R 777 /var/www/html/
 
+htpasswd -b $passfile $user $webpass >> $logfile 2>&1
+chown www-data:www-data $passfile
+chmod 640 $passfile
+
+read -n 1 -r -s -p $'Press enter to continue...\n'
+
 
 ########################
 ##  SSL Certificates  ##
 ########################
 echo 'Installing SSL Certificate'
+sudo apt-get -yqqf install openssl ca-certificates > /dev/null 2>&1
 sudo a2enmod ssl > /dev/null
 sudo systemctl restart apache2 > /dev/null
 sudo a2enmod auth_digest > /dev/null
@@ -85,13 +92,15 @@ sudo systemctl restart -qq vsftpd
 ##  Installing Dependencies  ##
 ###############################
 echo 'Installing Dependencies List'
-sudo apt-get -yqqf install build-essential libsigc++-2.0-dev libcurl4-openssl-dev automake cmake wget git > /dev/null 2>&1
-sudo apt-get -yqqf install libcppunit-dev libncurses5-dev libssl-dev autoconf ca-certificates mediainfo-gui libfcgi-perl > /dev/null 2>&1
+sudo apt-get -yqqf install build-essential libsigc++-2.0-dev libcurl4-openssl-dev automake cmake wget > /dev/null 2>&1
+sudo apt-get -yqqf install libcppunit-dev libncurses5-dev libssl-dev autoconf mediainfo mediainfo-gui libfcgi-perl > /dev/null 2>&1
 sudo apt-get -yqqf install libtool libwandio-dev python-libtorrent zlib1g zlib1g-dev > /dev/null 2>&1
-sudo apt-get -yqqf install openssl git apache2-utils rar unrar zip unzip curl mc nano php php-curl php-cli libapache2-mod-php tmux mediainfo sox ffmpeg > /dev/null 2>&1
+sudo apt-get -yqqf install rar unrar zip unzip curl mc nano php php-curl php-cli tmux sox ffmpeg > /dev/null 2>&1
+
 
 ##############################################
 ##  Required Pacakge Installation Complete  ##
 ##############################################
+echo
 echo "Required package installation is now complete...  Moving on to Functional Programs"
 echo
