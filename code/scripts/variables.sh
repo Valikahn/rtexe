@@ -28,7 +28,7 @@ fi
 
 
 # Version Control
-SCRIPTVERSION="v1.1.2-Seth"
+SCRIPTVERSION="v1.1.3-Seth"
 REVDATE="12 November 2021"
 GITHUB="https://github.com/Valikahn/rtexe"
 #---------------------------------------------------------------------------------------------------------#
