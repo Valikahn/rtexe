@@ -29,7 +29,7 @@ fi
 
 
 # Version Control
-SCRIPTVERSION="v1.1.5-Seth"
+SCRIPTVERSION="v1.1.6-Seth"
 REVDATE="12 November 2021"
 GITHUB="https://github.com/Valikahn/rtexe"
 #---------------------------------------------------------------------------------------------------------#
@@ -48,11 +48,12 @@ WHITE=$(tput setaf 7)
 #---------------------------------------------------------------------------------------------------------#
 
 # Folder Variables
-dirxmlrpcc='$dir/temp/xmlrpc-c'
-dirlibtorrent='$dir/temp/libtorrent'
-dirrTorrent='$dir/temp/rTorrent'
-dirruTorrent='$dir/temp/ruTorrent'
-dirvar='$dir/temp/webmin'
+dire='rtexe'
+dirxmlrpcc='$dire/temp/xmlrpc-c'
+dirlibtorrent='$dire/temp/libtorrent'
+dirrTorrent='$dire/temp/rTorrent'
+dirruTorrent='$dire/temp/ruTorrent'
+dirvar='$dire/temp/webmin'
 #---------------------------------------------------------------------------------------------------------#
 
 # Password Variables
