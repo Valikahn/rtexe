@@ -66,7 +66,7 @@ mkdir -p /home/$user/rtorrent/.session
 mkdir -p /home/$user/rtorrent/download
 mkdir -p /home/$user/rtorrent/watch
 
-cp -f /home/$user/rtexe/config/rtorrent.rc /home/$user/.rtorrent.rc
+cp -f $HOME/rtexe/config/rtorrent.rc /home/$user/.rtorrent.rc
 sed -i "s|<HOMEDIRHERE>|${HOME}|g" /home/$user/.rtorrent.rc
 sed -i "s/<USERNAMEHERE>/$user/g" /home/$user/.rtorrent.rc
 
@@ -99,7 +99,7 @@ echo 'Configuring ruTorrent'
 cd
 
 rm /var/www/html/rutorrent/conf/config.php
-cp -f /home/$user/rtexe/config/ruTorrent.config /var/www/html/rutorrent/conf/config.php
+cp -f $HOME/rtexe/config/ruTorrent.config /var/www/html/rutorrent/conf/config.php
 mkdir -p /var/www/html/rutorrent/conf/users/$user/plugins
 cd /var/www/html/rutorrent/conf/users/$user/plugins
 
@@ -114,8 +114,8 @@ echo "?>" >> config.php
 cd ../../..
 
 sudo mv plugins.ini plugins.ini.orig
-sudo cp -f /home/$user/rtexe/config/ruTorrent.ini /var/www/html/rutorrent/conf/plugins.ini
-sudo cp -f /home/$user/rtexe/config/rtorrent-init /etc/init.d/rtorrent-init
+sudo cp -f $HOME/rtexe/config/ruTorrent.ini /var/www/html/rutorrent/conf/plugins.ini
+sudo cp -f $HOME/rtexe/config/rtorrent-init /etc/init.d/rtorrent-init
 
 chmod +x /etc/init.d/rtorrent-init
 sed -i "s/<USERNAMEHERE>/$user/g" /etc/init.d/rtorrent-init

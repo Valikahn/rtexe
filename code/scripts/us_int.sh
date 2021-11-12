@@ -165,7 +165,7 @@ else
   adduser $user sudo
   echo
   echo "$user added to the sudo group of users"
-  echo "WARNING:  With great power comes great responsibility"
+  echo "${RED}WARNING:  With great power comes great responsibility${NORMAL}"
 fi
 sleep 5
 
