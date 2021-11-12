@@ -67,8 +67,8 @@ mkdir -p rtorrent/download
 mkdir -p rtorrent/watch
 
 cp -f "$HOME"/rtexe/config/rtorrent.rc $HOME/.rtorrent.rc
-sed -i "s|<user home>|${home}|g" $home/.rtorrent.rc
-sed -i "s/<user name>/$user/g" $home/.rtorrent.rc
+sed -i "s|<HOMEDIRHERE>|${HOME}|g" $HOME/.rtorrent.rc
+sed -i "s/<USERNAMEHERE>/$user/g" $HOME/.rtorrent.rc
 
 
 #########################
