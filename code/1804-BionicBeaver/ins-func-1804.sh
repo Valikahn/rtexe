@@ -118,7 +118,7 @@ sudo cp -f $HOME/rtexe/config/ruTorrent.ini /var/www/html/rutorrent/conf/plugins
 sudo cp -f $HOME/rtexe/config/rtorrent-init /etc/init.d/rtorrent-init
 
 chmod +x /etc/init.d/rtorrent-init
-sed -i "s/<user name>/$user/g" /etc/init.d/rtorrent-init
+sed -i "s/<USERNAMEHERE>/$user/g" /etc/init.d/rtorrent-init
 update-rc.d rtorrent-init defaults
 service apache2 restart
 

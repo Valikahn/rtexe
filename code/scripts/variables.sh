@@ -28,8 +28,8 @@ fi
 
 
 # Version Control
-SCRIPTVERSION="v1.1.1-Seth"
-REVDATE="08 November 2021"
+SCRIPTVERSION="v1.1.2-Seth"
+REVDATE="12 November 2021"
 GITHUB="https://github.com/Valikahn/rtexe"
 #---------------------------------------------------------------------------------------------------------#
 
@@ -72,14 +72,13 @@ ii_2110='4)  Ubuntu 21.10 (Impish Indri)'
 osnot_listed='5)  Operating System Version Not Listed'
 func='code/scripts/func.sh'
 us_int='code/scripts/us_int.sh'
-intermess='code/scripts/intermess.sh'
 bb_pack_1804='code/1804-BionicBeaver/ins-pack-1804.sh'
 bb_func_1804='code/1804-BionicBeaver/ins-func-1804.sh'
 #---------------------------------------------------------------------------------------------------------#
 
 # Switch Case Variables
-agreedisc=3
-discl='code/scripts/disclaimer.sh'
+intermess='code/notices/intermess.sh'
+discl='code/notices/disclaimer.sh'
 #---------------------------------------------------------------------------------------------------------#
 
 # Pack Variables
