@@ -22,13 +22,6 @@ sudo dpkg --configure -a > /dev/null
 sudo apt-get -yqq dist-upgrade > /dev/null
 
 
-###########################
-##  Installing Aptitude  ##
-###########################
-echo 'Installing Aptitude'
-sudo apt-get -qqy install aptitude > /dev/null
-
-
 ##################################
 ##  Installing Apache2 and PHP  ##
 ##################################
@@ -91,7 +84,7 @@ sudo systemctl restart -qq vsftpd
 ##  Installing Dependencies  ##
 ###############################
 echo 'Installing Dependencies'
-sudo apt-get -yqqf install build-essential libsigc++-2.0-dev libcurl4-openssl-dev automake cmake wget > /dev/null 2>&1
+sudo apt-get -yqqf install aptitude build-essential libsigc++-2.0-dev libcurl4-openssl-dev automake cmake wget > /dev/null 2>&1
 sudo apt-get -yqqf install libcppunit-dev libncurses5-dev libssl-dev autoconf mediainfo mediainfo-gui libfcgi-perl > /dev/null 2>&1
 sudo apt-get -yqqf install libtool libwandio-dev python-libtorrent zlib1g zlib1g-dev > /dev/null 2>&1
 sudo apt-get -yqqf install rar unrar zip unzip curl mc nano php php-curl php-cli tmux sox ffmpeg > /dev/null 2>&1

@@ -17,8 +17,8 @@ fi
 ##  Install xmlrpc-c  ##
 ########################
 echo 'Installing xmlrpc-c'
-mkdir -p /home/$user/$dirxmlrpcc
-cd /home/$user/rtexe/temp/xmlrpc-c
+mkdir -p "$HOME"/$dirxmlrpcc
+cd "$HOME"/rtexe/temp/xmlrpc-c
 sudo apt-get -yqq install subversion > /dev/null
 svn checkout $xmlrpcc_dl xmlrpc-c > /dev/null
 cd xmlrpc-c
@@ -32,8 +32,8 @@ cd ../..
 ##  Install libtorrent  ##
 ##########################
 echo 'Installing libtorrent'
-mkdir -p /home/$user/$dirlibtorrent
-cd /home/$user/rtexe/temp/libtorrent
+mkdir -p "$HOME"/$dirlibtorrent
+cd "$HOME"/rtexe/temp/libtorrent
 curl -sL $libtorrent_dl -o libtorrent.tar.gz > /dev/null
 tar -zxvf libtorrent.tar.gz > /dev/null
 rm libtorrent.tar.gz
@@ -49,8 +49,8 @@ cd ../..
 ##  Install rTorrent  ##
 ########################
 echo 'Installing rTorrent'
-mkdir -p /home/$user/$dirrTorrent
-cd /home/$user/rtexe/temp/rTorrent
+mkdir -p "$HOME"/$dirrTorrent
+cd "$HOME"/rtexe/temp/rTorrent
 curl -sL $rTorrent_dl -o rtorrent.tar.gz > /dev/null
 tar -zxvf rtorrent.tar.gz > /dev/null
 rm rtorrent.tar.gz
@@ -60,24 +60,23 @@ cd rtorrent-0.9.8
 make > /dev/null 2>&1
 make install > /dev/null 2>&1
 
-cd /home/$user
+cd $HOME
 
-mkdir -p /home/$user/rtorrent/.session
-mkdir -p /home/$user/rtorrent/download
-mkdir -p /home/$user/rtorrent/watch
+mkdir -p "$HOME"/rtorrent/.session
+mkdir -p "$HOME"/rtorrent/download
+mkdir -p "$HOME"/rtorrent/watch
 
-cp -f $HOME/rtexe/config/rtorrent.rc /home/$user/.rtorrent.rc
-sed -i "s|<HOMEDIRHERE>|${HOME}|g" /home/$user/.rtorrent.rc
-sed -i "s/<USERNAMEHERE>/$user/g" /home/$user/.rtorrent.rc
+cp -f "$HOME"/rtexe/config/rtorrent.rc $HOME/.rtorrent.rc
+sed -i "s|<HOMEDIRHERE>|${HOME}|g" $HOME/.rtorrent.rc
+sed -i "s/<USERNAMEHERE>/$user/g" $HOME/.rtorrent.rc
 
 
 #########################
 ##  Install ruTorrent  ##
 #########################
 echo 'Installing ruTorrent'
-#sudo apt-get -yqq install rtorrent > /dev/null
-mkdir -p /home/$user/$dirruTorrent
-cd /home/$user/rtexe/temp/ruTorrent
+mkdir -p "$HOME"/$dirruTorrent
+cd "$HOME"/rtexe/temp/ruTorrent
 curl -sL $ruTorrent_dl -o ruTorrent-master.tar.gz > /dev/null
 tar -zxvf ruTorrent-master.tar.gz > /dev/null
 rm ruTorrent-master.tar.gz
@@ -105,8 +104,8 @@ cd /var/www/html/rutorrent/conf/users/$user/plugins
 
 echo "<?php" > config.php
 echo >> config.php
-echo "\$homeDirectory = \home\"$user\";" >> config.php
-echo "\$topDirectory = \home\"$user\";" >> config.php
+echo "\$homeDirectory = \"$HOME\";" >> config.php
+echo "\$topDirectory = \"$HOME\";" >> config.php
 echo "\$scgi_port = 5000;" >> config.php
 echo "\$XMLRPCMountPoint = \"/RPC2\";" >> config.php
 echo >> config.php

@@ -160,19 +160,19 @@ fi
 
 # Including user to SUDO group of users
 if groups $user | grep -q -E ' sudo(\s|$)'; then
-  echo "$user already has sudo privileges"
+  echo "${PURPLE}$user${NORMAL} already has sudo privileges"
 else
   adduser $user sudo
   echo
-  echo "$user added to the sudo group of users"
+  echo "${PURPLE}$user${NORMAL} added to the sudo group of users"
   echo "${RED}WARNING:  With great power comes great responsibility${NORMAL}"
 fi
 sleep 5
 
 # Final warning to the user user
 echo
-echo "OK, Lets get started - This is your last change to change your mind."
-echo "Are you happy to proceed? [y,n]"
+echo "${BOLD}OK, Lets get started - This is your last change to change your mind.${NORMAL}"
+echo "${BOLD}Are you happy to proceed? [y,n]${NORMAL}"
 read val
 
 # did we get an input value?
@@ -187,11 +187,11 @@ elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 	clear
 	echo -n "Please pick your Operating System version: "
 	echo
-		echo "$bb_1804"
-		echo "$ff_2004"
-		echo "$hh_2104"
-		echo "$ii_2110"
-		echo "$osnot_listed"
+		echo "${GREEN}$bb_1804${NORMAL}"
+		echo "${LBLUE}$ff_2004${NORMAL}"
+		echo "${PURPLE}$hh_2104${NORMAL}"
+		echo "${YELLOW}$ii_2110${NORMAL}"
+		echo "${BOLD}$osnot_listed${NORMAL}"
 		echo
 	read OSVERSION
 	clear
