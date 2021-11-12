@@ -84,14 +84,11 @@ sudo systemctl restart -qq vsftpd
 ###############################
 ##  Installing Dependencies  ##
 ###############################
-echo 'Installing Dependencies List 1'
-sudo apt-get -yqqf install openssl git apache2-utils build-essential libsigc++-2.0-dev libcurl4-openssl-dev automake ffmpeg cmake mediainfo wget git > /dev/null 2>&1
-echo 'Installing Dependencies List 2'
-sudo apt-get -yqqf install libcppunit-dev libncurses5-dev curl tmux unzip libssl-dev autoconf ca-certificates mediainfo-gui libfcgi-perl > /dev/null 2>&1
-echo 'Installing Dependencies List 3'
-sudo apt-get -yqqf install unrar libtool libwandio-dev python-libtorrent zlib1g zlib1g-dev > /dev/null 2>&1
-echo
-
+echo 'Installing Dependencies List - Please be patient at this part!'
+sudo apt-get -yqqf install build-essential libsigc++-2.0-dev libcurl4-openssl-dev automake cmake wget git > /dev/null 2>&1
+sudo apt-get -yqqf install libcppunit-dev libncurses5-dev libssl-dev autoconf ca-certificates mediainfo-gui libfcgi-perl > /dev/null 2>&1
+sudo apt-get -yqqf install libtool libwandio-dev python-libtorrent zlib1g zlib1g-dev > /dev/null 2>&1
+sudo apt-get -yqqf install openssl git apache2-utils rar unrar zip unzip curl mc nano php php-curl php-cli libapache2-mod-php tmux mediainfo sox ffmpeg > /dev/null 2>&1
 
 ##############################################
 ##  Required Pacakge Installation Complete  ##
