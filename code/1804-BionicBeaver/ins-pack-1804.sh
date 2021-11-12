@@ -49,7 +49,7 @@ fi
 chown www-data:www-data $passfile
 chmod 640 $passfile
 
-read -n 1 -r -s -p $'Press enter to continue...\n'
+# read -n 1 -r -s -p $'Press enter to continue...\n'
 
 
 ########################
