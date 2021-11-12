@@ -118,22 +118,22 @@ echo
 echo  "Checking $OS mirrors"
 for i in $(cat /etc/apt/sources.list | grep "^deb http" | cut -d' ' -f2 | uniq ); do
   echo -n $i": "
-  up_or_down $i && echo "OK" || { echo "FAIL"; os_prereq=1; }
+  up_or_down $i && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; os_prereq=1; }
 done
 
 echo
 echo "Checking major 3rd party components"
-echo -n "Rtorrent: "; up_or_down $rt_url && echo "OK" || { echo "FAIL"; prereq=1; }
+echo -n "Rtorrent: "; up_or_down $rt_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
 
-echo -n "xmlrpc-c: "; up_or_down $xmlrpc_url && echo "OK" ||  xmlrpc_prereq=1
+echo -n "xmlrpc-c: "; up_or_down $xmlrpc_url && echo "${GREEN}[  OK  ]${NORMAL}" ||  xmlrpc_prereq=1
 
 if [[ $xmlrpc_prereq = 1 ]]; then
   xmlrpc_url=$xmlrpc_url_alt
-  up_or_down $xmlrpc_url && echo "OK" || { echo "FAIL"; prereq=1; }
+  up_or_down $xmlrpc_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
 fi
 
-echo -n "RuTorrent: ";up_or_down $ru_url && echo "OK" || { echo "FAIL"; prereq=1; }
-echo -n "Autodl-irssi: "; up_or_down $adl_url && echo "OK" || { echo "FAIL"; prereq=1; }
+echo -n "RuTorrent: ";up_or_down $ru_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
+echo -n "Autodl-irssi: "; up_or_down $adl_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
 
 if [ $os_prereq = 1 ]; then
   echo "Some of the $OS mirrors are down, try again later"
@@ -165,7 +165,7 @@ else
   adduser $user sudo
   echo
   echo "$user added to the sudo group of users"
-  echo "WARNING:  With great power comes great responsibility"
+  echo "${RED}WARNING:  With great power comes great responsibility${NORMAL}"
 fi
 sleep 5
 
