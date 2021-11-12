@@ -62,7 +62,7 @@ cd rtorrent-0.9.8
 make > /dev/null 2>&1
 make install > /dev/null 2>&1
 
-cd $home
+cd $HOME
 
 mkdir -p rtorrent/.session
 mkdir -p rtorrent/download
