@@ -57,6 +57,19 @@ cd $HOME/rtexe
 #---------------------------------------------------------------------------------------------------------#
 
 
+###################
+##  FINAL TASKS  ##
+###################
+#echo "Setting permissions, Starting services, Finishing Up..."
+#chown -R www-data:www-data /var/www/html
+#chown -R $user:$user $HOME
+#
+#su $user -c '/etc/init.d/rtorrent-init restart'
+#su $user -c '/etc/init.d/rtorrent-init -i restart'
+#sudo service rtorrent-init restart
+#---------------------------------------------------------------------------------------------------------#
+
+
 ##############################################
 ##  Required Pacakge Installation Complete  ##
 ##############################################

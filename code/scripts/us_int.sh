@@ -198,6 +198,7 @@ elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 		source $intermess
 		source $bb_pack_1804
 		source $bb_func_1804
+		cd $HOME/rtexe
 		#source $bb_comp_1804
 		echo
 		echo "DONE!"

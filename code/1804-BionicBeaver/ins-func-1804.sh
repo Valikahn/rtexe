@@ -59,16 +59,3 @@ cd ../..
 #sudo apt-get -y update
 #sudo apt-get -y install webmin
 #---------------------------------------------------------------------------------------------------------#
-
-
-#################
-## FINAL TASKS ##
-#################
-#echo "Setting permissions, Starting services"
-#chown -R www-data:www-data /var/www
-#chown -R $user:$user $home
-#
-#su $user -c '/etc/init.d/rtorrent-init restart'
-#su $user -c '/etc/init.d/rtorrent-init -i restart'
-#sudo service rtorrent-init restart
-#---------------------------------------------------------------------------------------------------------#

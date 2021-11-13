@@ -16,11 +16,12 @@ fi
 ####################################
 ##  Updating Packages and Builds  ##
 ####################################
-echo 'Updating Packages and Builds'
+echo -n "Updating Packages and Builds"
 sudo apt-get -yqq update > /dev/null
 sudo apt-get -yqq upgrade > /dev/null
 sudo dpkg --configure -a > /dev/null
 sudo apt-get -yqq dist-upgrade > /dev/null
+echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #---------------------------------------------------------------------------------------------------------#
 
 
