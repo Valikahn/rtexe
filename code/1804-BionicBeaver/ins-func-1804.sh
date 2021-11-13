@@ -66,21 +66,26 @@ ldconfig > /dev/null 2>&1
 
 cd $HOME
 
-sudo mkdir -p /var/www/source
-sudo mkdir -p /var/www/source/files
-sudo mkdir -p /var/www/source/watch
-sudo mkdir -p /var/www/source/.session
+mkdir -p /var/www/source
+mkdir -p /var/www/source/files
+mkdir -p /var/www/source/watch
+mkdir -p /var/www/source/.session
 
-sudo chown -R www-data:www-data /var/www/source
-sudo chmod 775 -R /var/www/source
+chown -R www-data:www-data /var/www/source
+chmod 775 -R /var/www/source
 
-sudo chown $user:$user -R /var/www/source
-sudo chown $user:$user -R /var/www/source/files
-sudo chown $user:$user -R /var/www/source/watch
-sudo chown $user:$user -R /var/www/source/.session
+chown $user:$user -R /var/www/source
+chown $user:$user -R /var/www/source/files
+chown $user:$user -R /var/www/source/watch
+chown $user:$user -R /var/www/source/.session
 
-sudo cp -f $HOME/rtexe/config/rtorrent.rc $HOME/.rtorrent.rc
-sudo chown $user:$user "$HOME"/.rtorrent.rc
+cp -f $HOME/rtexe/config/rtorrent.rc $HOME/.rtorrent.rc
+chown $user:$user "$HOME"/.rtorrent.rc
+
+cp -f $HOME/rtexe/config/rtorrent.service /etc/systemd/system/rtorrent.service
+sed -i "s/USERNAMEHERE/$user/g" /etc/systemd/system/rtorrent.service
+systemctl enable rtorrent.service
+systemctl start rtorrent
 
 
 ########################

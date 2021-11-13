@@ -9,7 +9,7 @@
 echo 'Installing rTorrent'
 mkdir -p "$HOME"/$dirrTorrent
 cd "$HOME"/rtexe/temp/rTorrent
-sudo apt-get -yqqf install rtorrent libtorrent19 libxmlrpc-core-c3 > /dev/null 2>&1
+sudo apt-get -yqqf install rtorrent libtorrent19 libxmlrpc-core-c3
 curl -sL $rTorrent_dl -o rtorrent.tar.gz > /dev/null
 tar -zxvf rtorrent.tar.gz > /dev/null
 rm rtorrent.tar.gz
@@ -37,6 +37,11 @@ sudo chown $user:$user -R /var/www/source/.session
 
 sudo cp -f $HOME/rtexe/config/rtorrent.rc $HOME/.rtorrent.rc
 sudo chown $user:$user "$HOME"/.rtorrent.rc
+
+sudo cp -f $HOME/rtexe/config/rtorrent.service /etc/systemd/system/rtorrent.service
+sudo sed -i "s/USERNAMEHERE/$user/g" /etc/systemd/system/rtorrent.service
+sudo systemctl enable rtorrent.service
+sudo systemctl start rtorrent
 
 ##  NEW BELOW THIS LINE  ##
 #sed -i "s@HOMEDIRHERE@$HOME@g" $HOME/.rtorrent.rc

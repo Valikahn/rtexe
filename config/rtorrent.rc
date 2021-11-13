@@ -3,6 +3,7 @@
 # min_peers = 25
 max_peers = 100
 / var / www / source /
+
 # Same as above but for seeding completed torrents(-1 = same as downloading)
 min_peers_seed = -1
 max_peers_seed = -1
