@@ -1,4 +1,5 @@
 #!/bin/bash
+sleep 3
 export logfile="/dev/null"
 homedir=$(cat /etc/passwd | grep "$user": | cut -d: -f6)
 HOME=$(eval echo "~$user")
@@ -29,8 +30,8 @@ fi
 
 
 # Version Control
-SCRIPTVERSION="v1.1.6-Seth"
-REVDATE="12 November 2021"
+SCRIPTVERSION="v1.2.0-Seth"
+REVDATE="13 November 2021"
 GITHUB="https://github.com/Valikahn/rtexe"
 #---------------------------------------------------------------------------------------------------------#
 
@@ -75,6 +76,16 @@ func='code/scripts/func.sh'
 us_int='code/scripts/us_int.sh'
 bb_pack_1804='code/1804-BionicBeaver/ins-pack-1804.sh'
 bb_func_1804='code/1804-BionicBeaver/ins-func-1804.sh'
+bb_comp_1804='code/1804-BionicBeaver/ins-comp-1804.sh'
+ff_pack_2004='code/2004-FocalFossa/ins-pack-2004.sh'
+ff_func_2004='code/2004-FocalFossa/ins-func-2004.sh'
+ff_comp_2004='code/2004-FocalFossa/ins-comp-2004.sh'
+hh_pack_2104='code/2104-HirsuteHippo/ins-pack-2104.sh'
+hh_func_2104='code/2104-HirsuteHippo/ins-func-2104.sh'
+hh_comp_2104='code/2104-HirsuteHippo/ins-comp-2104.sh'
+ii_pack_2110='code/2110-ImpishIndri/ins-pack-2110.sh'
+ii_func_2110='code/2110-ImpishIndri/ins-func-2110.sh'
+ii_comp_2110='code/2110-ImpishIndri/ins-comp-2110.sh'
 #---------------------------------------------------------------------------------------------------------#
 
 # Switch Case Variables
@@ -86,6 +97,11 @@ discl='code/notices/disclaimer.sh'
 vsftpd_conf='config/vsftpd.conf'
 apache2_conf='config/apache2.conf'
 rt_rc='rtexe/config/rtorrent.rc'
+#---------------------------------------------------------------------------------------------------------#
+
+# Comp Variables
+ixhtml='index.html'
+phpinfo='phpinfo.php'
 #---------------------------------------------------------------------------------------------------------#
 
 # Check/Download URL's Variables

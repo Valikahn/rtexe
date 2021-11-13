@@ -43,6 +43,35 @@ fi
 
 chown www-data:www-data $passfile
 chmod 640 $passfile
+
+cd /var/www/html/
+echo "<?php phpinfo(); ?>" > phpinfo.php
+rm index.html
+
+echo "<html>" >> index.html
+echo "<head>" >> index.html
+echo "<title>Welcome to rtexe</title>" >> index.html
+echo "<style>" >> index.html
+echo "    body {" >> index.html
+echo "        width: 35em;" >> index.html
+echo "        margin: 0 auto;" >> index.html
+echo "        font-family: Tahoma, Verdana, Arial, sans-serif;" >> index.html
+echo "    }" >> index.html
+echo "</style>" >> index.html
+echo "</head>" >> index.html
+echo "<body>" >> index.html
+echo "<h1>Welcome to rtexe</h1>" >> index.html
+echo "<p>If you see this page, the web server is successfully installed and" >> index.html
+echo "working. Further configuration may be required.</p>" >> index.html
+echo " " >> index.html
+echo "<p>For online documentation and support please refer to" >> index.html
+echo "<a href="https://github.com/Valikahn/rtexe">GitHub</a>.<br/>" >> index.html
+echo " " >> index.html
+echo "<p><em>Thank you for using rtexe.</em></p>" >> index.html
+echo "</body>" >> index.html
+echo "</html>" >> index.html
+
+cd $HOME/rtexe
 #---------------------------------------------------------------------------------------------------------#
 
 

@@ -1,4 +1,5 @@
 #!/bin/bash
+sleep 3
 clear
 source code/scripts/variables.sh
 source $discl

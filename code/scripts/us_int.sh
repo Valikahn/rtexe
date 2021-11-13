@@ -1,10 +1,11 @@
 #!/bin/bash
+sleep 3
 
 ##########################
 ###  USER INTERACTION  ###
 ##########################
 
-# set and prepare user
+# Set and prepare user
 if [ -z "$user" ]; then
   if [ "$SUDO_USER" = "root" ] || [ -z "$SUDO_USER" ]; then
     echo "Please enter the name of the user account you would like to use."
@@ -67,8 +68,9 @@ else
   fi
 
 fi
+#---------------------------------------------------------------------------------------------------------#
 
-# set password for rutorrent
+# Set password for rutorrent
 ###
 if [ -z "$webpass" ] && [ $forceyes = 0 ]; then
   if [ -z $(grep -s $user $passfile) ]; then
@@ -109,9 +111,9 @@ for rut_user in $rut_user_list; do
     rut_user_list=$(echo $rut_user_list | sed "s/$rut_user//g")
   fi
 done
+#---------------------------------------------------------------------------------------------------------#
 
-
-# check required web repos are accessible
+# Check required web repos are accessible
 sed  -i "s/\/debian\s/\/debian\/ /g" /etc/apt/sources.list
 
 echo
@@ -123,15 +125,9 @@ done
 
 echo
 echo "Checking major 3rd party components"
+sleep 3
 echo -n "Rtorrent: "; up_or_down $rt_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
-
-echo -n "xmlrpc-c: "; up_or_down $xmlrpc_url && echo "${GREEN}[  OK  ]${NORMAL}" ||  xmlrpc_prereq=1
-
-if [[ $xmlrpc_prereq = 1 ]]; then
-  xmlrpc_url=$xmlrpc_url_alt
-  up_or_down $xmlrpc_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
-fi
-
+echo -n "xmlrpc-c: ";up_or_down $xmlrpc_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
 echo -n "RuTorrent: ";up_or_down $ru_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
 echo -n "Autodl-irssi: "; up_or_down $adl_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
 
@@ -145,6 +141,7 @@ if [ $prereq = 1 ]; then
   echo "We will continue for now, but may not be able to finish or this will finish with errors."
 fi
 echo
+#---------------------------------------------------------------------------------------------------------#
 
 # Determine domain name using server ip address
 export reverse=$(perl -MSocket -le "print((gethostbyaddr(inet_aton('$serverip'), AF_INET))[0])")
@@ -157,6 +154,7 @@ else
   echo "You IP Address is:  $ip"
   echo
 fi
+#---------------------------------------------------------------------------------------------------------#
 
 # Including user to SUDO group of users
 if groups $user | grep -q -E ' sudo(\s|$)'; then
@@ -168,6 +166,7 @@ else
   echo "${RED}WARNING:  With great power comes great responsibility${NORMAL}"
 fi
 sleep 5
+#---------------------------------------------------------------------------------------------------------#
 
 # Final warning to the user user
 echo
@@ -175,13 +174,11 @@ echo "${BOLD}OK, Lets get started - This is your last change to change your mind
 echo "${BOLD}Are you happy to proceed? [y,n]${NORMAL}"
 read val
 
-# did we get an input value?
 if [ "$val" == "" ]; then
 	clear
 	echo "Invalid entry by user...Terminating program..."
 	sleep 5
 	
-# was it a y or a yes?
 elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 
 	clear
@@ -202,33 +199,46 @@ elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 		source $intermess
 		source $bb_pack_1804
 		source $bb_func_1804
+		source $bb_comp_1804
 		echo
 		;;
 
 	  2)
 		echo -n "You have chosen your Operating System version as Ubuntu 20.04 (Focal Fossa)"
-		echo
+		source $intermess
+		source $ff_pack_2004
+		source $ff_func_2004
+		source $ff_comp_2004
 		;;
 
 	  3)
 		echo -n "You have chosen your Operating System version as Ubuntu 21.04 (Hirsute Hippo)"
-		echo
+		source $intermess
+		source $hh_pack_2104
+		source $hh_func_2104
+		source $hh_comp_2104
 		;;
 		
 	  4)
 		echo -n "You have chosen your Operating System version as Ubuntu 21.10 (Impish Indri)"
-		echo
+		source $intermess
+		source $ii_pack_2110
+		source $ii_func_2110
+		source $ii_comp_2110
 		;;
 
 	  5)
 		echo -n "Operating System Version Not Listed"
 		echo
+		exit 1
 		;;
 		
 	  *)
 		echo -n "Unknown Operating System"
 		echo
+		exit 1
 		;;
 	esac
 	
 fi
+#---------------------------------------------------------------------------------------------------------#
