@@ -89,14 +89,14 @@ sudo systemctl restart -qq vsftpd
 echo 'Installing Dependencies'
 sudo apt-get -yqqf install aptitude > /dev/null 2>&1
 
-for package_name in $package_list
+for $dependency_name in dependencies
   do
-    if [ $(apt-cache show -q=0 $dependencies 2>&1 | grep -c "No packages found") -eq 0 ]; then
-      if [ $(dpkg-query -W -f='${Status}' $dependencies 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
-        dependencies_list="$dependencies_list $dependencies"
+    if [ $(apt-cache show -q=0 $dependency_name 2>&1 | grep -c "No packages found") -eq 0 ]; then
+      if [ $(dpkg-query -W -f='${Status}' $dependency_name 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
+        dependencies_list="$dependencies_list $dependency_name"
       fi
     else
-      echo $dependencies" not found, skipping"
+      echo $dependency_name" not found, skipping"
     fi
   done
 
