@@ -53,35 +53,18 @@ cd ../..
 echo 'Installing rTorrent'
 mkdir -p "$HOME"/$dirrTorrent
 cd "$HOME"/rtexe/temp/rTorrent
+sudo apt-get -yqqf install rtorrent libtorrent19 libxmlrpc-core-c3
 curl -sL $rTorrent_dl -o rtorrent.tar.gz > /dev/null
 tar -zxvf rtorrent.tar.gz > /dev/null
 rm rtorrent.tar.gz
 cd rtorrent-0.9.8
-echo 'autogen'
 ./autogen.sh > /dev/null 2>&1
-echo 'configure'
-./configure --prefix=/usr --with-xmlrpc-c --enable-ipv6 > /dev/null 2>&1
-echo 'make -j'
-make -j > /dev/null 2>&1
-echo 'make -s'
-make -s install > /dev/null 2>&1
-echo 'ldconfig'
+./configure --with-xmlrpc-c > /dev/null 2>&1
+make > /dev/null 2>&1
+make install > /dev/null 2>&1
 ldconfig > /dev/null 2>&1
 
 cd $HOME
-
-echo 'Restart soon'
-if [ -d /var/www/html/rutorrent/conf/users ]; then
-  cd /var/www/rutorrent/conf/users
-  user_list=*
-  for user in $user_list; do
-    if [ ! "$user" = '*' ]; then
-      echo "Restarting rtorrent for $user"
-	  screen -d -m -S $SERVICE $SERVICE
-    fi
-  done
-  echo
-fi
 
 
 ########################

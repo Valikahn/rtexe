@@ -30,7 +30,7 @@ fi
 
 
 # Version Control
-SCRIPTVERSION="v1.13.5-Seth"
+SCRIPTVERSION="v1.13.6-Seth"
 REVDATE="13 November 2021"
 GITHUB="https://github.com/Valikahn/rtexe"
 #---------------------------------------------------------------------------------------------------------#
@@ -89,7 +89,7 @@ bb_comp_1804='code/1804-BionicBeaver/ins-comp-1804.sh'
 #ii_comp_2110='code/2110-ImpishIndri/ins-comp-2110.sh'
 #---------------------------------------------------------------------------------------------------------#
 
-# Switch Case Variables
+# Message Variables
 intermess='code/notices/intermess.sh'
 discl='code/notices/disclaimer.sh'
 #---------------------------------------------------------------------------------------------------------#
@@ -98,6 +98,11 @@ discl='code/notices/disclaimer.sh'
 vsftpd_conf='config/vsftpd.conf'
 apache2_conf='config/apache2.conf'
 rt_rc='rtexe/config/rtorrent.rc'
+#---------------------------------------------------------------------------------------------------------#
+
+# Function Variables
+SERVICE='rtorrent'
+FILE="$HOME/rtorrent/.session/rtorrent.lock"
 #---------------------------------------------------------------------------------------------------------#
 
 # Comp Variables
