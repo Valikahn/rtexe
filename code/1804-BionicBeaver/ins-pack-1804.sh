@@ -87,10 +87,23 @@ sudo systemctl restart -qq vsftpd
 ##  Installing Dependencies  ##
 ###############################
 echo 'Installing Dependencies'
-sudo apt-get -yqqf install aptitude build-essential libsigc++-2.0-dev libcurl4-openssl-dev automake cmake wget > /dev/null 2>&1
-sudo apt-get -yqqf install libcppunit-dev libncurses5-dev libssl-dev autoconf mediainfo mediainfo-gui libfcgi-perl > /dev/null 2>&1
-sudo apt-get -yqqf install libtool libwandio-dev python-libtorrent zlib1g zlib1g-dev > /dev/null 2>&1
-sudo apt-get -yqqf install rar unrar zip unzip curl mc nano php php-curl php-cli tmux sox ffmpeg sed > /dev/null 2>&1
+sudo apt-get -yqqf install aptitude > /dev/null 2>&1
+
+for package_name in $package_list
+  do
+    if [ $(apt-cache show -q=0 $dependencies 2>&1 | grep -c "No packages found") -eq 0 ]; then
+      if [ $(dpkg-query -W -f='${Status}' $dependencies 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
+        dependencies_list="$dependencies_list $dependencies"
+      fi
+    else
+      echo $dependencies" not found, skipping"
+    fi
+  done
+
+#sudo apt-get -yqqf install aptitude build-essential libsigc++-2.0-dev libcurl4-openssl-dev automake cmake wget > /dev/null 2>&1
+#sudo apt-get -yqqf install libcppunit-dev libncurses5-dev libssl-dev autoconf mediainfo mediainfo-gui libfcgi-perl > /dev/null 2>&1
+#sudo apt-get -yqqf install libtool libwandio-dev python-libtorrent zlib1g zlib1g-dev > /dev/null 2>&1
+#sudo apt-get -yqqf install rar unrar zip unzip curl mc nano php php-curl php-cli tmux sox ffmpeg sed > /dev/null 2>&1
 #---------------------------------------------------------------------------------------------------------#
 
 

@@ -125,7 +125,6 @@ done
 
 echo
 echo "Checking major 3rd party components"
-sleep 3
 echo -n "Rtorrent: "; up_or_down $rt_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
 echo -n "xmlrpc-c: ";up_or_down $xmlrpc_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
 echo -n "RuTorrent: ";up_or_down $ru_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
@@ -201,6 +200,7 @@ elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 		source $bb_func_1804
 		source $bb_comp_1804
 		echo
+		echo "DONE!"
 		;;
 
 	  2)
