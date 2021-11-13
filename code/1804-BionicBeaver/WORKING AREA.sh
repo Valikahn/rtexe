@@ -2,12 +2,14 @@
 ############################  BELOW THIS LINE THERE ARE ERRORS WITH SOMETHING #############################
 ###########################################################################################################
 
+
 ########################
 ##  Install rTorrent  ##
 ########################
 echo 'Installing rTorrent'
 mkdir -p "$HOME"/$dirrTorrent
 cd "$HOME"/rtexe/temp/rTorrent
+sudo apt-get -yqqf install rtorrent libtorrent19 libxmlrpc-core-c3 > /dev/null 2>&1
 curl -sL $rTorrent_dl -o rtorrent.tar.gz > /dev/null
 tar -zxvf rtorrent.tar.gz > /dev/null
 rm rtorrent.tar.gz
@@ -16,24 +18,28 @@ cd rtorrent-0.9.8
 ./configure --with-xmlrpc-c > /dev/null 2>&1
 make > /dev/null 2>&1
 make install > /dev/null 2>&1
+ldconfig > /dev/null 2>&1
 
 cd $HOME
 
-#mkdir -p "$HOME"/rtorrent/.session
-#chown -R $user:$user $HOME/rtorrent/.session
-#sudo chown -R valikahn:valikahn $HOME/rtorrent/.session
+sudo mkdir -p /var/www/source
+sudo mkdir -p /var/www/source/files
+sudo mkdir -p /var/www/source/watch
+sudo mkdir -p /var/www/source/.session
 
-mkdir -p "$HOME"/rtorrent/rtorrent.session
-chown -R $user:$user $HOME/rtorrent/rtorrent.session
-mkdir -p "$HOME"/rtorrent/download
-chown -R $user:$user $HOME/rtorrent/download
-mkdir -p "$HOME"/rtorrent/watch
-chown -R $user:$user $HOME/rtorrent/watch
+sudo chown -R www-data:www-data /var/www/source
+sudo chmod 775 -R /var/www/source
+
+sudo chown $user:$user -R /var/www/source
+sudo chown $user:$user -R /var/www/source/files
+sudo chown $user:$user -R /var/www/source/watch
+sudo chown $user:$user -R /var/www/source/.session
+
+sudo cp -f $HOME/rtexe/config/rtorrent.rc $HOME/.rtorrent.rc
+sudo chown $user:$user "$HOME"/.rtorrent.rc
 
 ##  NEW BELOW THIS LINE  ##
-cp -f $homedir/rtexe/config/rtorrent.rc $homedir/.rtorrent.rc
-chown "$user"."$user" $homedir/.rtorrent.rc
-sed -i "s@HOMEDIRHERE@$homedir@g" $homedir/.rtorrent.rc
+#sed -i "s@HOMEDIRHERE@$HOME@g" $HOME/.rtorrent.rc
 #---------------------------------------------------------------------------------------------------------#
 
 

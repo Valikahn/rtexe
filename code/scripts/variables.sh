@@ -1,7 +1,7 @@
 #!/bin/bash
 sleep 3
 export logfile="/dev/null"
-homedir=$(cat /etc/passwd | grep "$user": | cut -d: -f6)
+#homedir=$(cat /etc/passwd | grep "$user": | cut -d: -f6)
 HOME=$(eval echo "~$user")
 export logfile="/dev/null"
 
