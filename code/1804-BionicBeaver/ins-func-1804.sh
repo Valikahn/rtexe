@@ -1,7 +1,6 @@
 #!/bin/bash
 sleep 3
 
-
 ################################
 ##  Checking if user is root  ##
 ################################
@@ -11,6 +10,7 @@ if [ "$(id -u)" != "0" ]; then
 	echo
 	exit 1
 fi
+#---------------------------------------------------------------------------------------------------------#
 
 
 ########################
@@ -26,6 +26,7 @@ cd xmlrpc-c
 make > /dev/null 2>&1
 make install > /dev/null 2>&1
 cd ../..
+#---------------------------------------------------------------------------------------------------------#
 
 
 ##########################
@@ -43,6 +44,7 @@ cd libtorrent-0.13.8
 make > /dev/null 2>&1
 make install > /dev/null 2>&1
 cd ../..
+#---------------------------------------------------------------------------------------------------------#
 
 
 ########################
@@ -69,6 +71,7 @@ mkdir -p "$HOME"/rtorrent/watch
 cp -f "$HOME"/rtexe/config/rtorrent.rc $HOME/.rtorrent.rc
 sed -i "s|<HOMEDIRHERE>|${HOME}|g" $HOME/.rtorrent.rc
 sed -i "s/<USERNAMEHERE>/$user/g" $HOME/.rtorrent.rc
+#---------------------------------------------------------------------------------------------------------#
 
 
 #########################
@@ -97,11 +100,13 @@ systemctl reload apache2
 echo 'Configuring ruTorrent'
 cd
 
+echo '1'
 rm /var/www/html/rutorrent/conf/config.php
 cp -f $HOME/rtexe/config/ruTorrent.config /var/www/html/rutorrent/conf/config.php
 mkdir -p /var/www/html/rutorrent/conf/users/$user/plugins
 cd /var/www/html/rutorrent/conf/users/$user/plugins
 
+echo '2'
 echo "<?php" > config.php
 echo >> config.php
 echo "\$homeDirectory = \"$HOME\";" >> config.php
@@ -112,17 +117,22 @@ echo >> config.php
 echo "?>" >> config.php
 cd ../../..
 
+echo '3'
 sudo mv plugins.ini plugins.ini.orig
 sudo cp -f $HOME/rtexe/config/ruTorrent.ini /var/www/html/rutorrent/conf/plugins.ini
 sudo cp -f $HOME/rtexe/config/rtorrent-init /etc/init.d/rtorrent-init
 
+echo '4'
 chmod +x /etc/init.d/rtorrent-init
 sed -i "s/<USERNAMEHERE>/$user/g" /etc/init.d/rtorrent-init
 update-rc.d rtorrent-init defaults
 service apache2 restart
 
+echo '5'
 sudo service apache2 restart
 sudo /etc/init.d/rtorrent-init start
+#---------------------------------------------------------------------------------------------------------#
+
 
 ########################
 ## Installing Webmin  ##
@@ -137,6 +147,7 @@ sudo /etc/init.d/rtorrent-init start
 #wget -q -O- http://www.webmin.com/jcameron-key.asc | sudo apt-key add
 #sudo apt-get -y update
 #sudo apt-get -y install webmin
+#---------------------------------------------------------------------------------------------------------#
 
 
 #################
@@ -149,3 +160,4 @@ sudo /etc/init.d/rtorrent-init start
 #su $user -c '/etc/init.d/rtorrent-init restart'
 #su $user -c '/etc/init.d/rtorrent-init -i restart'
 #sudo service rtorrent-init restart
+#---------------------------------------------------------------------------------------------------------#

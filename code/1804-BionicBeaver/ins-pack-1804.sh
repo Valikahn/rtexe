@@ -10,6 +10,7 @@ if [ "$(id -u)" != "0" ]; then
 	echo
 	exit 1
 fi
+#---------------------------------------------------------------------------------------------------------#
 
 
 ####################################
@@ -20,6 +21,7 @@ sudo apt-get -yqq update > /dev/null
 sudo apt-get -yqq upgrade > /dev/null
 sudo dpkg --configure -a > /dev/null
 sudo apt-get -yqq dist-upgrade > /dev/null
+#---------------------------------------------------------------------------------------------------------#
 
 
 ##################################
@@ -42,7 +44,35 @@ fi
 chown www-data:www-data $passfile
 chmod 640 $passfile
 
-# read -n 1 -r -s -p $'Press enter to continue...\n'
+cd /var/www/html/
+echo "<?php phpinfo(); ?>" > phpinfo.php
+rm index.html
+
+echo "<html>" >> index.html
+echo "<head>" >> index.html
+echo "<title>Welcome to rtexe</title>" >> index.html
+echo "<style>" >> index.html
+echo "    body {" >> index.html
+echo "        width: 35em;" >> index.html
+echo "        margin: 0 auto;" >> index.html
+echo "        font-family: Tahoma, Verdana, Arial, sans-serif;" >> index.html
+echo "    }" >> index.html
+echo "</style>" >> index.html
+echo "</head>" >> index.html
+echo "<body>" >> index.html
+echo "<h1>Welcome to rtexe</h1>" >> index.html
+echo "<p>If you see this page, the web server is successfully installed and" >> index.html
+echo "working. Further configuration may be required.</p>" >> index.html
+echo " " >> index.html
+echo "<p>For online documentation and support please refer to" >> index.html
+echo "<a href="https://github.com/Valikahn/rtexe">GitHub</a>.<br/>" >> index.html
+echo " " >> index.html
+echo "<p><em>Thank you for using rtexe.</em></p>" >> index.html
+echo "</body>" >> index.html
+echo "</html>" >> index.html
+
+cd $HOME/rtexe
+#---------------------------------------------------------------------------------------------------------#
 
 
 ########################
@@ -66,6 +96,7 @@ sudo chmod 600 /etc/apache2/apache.pem > /dev/null 2>&1
 
 sudo a2ensite default-ssl > /dev/null
 sudo systemctl reload apache2 > /dev/null
+#---------------------------------------------------------------------------------------------------------#
 
 
 #########################
@@ -78,6 +109,7 @@ sudo systemctl enable -qq vsftpd
 sudo mv /etc/vsftpd.conf /etc/vsftpd.conf.orig
 sudo cp $vsftpd_conf /etc/vsftpd.conf
 sudo systemctl restart -qq vsftpd
+#---------------------------------------------------------------------------------------------------------#
 
 
 ###############################
@@ -87,7 +119,8 @@ echo 'Installing Dependencies'
 sudo apt-get -yqqf install aptitude build-essential libsigc++-2.0-dev libcurl4-openssl-dev automake cmake wget > /dev/null 2>&1
 sudo apt-get -yqqf install libcppunit-dev libncurses5-dev libssl-dev autoconf mediainfo mediainfo-gui libfcgi-perl > /dev/null 2>&1
 sudo apt-get -yqqf install libtool libwandio-dev python-libtorrent zlib1g zlib1g-dev > /dev/null 2>&1
-sudo apt-get -yqqf install rar unrar zip unzip curl mc nano php php-curl php-cli tmux sox ffmpeg > /dev/null 2>&1
+sudo apt-get -yqqf install rar unrar zip unzip curl mc nano php php-curl php-cli tmux sox ffmpeg sed > /dev/null 2>&1
+#---------------------------------------------------------------------------------------------------------#
 
 
 ##############################################
@@ -96,3 +129,4 @@ sudo apt-get -yqqf install rar unrar zip unzip curl mc nano php php-curl php-cli
 echo
 echo "Required package installation is now complete...  Moving on to Functional Programs"
 echo
+#---------------------------------------------------------------------------------------------------------#
