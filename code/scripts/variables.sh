@@ -98,8 +98,6 @@ discl='code/notices/disclaimer.sh'
 vsftpd_conf='config/vsftpd.conf'
 apache2_conf='config/apache2.conf'
 rt_rc='rtexe/config/rtorrent.rc'
-dependencies="sudo nano build-essential libsigc++-2.0-dev libcurl4-openssl-dev automake cmake wget libcppunit-dev libncurses5-dev libssl-dev autoconf mediainfo mediainfo-gui libfcgi-perl libtool libwandio-dev python-libtorrent zlib1g zlib1g-dev rar unrar zip unzip curl mc nano php php-curl php-cli tmux sox ffmpeg sed"
-dependencies_list=""
 #---------------------------------------------------------------------------------------------------------#
 
 # Comp Variables
