@@ -53,7 +53,7 @@ cd ../..
 echo 'Installing rTorrent'
 mkdir -p "$HOME"/$dirrTorrent
 cd "$HOME"/rtexe/temp/rTorrent
-sudo apt-get -yqqf install rtorrent libtorrent19 libxmlrpc-core-c3 > /dev/null 2>&1
+sudo apt-get -yqqf install rtorrent libtorrent19 libxmlrpc-core-c3
 curl -sL $rTorrent_dl -o rtorrent.tar.gz > /dev/null
 tar -zxvf rtorrent.tar.gz > /dev/null
 rm rtorrent.tar.gz
@@ -65,22 +65,6 @@ make install > /dev/null 2>&1
 ldconfig > /dev/null 2>&1
 
 cd $HOME
-
-sudo mkdir -p /var/www/source
-sudo mkdir -p /var/www/source/files
-sudo mkdir -p /var/www/source/watch
-sudo mkdir -p /var/www/source/.session
-
-sudo chown -R www-data:www-data /var/www/source
-sudo chmod 775 -R /var/www/source
-
-sudo chown $user:$user -R /var/www/source
-sudo chown $user:$user -R /var/www/source/files
-sudo chown $user:$user -R /var/www/source/watch
-sudo chown $user:$user -R /var/www/source/.session
-
-sudo cp -f $HOME/rtexe/config/rtorrent.rc $HOME/.rtorrent.rc
-sudo chown $user:$user "$HOME"/.rtorrent.rc
 
 
 ########################
