@@ -137,9 +137,6 @@ cd /var/www/html/rutorrent/conf
 sudo mv plugins.ini plugins.ini.orig
 sudo cp -f $HOME/rtexe/config/ruTorrent.ini /var/www/html/rutorrent/conf/plugins.ini
 
-service apache2 restart
-systemctl reload apache2
-
 echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #---------------------------------------------------------------------------------------------------------#
 

@@ -41,9 +41,10 @@ protocol.pex.set = no
 trackers.use_udp.set = yes
 
 # network.scgi.open_port = localhost:5000
-network.scgi.open_port = 127.0.0.1:5000
+# network.scgi.open_port = 127.0.0.1:5000
 network.http.ssl_verify_peer.set = 0
 protocol.encryption.set = allow_incoming,enable_retry,prefer_plaintext
+scgi_port = 127.0.0.1:5000
 
 network.max_open_files.set = 4096
 network.max_open_sockets.set = 1536

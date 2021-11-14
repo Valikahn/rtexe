@@ -16,7 +16,8 @@ fi
 ####################################
 ##  Housekeeping of var/www/html  ##
 ####################################
-echo -n 'Housekeeping of var/www/html'
+echo -n 'Housekeeping'
+sleep 3
 
 cd /var/www/html/
 
@@ -52,19 +53,6 @@ echo " " >> index.html
 echo "<p><em>Thank you for using rtexe.</em></p>" >> index.html
 echo "</body>" >> index.html
 echo "</html>" >> index.html
-#---------------------------------------------------------------------------------------------------------#
-
-
-###################
-##  FINAL TASKS  ##
-###################
-#echo "Setting permissions, Starting services, Finishing Up..."
-#chown -R www-data:www-data /var/www/html
-#chown -R $user:$user $HOME
-#
-#su $user -c '/etc/init.d/rtorrent-init restart'
-#su $user -c '/etc/init.d/rtorrent-init -i restart'
-#sudo service rtorrent-init restart
 #---------------------------------------------------------------------------------------------------------#
 
 

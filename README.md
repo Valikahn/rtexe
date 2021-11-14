@@ -71,7 +71,7 @@ We actively encourage recommendations, suggestions, ideas, please let us know.
 
 ## Licence | Copyright
 Copyright (C) 2020 - 2021 Valikahn<br />
-Program v1.1.6 - Code Name: Seth<br />
+Program v1.14.6 - Code Name: Seth<br />
 
 Licensed under the GPLv3 License.
 
