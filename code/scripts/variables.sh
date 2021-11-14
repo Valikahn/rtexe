@@ -19,7 +19,7 @@ VERSION=$(awk '/DISTRIB_RELEASE=/' /etc/*-release | sed 's/DISTRIB_RELEASE=//' |
 #---------------------------------------------------------------------------------------------------------#
 
 # Version Control
-SCRIPTVERSION="v1.14.13"
+SCRIPTVERSION="v1.14.13.2"
 REVDATE="14 November 2021"
 GITHUB="https://github.com/Valikahn/rtexe"
 #---------------------------------------------------------------------------------------------------------#

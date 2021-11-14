@@ -118,7 +118,7 @@ done
 sed  -i "s/\/debian\s/\/debian\/ /g" /etc/apt/sources.list
 
 echo
-echo "Operating system detected as $OS $ARCH $VERSION"
+echo "Operating system detected as $OS version $VERSION $ARCH-bit"
 echo
 echo  "Checking $OS mirrors"
 sleep 3
@@ -188,7 +188,7 @@ if [ "$val" == "" ]; then
 elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 
 	clear
-	echo echo "${BOLD}Operating system detected as $OS $ARCH $VERSION${NORMAL}"
+	echo "Operating system detected as $OS version $VERSION $ARCH-bit"
 	echo -n "${BOLD}Please pick your Operating System version: ${NORMAL}"
 	echo
 		echo
