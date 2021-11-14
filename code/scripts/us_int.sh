@@ -199,8 +199,7 @@ elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 		source $intermess
 		source $bb_pack_1804
 		source $bb_func_1804
-		cd $HOME/rtexe
-		#source $bb_comp_1804
+		source $bb_comp_1804
 		echo
 		echo "DONE!"
 		;;
@@ -211,6 +210,8 @@ elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 		source $ff_pack_2004
 		source $ff_func_2004
 		source $ff_comp_2004
+		echo
+		echo "DONE!"
 		;;
 
 	  3)
@@ -219,6 +220,8 @@ elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 		source $hh_pack_2104
 		source $hh_func_2104
 		source $hh_comp_2104
+		echo
+		echo "DONE!"
 		;;
 		
 	  4)
@@ -227,6 +230,8 @@ elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 		source $ii_pack_2110
 		source $ii_func_2110
 		source $ii_comp_2110
+		echo
+		echo "DONE!"
 		;;
 
 	  5)

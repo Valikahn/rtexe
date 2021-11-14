@@ -78,11 +78,20 @@ if [ -d /var/www/html/rutorrent/conf/users ]; then
   echo
 fi
 
+if [ ! -h /etc/apache2/mods-enabled/scgi.load ]; then
+	ln -s /etc/apache2/mods-available/scgi.load /etc/apache2/mods-enabled/scgi.load
+fi
+
 echo -n 'Configuring rTorrent'
 cd $HOME
 mkdir -p rtorrent/.session
+chown -R "$user"."$user" "$HOME"/rtorrent/.session
 mkdir -p rtorrent/download
+chown -R "$user"."$user" "$HOME"/rtorrent/download
 mkdir -p rtorrent/watch
+chown -R "$user"."$user" "$HOME"/rtorrent/watch
+mkdir -p rtorrent/download/unpack
+chown -R "$user"."$user" "$HOME"/rtorrent/download/unpack
 
 cp -f $HOME/rtexe/config/rt.rc $HOME/.rtorrent.rc
 sed -i "s|<user home>|${HOME}|g" $HOME/.rtorrent.rc
@@ -95,7 +104,7 @@ echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #########################
 ##  Install ruTorrent  ##
 #########################
-echo -n 'Installing ruTorrent'
+echo 'Installing ruTorrent'
 mkdir -p "$HOME"/$dirruTorrent
 cd "$HOME"/rtexe/temp/ruTorrent
 curl -sL $ruTorrent_dl -o ruTorrent-master.tar.gz > /dev/null
@@ -138,13 +147,15 @@ echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 ##########################
 ## Setting Permissions  ##
 ##########################
-echo -n 'Setting permissions, Starting services'
+echo 'Setting permissions, Starting services'
 chown -R www-data:www-data /var/www/html
-chown -R $user:$user $home
+chown -R $user:$user $HOME
 
-cd $home
+cd $HOME
 
 echo -n "Starting $SERVICE"
+service apache2 restart
+systemctl reload apache2
 screen -d -m -S $SERVICE $SERVICE
 
 echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
@@ -163,4 +174,11 @@ echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #sudo apt-get -y update
 #sudo apt-get -y install webmin
 #echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
+#---------------------------------------------------------------------------------------------------------#
+
+
+#######################################
+##  Return to User Interation Shell  ##
+#######################################
+cd $HOME/rtexe
 #---------------------------------------------------------------------------------------------------------#

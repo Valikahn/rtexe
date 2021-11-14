@@ -16,7 +16,7 @@ fi
 ####################################
 ##  Housekeeping of var/www/html  ##
 ####################################
-echo 'Housekeeping of var/www/html'
+echo -n 'Housekeeping of var/www/html'
 
 cd /var/www/html/
 
@@ -52,8 +52,6 @@ echo " " >> index.html
 echo "<p><em>Thank you for using rtexe.</em></p>" >> index.html
 echo "</body>" >> index.html
 echo "</html>" >> index.html
-
-cd $HOME/rtexe
 #---------------------------------------------------------------------------------------------------------#
 
 
@@ -70,10 +68,8 @@ cd $HOME/rtexe
 #---------------------------------------------------------------------------------------------------------#
 
 
-##############################################
-##  Required Pacakge Installation Complete  ##
-##############################################
-echo
-echo "ins-comp-1804 script completed"
-echo
+#######################################
+##  Return to User Interation Shell  ##
+#######################################
+cd $HOME/rtexe
 #---------------------------------------------------------------------------------------------------------#

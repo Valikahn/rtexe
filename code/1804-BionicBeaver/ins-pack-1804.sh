@@ -17,7 +17,7 @@ fi
 ####################################
 ##  Updating Packages and Builds  ##
 ####################################
-echo -n "Updating Packages and Builds"
+echo -n 'Updating Packages and Builds'
 sudo apt-get -yqq update > /dev/null
 sudo apt-get -yqq upgrade > /dev/null
 sudo dpkg --configure -a > /dev/null
@@ -93,12 +93,14 @@ echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 ###############################
 echo -n 'Installing Dependencies'
 sudo apt-get -yqqf install aptitude build-essential libsigc++-2.0-dev libcurl4-openssl-dev automake cmake wget > /dev/null 2>&1
+echo -n '   ...'
 sudo apt-get -yqqf install libcppunit-dev libncurses5-dev libssl-dev autoconf mediainfo mediainfo-gui libfcgi-perl > /dev/null 2>&1
+echo -n '   ...'
 sudo apt-get -yqqf install libtool libwandio-dev python-libtorrent zlib1g zlib1g-dev > /dev/null 2>&1
-sudo apt-get -yqqf install rar unrar zip unzip curl mc nano php php-curl php-cli tmux sox ffmpeg sed > /dev/null 2>&1
+echo -n '   ...'
+sudo apt-get -yqqf install rar unrar zip unzip curl mc nano php php-curl php-cli tmux sox ffmpeg sed libapache2-mod-scgi > /dev/null 2>&1
 echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #---------------------------------------------------------------------------------------------------------#
-
 
 ##############################################
 ##  Required Pacakge Installation Complete  ##
@@ -106,4 +108,11 @@ echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 echo
 echo "Required package installation is now complete...  Moving on to Functional Programs"
 echo
+#---------------------------------------------------------------------------------------------------------#
+
+
+#######################################
+##  Return to User Interation Shell  ##
+#######################################
+cd $HOME/rtexe
 #---------------------------------------------------------------------------------------------------------#
