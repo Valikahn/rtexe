@@ -190,7 +190,7 @@ cd webmin-1.981
 sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak
 sudo cp -f $HOME/rtexe/config/src.list /etc/apt/sources.list
 
-wget -q -O- http://www.webmin.com/jcameron-key.asc | sudo apt-key add
+wget -q -O- http://www.webmin.com/jcameron-key.asc | sudo apt-key add > /dev/null 2>&1
 sudo apt-get -yqq update > /dev/null 2>&1
 sudo apt-get -yqq install webmin > /dev/null 2>&1
 cd $HOME

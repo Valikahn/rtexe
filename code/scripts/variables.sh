@@ -6,6 +6,7 @@
 HOME=$(eval echo "~$user")
 export logfile="/dev/null"
 cn=$(date +%b)
+version_statement=$(lsb_release -d)
 
 # Server IP Address - Ipv4 only
 # grep 'inet6' instead of 'inet ' for ipv6
@@ -19,7 +20,7 @@ VERSION=$(awk '/DISTRIB_RELEASE=/' /etc/*-release | sed 's/DISTRIB_RELEASE=//' |
 #---------------------------------------------------------------------------------------------------------#
 
 # Version Control
-SCRIPTVERSION="v1.14.13.2"
+SCRIPTVERSION="v1.15.1"
 REVDATE="14 November 2021"
 GITHUB="https://github.com/Valikahn/rtexe"
 #---------------------------------------------------------------------------------------------------------#
@@ -116,7 +117,7 @@ FILE="$HOME/rtorrent/.session/rtorrent.lock"
 # Comp Variables
 ixhtml='index.html'
 phpinfo='phpinfo.php'
-outcred='$HOME/rtorrent/OutputUserDetails.txt'
+outcred='OutputUserDetails.txt'
 #---------------------------------------------------------------------------------------------------------#
 
 # Check/Download URL's Variables

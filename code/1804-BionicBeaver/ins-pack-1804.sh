@@ -84,8 +84,9 @@ sudo systemctl start -qq vsftpd
 sudo systemctl enable -qq vsftpd
 sudo mv /etc/vsftpd.conf /etc/vsftpd.conf.orig
 sudo cp $vsftpd_conf /etc/vsftpd.conf
-echo "listen_port=$vsftpd_port" >> /etc/vsftpd.conf
+grep ^listen_port /etc/vsftpd.conf > /dev/null || echo "listen_port=$vsftpd_port" >> /etc/vsftpd.conf
 sudo systemctl restart -qq vsftpd
+
 vsftpd_port=$(grep 'listen_port=' /etc/vsftpd.conf | sed 's/[^0-9]*//g')
 echo -n "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 echo "   FTP port set to $vsftpd_port"

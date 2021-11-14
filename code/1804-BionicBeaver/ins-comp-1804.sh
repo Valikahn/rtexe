@@ -64,7 +64,7 @@ echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 cd $HOME/rtexe
 ftp_cur_ver=$(apt-cache policy vsftpd | grep -o Installed.* | cut -d ' ' -f2)
 rt_cur_ver=$(rtorrent -h | grep -om 1 "[0-9]\{1,2\}\.[0-9]\{1,2\}\.[0-9]\{1,2\}")
-ru_cur_ver=$(grep -m 1 version: /var/www/rutorrent/js/webui.js | cut -d \" -f2)
+ru_cur_ver=$(grep -m 1 version: /var/www/html/rutorrent/js/webui.js | cut -d \" -f2)
 #---------------------------------------------------------------------------------------------------------#
 
 
@@ -72,10 +72,14 @@ ru_cur_ver=$(grep -m 1 version: /var/www/rutorrent/js/webui.js | cut -d \" -f2)
 ##  Summary of Installation  ##
 ###############################
 echo -n 'Generating User Output File'
+cd $HOME/rtrorrent
+cat > $outcred
 sleep 5
 echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 sleep 7
-clear
+
+echo
+echo
 echo "Summary of Installation (Important Information, please read)" | tee $outcred
 
 echo test | tee $outcred
@@ -103,7 +107,7 @@ echo | tee -a $outcred
 echo "RuTorrent Web GUI" | tee -a $outcred
 echo "   RuTorrent $ru_current installed" | tee -a $outcred
 echo "   rutorrent can be accessed at https://$ip/rutorrent" | tee -a $outcred
-echo "   rutorrent password set to $webpass" | tee -a $outcred
+#echo "   rutorrent password set to $webpass" | tee -a $outcred
 echo "   rutorrent password as set by user" | tee -a $outcred
 
 echo | tee -a $outcred
@@ -121,14 +125,6 @@ echo "Thank You for choosing rtexe by valikahn" | tee -a $outcred
 echo
 chown $user $outcred
 echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
-#---------------------------------------------------------------------------------------------------------#
-
-
-#######################################
-##  Return to User Interation Shell  ##
-#######################################
-cd $HOME
-rm -rf rtexe
 #---------------------------------------------------------------------------------------------------------#
 
 
