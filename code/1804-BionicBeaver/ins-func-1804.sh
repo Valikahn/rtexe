@@ -77,6 +77,24 @@ if [ -d /var/www/html/rutorrent/conf/users ]; then
   done
   echo
 fi
+echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
+#---------------------------------------------------------------------------------------------------------#
+
+
+#########################
+##  Install ruTorrent  ##
+#########################
+echo -n 'Installing ruTorrent'
+echo -n "RuTorrent: ";up_or_down $ru_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; }
+mkdir -p "$HOME"/$dirruTorrent
+cd "$HOME"/rtexe/temp/ruTorrent
+curl -sL $ruTorrent_dl -o ruTorrent-master.tar.gz > /dev/null
+tar -zxvf ruTorrent-master.tar.gz > /dev/null
+rm ruTorrent-master.tar.gz
+
+if [ -d /var/www/html/rutorrent ]; then
+		rm -r /var/www/html/rutorrent
+fi
 
 echo -n 'Configuring rTorrent'
 cd $HOME
