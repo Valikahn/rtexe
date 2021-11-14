@@ -1,10 +1,9 @@
 #!/bin/bash
 #---------------------------------------------------------------------------------------------------------#
 
-export logfile="/dev/null"
-#homedir=$(cat /etc/passwd | grep "$user": | cut -d: -f6)
 HOME=$(eval echo "~$user")
 export logfile="/dev/null"
+cn=$(date +%b)
 
 # Server IP Address - Ipv4 only
 # grep 'inet6' instead of 'inet ' for ipv6
@@ -31,23 +30,25 @@ fi
 
 
 # Version Control
-SCRIPTVERSION="v1.14.7"
+SCRIPTVERSION="v1.14.8"
 REVDATE="14 November 2021"
 GITHUB="https://github.com/Valikahn/rtexe"
+#---------------------------------------------------------------------------------------------------------#
 
-# Code Name (Months - Ancient Egyptians)
-JAN='Amun'
-FEB='Shu'
-MAR='Nephthys'
-APR='Bastet'
-MAY='Horus'
-JUN='Anubis'
-JUL='Hapy'
-AUG='Sobek'
-SEP='Osiris'
-OCT='Ra'
-NOV='Seth'
-DEC='Hathor'
+# Egyptian Gods
+# https://www.worldhistory.org/article/885/egyptian-gods---the-complete-list/
+Jan='Amun'
+Feb='Fetket'
+Mar='Mekhit'
+Apr='Anubis'
+May='Mehen'
+Jun='Jupiter-Amun'
+Jul='Isis'
+Aug='Anhur'
+Sep='Seth'
+Oct='Osiris'
+Nov='Nephthys'
+Dec='Denwen'
 #---------------------------------------------------------------------------------------------------------#
 
 # Color Variables
