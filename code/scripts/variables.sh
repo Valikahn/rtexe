@@ -31,9 +31,23 @@ fi
 
 
 # Version Control
-SCRIPTVERSION="v1.14.6-Seth"
+SCRIPTVERSION="v1.14.7"
 REVDATE="14 November 2021"
 GITHUB="https://github.com/Valikahn/rtexe"
+
+# Code Name (Months - Ancient Egyptians)
+JAN='Amun'
+FEB='Shu'
+MAR='Nephthys'
+APR='Bastet'
+MAY='Horus'
+JUN='Anubis'
+JUL='Hapy'
+AUG='Sobek'
+SEP='Osiris'
+OCT='Ra'
+NOV='Seth'
+DEC='Hathor'
 #---------------------------------------------------------------------------------------------------------#
 
 # Color Variables
@@ -62,6 +76,7 @@ webpass=''
 forceyes=1
 passflag=0
 passfile='/var/www/html/.htpasswd'
+passrufile='/var/www/html/rutorrent/.htpasswd'
 unixpass=""
 os_prereq=0
 prereq=0

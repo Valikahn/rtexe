@@ -23,16 +23,15 @@ This script is for the installation of Apache, PHP, OpenSSL, ruTorrent and Webmi
 ## Installed Software Module Versions
 | Install Modules               | Version
 |-------------------------------|-------------------------------|
-| Apache                        | 2.4.46 (Ubuntu)
-| PHP                           | 7.4.9
-| rTorrent                      | 7.4.9
-| ruTorrent                     | 7.4.9
-| XmlRpc-c                      | 0.0.0
-| libtorrent                    | 0.0.0
+| Apache                        | 2.4.29 (Ubuntu)
+| PHP                           | 7.2.24
+| rTorrent                      | 0.9.8
+| ruTorrent                     | 3.10
+| XmlRpc-c                      | Revision 3138
+| libtorrent                    | 0.13.8
 | autodl-irssi                  | 0.0.0
-| PHP                           | 7.4.9
-| SSL                           | OpenSSL/1.1.1f
-| FTP server (vsftpd)           | 1.973
+| SSL                           | OpenSSL/1.1.1
+| FTP server (vsftpd)           | 3.0.5
 
 ## Install Commands
 #### Install Git, clone and execute "rtexe" package
@@ -71,7 +70,7 @@ We actively encourage recommendations, suggestions, ideas, please let us know.
 
 ## Licence | Copyright
 Copyright (C) 2020 - 2021 Valikahn<br />
-Program v1.14.6 - Code Name: Seth<br />
+Program v1.14.7 - Code Name: Seth<br />
 
 Licensed under the GPLv3 License.
 

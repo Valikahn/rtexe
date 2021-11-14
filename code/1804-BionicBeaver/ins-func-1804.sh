@@ -148,6 +148,8 @@ echo 'Setting permissions, Starting services'
 chown -R www-data:www-data /var/www/html
 chown -R $user:$user $HOME
 
+mv -f $passfile $passrufile
+
 cd $HOME
 
 echo -n "Starting $SERVICE"
