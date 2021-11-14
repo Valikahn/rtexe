@@ -181,9 +181,9 @@ echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 echo -n 'Installing Webmin'
 mkdir -p /home/$user/$dirwebm
 cd "$HOME"/rtexe/temp/webmin
-sudo apt-get -yqq update > /dev/null
-curl -sL $webmin_dl -o webmin.tar > /dev/null
-tar -zxvf webmin.tar > /dev/null
+sudo apt-get -yqq update > /dev/null 2>&1
+curl -sL $webmin_dl -o webmin.tar > /dev/null 2>&1
+tar -zxvf webmin.tar > /dev/null 2>&1
 rm webmin.tar
 cd webmin-1.981
 # ./setup.sh /usr/local/webmin # THIS HAS NOT BEEN TESTED FOR SILENT INSTALLAION
@@ -191,9 +191,10 @@ cd webmin-1.981
 sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak
 sudo cp -f $HOME/rtexe/config/src.list /etc/apt/sources.list
 
-wget -q -O- http://www.webmin.com/jcameron-key.asc | sudo apt-key add
-sudo apt-get -y update
-sudo apt-get -y install webmin
+wget -q -O- http://www.webmin.com/jcameron-key.asc | sudo apt-key add > /dev/null 2>&1
+sudo apt-get -yqq update > /dev/null 2>&1
+sudo apt-get -yqq install webmin > /dev/null 2>&1
+cd $HOME
 echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #---------------------------------------------------------------------------------------------------------#
 
@@ -203,5 +204,3 @@ echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #######################################
 cd $HOME/rtexe
 #---------------------------------------------------------------------------------------------------------#
-
-webmin_dl="https://prdownloads.sourceforge.net/webadmin/webmin-1.981.tar.gz"

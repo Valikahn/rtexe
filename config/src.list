@@ -47,3 +47,6 @@ deb http://security.ubuntu.com/ubuntu bionic-security universe
 # deb-src http://security.ubuntu.com/ubuntu bionic-security universe
 deb http://security.ubuntu.com/ubuntu bionic-security multiverse
 # deb-src http://security.ubuntu.com/ubuntu bionic-security multiverse
+
+##  Webmin repository
+deb http://download.webmin.com/download/repository sarge contrib

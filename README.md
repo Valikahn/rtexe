@@ -72,7 +72,7 @@ We actively encourage recommendations, suggestions, ideas, please let us know.
 
 ## Licence | Copyright
 Copyright (C) 2020 - 2021 Valikahn<br />
-Program v1.14.10 - Version Name: Nephthys<br />
+Program v1.14.11 - Version Name: Nephthys<br />
 
 Licensed under the GPLv3 License.
 
