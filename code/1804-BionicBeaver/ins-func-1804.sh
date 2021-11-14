@@ -1,5 +1,6 @@
 #!/bin/bash
 sleep 3
+#---------------------------------------------------------------------------------------------------------#
 
 ################################
 ##  Checking if user is root  ##
@@ -16,7 +17,7 @@ fi
 ########################
 ##  Install xmlrpc-c  ##
 ########################
-echo 'Installing xmlrpc-c'
+echo -n 'Installing xmlrpc-c'
 mkdir -p "$HOME"/$dirxmlrpcc
 cd "$HOME"/rtexe/temp/xmlrpc-c
 sudo apt-get -yqq install subversion > /dev/null
@@ -26,13 +27,14 @@ cd xmlrpc-c
 make > /dev/null 2>&1
 make install > /dev/null 2>&1
 cd ../..
+echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #---------------------------------------------------------------------------------------------------------#
 
 
 ##########################
 ##  Install libtorrent  ##
 ##########################
-echo 'Installing libtorrent'
+echo -n 'Installing libtorrent'
 mkdir -p "$HOME"/$dirlibtorrent
 cd "$HOME"/rtexe/temp/libtorrent
 curl -sL $libtorrent_dl -o libtorrent.tar.gz > /dev/null
@@ -44,33 +46,26 @@ cd libtorrent-0.13.8
 make > /dev/null 2>&1
 make install > /dev/null 2>&1
 cd ../..
+echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #---------------------------------------------------------------------------------------------------------#
 
 
 ########################
 ##  Install rTorrent  ##
 ########################
-echo 'Installing rTorrent'
+echo -n 'Installing rTorrent'
 mkdir -p "$HOME"/$dirrTorrent
 cd "$HOME"/rtexe/temp/rTorrent
 curl -sL $rTorrent_dl -o rtorrent.tar.gz > /dev/null
 tar -zxvf rtorrent.tar.gz > /dev/null
 rm rtorrent.tar.gz
 cd rtorrent-0.9.8
-echo 'autogen'
 ./autogen.sh > /dev/null 2>&1
-echo 'configure'
 ./configure --prefix=/usr --with-xmlrpc-c --enable-ipv6 > /dev/null 2>&1
-echo 'make -j'
 make -j > /dev/null 2>&1
-echo 'make -s'
 make -s install > /dev/null 2>&1
-echo 'ldconfig'
 ldconfig > /dev/null 2>&1
 
-cd $HOME
-
-echo 'Restart soon'
 if [ -d /var/www/html/rutorrent/conf/users ]; then
   cd /var/www/rutorrent/conf/users
   user_list=*
@@ -83,11 +78,82 @@ if [ -d /var/www/html/rutorrent/conf/users ]; then
   echo
 fi
 
+echo -n 'Configuring rTorrent'
+cd $HOME
+mkdir -p rtorrent/.session
+mkdir -p rtorrent/download
+mkdir -p rtorrent/watch
+
+cp -f $HOME/rtexe/config/rt.rc $HOME/.rtorrent.rc
+sed -i "s|<user home>|${HOME}|g" $HOME/.rtorrent.rc
+sed -i "s/<user name>/$user/g" $HOME/.rtorrent.rc
+
+echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
+#---------------------------------------------------------------------------------------------------------#
+
+
+#########################
+##  Install ruTorrent  ##
+#########################
+echo -n 'Installing ruTorrent'
+mkdir -p "$HOME"/$dirruTorrent
+cd "$HOME"/rtexe/temp/ruTorrent
+curl -sL $ruTorrent_dl -o ruTorrent-master.tar.gz > /dev/null
+tar -zxvf ruTorrent-master.tar.gz > /dev/null
+rm ruTorrent-master.tar.gz
+
+if [ -d /var/www/html/rutorrent ]; then
+		rm -r /var/www/html/rutorrent
+fi
+
+mv ruTorrent-master rutorrent
+cp -r rutorrent /var/www/html/
+cd /var/www/html/
+rm rutorrent/conf/config.php
+cp -f $HOME/rtexe/config/ruTorrent.config /var/www/html/rutorrent/conf/config.php
+mkdir -p /var/www/html/rutorrent/conf/users/$user/plugins
+cd /var/www/html/rutorrent/conf/users/$user/plugins
+
+echo "<?php" > config.php
+echo >> config.php
+echo "\$homeDirectory = \"$HOME\";" >> config.php
+echo "\$topDirectory = \"$HOME\";" >> config.php
+echo "\$scgi_port = 5000;" >> config.php
+echo "\$XMLRPCMountPoint = \"/RPC2\";" >> config.php
+echo >> config.php
+echo "?>" >> config.php
+
+cd /var/www/html/rutorrent/conf
+sudo mv plugins.ini plugins.ini.orig
+sudo cp -f $HOME/rtexe/config/ruTorrent.ini /var/www/html/rutorrent/conf/plugins.ini
+
+service apache2 restart
+systemctl reload apache2
+
+echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
+#---------------------------------------------------------------------------------------------------------#
+
+
+##########################
+## Setting Permissions  ##
+##########################
+echo -n 'Setting permissions, Starting services'
+chown -R www-data:www-data /var/www/html
+chown -R $user:$user $home
+
+cd $home
+
+echo -n "Starting $SERVICE"
+screen -d -m -S $SERVICE $SERVICE
+
+echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
+#---------------------------------------------------------------------------------------------------------#
+
 
 ########################
 ## Installing Webmin  ##
 ########################
-#echo 'Installing Webmin'
+#echo -n 'Installing Webmin'
 #mkdir -p /home/$user/$dirwebm
 #cd "$HOME"/rtexe/temp/webmin
 #sudo apt-get -y update
@@ -95,4 +161,5 @@ fi
 #wget -q -O- http://www.webmin.com/jcameron-key.asc | sudo apt-key add
 #sudo apt-get -y update
 #sudo apt-get -y install webmin
+#echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #---------------------------------------------------------------------------------------------------------#
