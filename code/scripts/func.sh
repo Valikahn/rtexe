@@ -6,8 +6,7 @@
 #######################
 
 #
-cd $HOME
-cp -r rtexe /etc/rtexe
+cp -r $HOME/rtexe /etc
 #---------------------------------------------------------------------------------------------------------#
 
 # Are the sites up or down where we get our packages from?
