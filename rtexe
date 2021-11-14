@@ -19,7 +19,7 @@ fi
 # Brief info on script
 ###
 echo "${PURPLE}Valikahn's rtexe script${NORMAL}"
-echo "Version: $SCRIPTVERSION-$NOV"
+echo "Version: $SCRIPTVERSION-$Nov"
 echo "Released: $REVDATE"
 echo
 echo "This script is for the installation of Apache, PHP, OpenSSL, rtorrent, ruTorrent and Webmin."

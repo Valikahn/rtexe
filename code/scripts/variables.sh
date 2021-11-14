@@ -30,7 +30,7 @@ fi
 
 
 # Version Control
-SCRIPTVERSION="v1.14.8"
+SCRIPTVERSION="v1.14.9"
 REVDATE="14 November 2021"
 GITHUB="https://github.com/Valikahn/rtexe"
 #---------------------------------------------------------------------------------------------------------#

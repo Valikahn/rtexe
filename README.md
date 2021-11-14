@@ -21,6 +21,8 @@ This script is for the installation of Apache, PHP, OpenSSL, ruTorrent and Webmi
 * Ubuntu 18.x (Bionic Beaver)
 
 ## Installed Software Module Versions
+#### Below is the minimal version that will install on each build depending on the Operating System is being used.
+
 | Install Modules               | Version
 |-------------------------------|-------------------------------|
 | Apache                        | 2.4.29 (Ubuntu)
@@ -70,7 +72,7 @@ We actively encourage recommendations, suggestions, ideas, please let us know.
 
 ## Licence | Copyright
 Copyright (C) 2020 - 2021 Valikahn<br />
-Program v1.14.8 - Version Name: Nephthys<br />
+Program v1.14.9 - Version Name: Nephthys<br />
 
 Licensed under the GPLv3 License.
 

@@ -23,8 +23,11 @@ cd "$HOME"/rtexe/temp/xmlrpc-c
 sudo apt-get -yqq install subversion > /dev/null
 svn checkout $xmlrpcc_dl xmlrpc-c > /dev/null
 cd xmlrpc-c
+echo -n ' .'
 ./configure --disable-cplusplus > /dev/null 2>&1
+echo -n '.'
 make > /dev/null 2>&1
+echo -n '.'
 make install > /dev/null 2>&1
 cd ../..
 echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
@@ -41,9 +44,13 @@ curl -sL $libtorrent_dl -o libtorrent.tar.gz > /dev/null
 tar -zxvf libtorrent.tar.gz > /dev/null
 rm libtorrent.tar.gz
 cd libtorrent-0.13.8
+echo -n ' .'
 ./autogen.sh > /dev/null 2>&1
+echo -n '.'
 ./configure > /dev/null 2>&1
+echo -n '.'
 make > /dev/null 2>&1
+echo -n '.'
 make install > /dev/null 2>&1
 cd ../..
 echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
@@ -53,17 +60,22 @@ echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 ########################
 ##  Install rTorrent  ##
 ########################
-echo 'Installing rTorrent'
+echo -n 'Installing rTorrent'
 mkdir -p "$HOME"/$dirrTorrent
 cd "$HOME"/rtexe/temp/rTorrent
 curl -sL $rTorrent_dl -o rtorrent.tar.gz > /dev/null
 tar -zxvf rtorrent.tar.gz > /dev/null
 rm rtorrent.tar.gz
 cd rtorrent-0.9.8
+echo -n ' .'
 ./autogen.sh > /dev/null 2>&1
+echo -n '.'
 ./configure --prefix=/usr --with-xmlrpc-c --enable-ipv6 > /dev/null 2>&1
+echo -n '.'
 make -j > /dev/null 2>&1
+echo -n '.'
 make -s install > /dev/null 2>&1
+echo '.'
 ldconfig > /dev/null 2>&1
 
 if [ -d /var/www/html/rutorrent/conf/users ]; then
@@ -81,6 +93,7 @@ fi
 if [ ! -h /etc/apache2/mods-enabled/scgi.load ]; then
 	ln -s /etc/apache2/mods-available/scgi.load /etc/apache2/mods-enabled/scgi.load
 fi
+echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 
 echo -n 'Configuring rTorrent'
 cd $HOME
@@ -104,7 +117,7 @@ echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #########################
 ##  Install ruTorrent  ##
 #########################
-echo 'Installing ruTorrent'
+echo -n 'Installing ruTorrent'
 mkdir -p "$HOME"/$dirruTorrent
 cd "$HOME"/rtexe/temp/ruTorrent
 curl -sL $ruTorrent_dl -o ruTorrent-master.tar.gz > /dev/null
@@ -115,6 +128,7 @@ mv ruTorrent-master rutorrent
 if [ -d /var/www/html/rutorrent ]; then
 		rm -r /var/www/html/rutorrent
 fi
+echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 
 echo -n 'Configuring ruTorrent'
 cp -r rutorrent /var/www/html/
@@ -144,7 +158,7 @@ echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 ##########################
 ## Setting Permissions  ##
 ##########################
-echo 'Setting permissions, Starting services'
+echo 'Setting permissions'
 chown -R www-data:www-data /var/www/html
 chown -R $user:$user $HOME
 

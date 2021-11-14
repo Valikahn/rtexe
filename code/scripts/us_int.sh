@@ -118,6 +118,7 @@ sed  -i "s/\/debian\s/\/debian\/ /g" /etc/apt/sources.list
 
 echo
 echo  "Checking $OS mirrors"
+sleep 3
 for i in $(cat /etc/apt/sources.list | grep "^deb http" | cut -d' ' -f2 | uniq ); do
   echo -n $i": "
   up_or_down $i && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; os_prereq=1; }
@@ -125,6 +126,7 @@ done
 
 echo
 echo "Checking major 3rd party components"
+sleep 3
 echo -n "Rtorrent: "; up_or_down $rt_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
 echo -n "libtorrent: "; up_or_down $lib_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
 echo -n "xmlrpc-c: ";up_or_down $xmlrpc_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
@@ -182,12 +184,12 @@ if [ "$val" == "" ]; then
 elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 
 	clear
-	echo -n "Please pick your Operating System version: "
+	echo -n "${BOLD}Please pick your Operating System version: ${NORMAL}"
 	echo
-		echo "${GREEN}$bb_1804${NORMAL}"
-		echo "${LBLUE}$ff_2004${NORMAL}"
-		echo "${PURPLE}$hh_2104${NORMAL}"
-		echo "${YELLOW}$ii_2110${NORMAL}"
+		echo "${BOLD}$bb_1804${NORMAL}"
+		echo "${BOLD}$ff_2004${NORMAL}"
+		echo "${BOLD}$hh_2104${NORMAL}"
+		echo "${BOLD}$ii_2110${NORMAL}"
 		echo "${BOLD}$osnot_listed${NORMAL}"
 		echo
 	read OSVERSION

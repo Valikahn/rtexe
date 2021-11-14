@@ -92,21 +92,26 @@ echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 ##  Installing Dependencies  ##
 ###############################
 echo -n 'Installing Dependencies'
-sudo apt-get -yqqf install aptitude build-essential libsigc++-2.0-dev libcurl4-openssl-dev automake cmake wget > /dev/null 2>&1
-echo -n '   ...'
-sudo apt-get -yqqf install libcppunit-dev libncurses5-dev libssl-dev autoconf mediainfo mediainfo-gui libfcgi-perl > /dev/null 2>&1
-echo -n '   ...'
+sudo apt-get -yqqf install aptitude build-essential libsigc++-2.0-dev libcurl4-openssl-dev automake > /dev/null 2>&1
+echo -n ' .'
+sudo apt-get -yqqf install cmake wget libcppunit-dev libncurses5-dev curl > /dev/null 2>&1
+echo -n '.'
+sudo apt-get -yqqf install libssl-dev autoconf mediainfo mediainfo-gui libfcgi-perl > /dev/null 2>&1
+echo -n '.'
 sudo apt-get -yqqf install libtool libwandio-dev python-libtorrent zlib1g zlib1g-dev > /dev/null 2>&1
-echo -n '   ...'
-sudo apt-get -yqqf install rar unrar zip unzip curl mc nano php php-curl php-cli tmux sox ffmpeg sed libapache2-mod-scgi > /dev/null 2>&1
+echo -n '.'
+sudo apt-get -yqqf install nano php php-curl php-cli tmux > /dev/null 2>&1
+echo -n '.'
+sudo apt-get -yqqf install rar unrar zip unzip mc sox ffmpeg sed libapache2-mod-scgi > /dev/null 2>&1
 echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #---------------------------------------------------------------------------------------------------------#
+
 
 ##############################################
 ##  Required Pacakge Installation Complete  ##
 ##############################################
 echo
-echo "Required package installation is now complete...  Moving on to Functional Programs"
+echo 'Mandatory Updates and Installations Complete...  Moving on to Program Installation and Configuration'
 echo
 #---------------------------------------------------------------------------------------------------------#
 

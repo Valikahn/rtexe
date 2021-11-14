@@ -53,6 +53,7 @@ echo " " >> index.html
 echo "<p><em>Thank you for using rtexe.</em></p>" >> index.html
 echo "</body>" >> index.html
 echo "</html>" >> index.html
+echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #---------------------------------------------------------------------------------------------------------#
 
 
