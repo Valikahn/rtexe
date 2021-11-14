@@ -5,6 +5,11 @@
 ###  SET FUNCTIONS  ###
 #######################
 
+#
+cd $HOME
+cp -r rtexe /etc/rtexe
+#---------------------------------------------------------------------------------------------------------#
+
 # Are the sites up or down where we get our packages from?
 up_or_down() {
   if [[ `wget -S -T 3 --spider $1  2>&1 | grep 'HTTP/1.1 200 OK'` ]]; then return 0; else return 1; fi
