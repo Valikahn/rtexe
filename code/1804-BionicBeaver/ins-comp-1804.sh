@@ -1,5 +1,6 @@
 #!/bin/bash
 sleep 3
+#---------------------------------------------------------------------------------------------------------#
 
 ################################
 ##  Checking if user is root  ##
@@ -31,90 +32,108 @@ if [ -f "$ixhtml" ]; then
   rm "$ixhtml"
 fi
 
-echo "<html>" >> index.html
-echo "<head>" >> index.html
-echo "<title>Welcome to rtexe</title>" >> index.html
-echo "<style>" >> index.html
-echo "    body {" >> index.html
-echo "        width: 35em;" >> index.html
-echo "        margin: 0 auto;" >> index.html
-echo "        font-family: Tahoma, Verdana, Arial, sans-serif;" >> index.html
-echo "    }" >> index.html
-echo "</style>" >> index.html
-echo "</head>" >> index.html
-echo "<body>" >> index.html
-echo "<h1>Welcome to rtexe</h1>" >> index.html
-echo "<p>If you see this page, the web server is successfully installed and" >> index.html
-echo "working. Further configuration may be required.</p>" >> index.html
-echo " " >> index.html
-echo "<p>For online documentation and support please refer to" >> index.html
-echo "<a href="https://github.com/Valikahn/rtexe">GitHub</a>.<br/>" >> index.html
-echo " " >> index.html
-echo "<p><em>Thank you for using rtexe.</em></p>" >> index.html
-echo "</body>" >> index.html
-echo "</html>" >> index.html
+echo "<html>" >> $ixhtml
+echo "<head>" >> $ixhtml
+echo "<title>Welcome to rtexe</title>" >> $ixhtml
+echo "<style>" >> $ixhtml
+echo "    body {" >> $ixhtml
+echo "        width: 35em;" >> $ixhtml
+echo "        margin: 0 auto;" >> $ixhtml
+echo "        font-family: Tahoma, Verdana, Arial, sans-serif;" >> $ixhtml
+echo "    }" >> $ixhtml
+echo "</style>" >> $ixhtml
+echo "</head>" >> $ixhtml
+echo "<body>" >> $ixhtml
+echo "<h1>Welcome to rtexe</h1>" >> $ixhtml
+echo "<p>If you see this page, the web server is successfully installed and" >> $ixhtml
+echo "working. Further configuration may be required.</p>" >> $ixhtml
+echo " " >> $ixhtml
+echo "<p>For online documentation and support please refer to" >> $ixhtml
+echo "<a href="https://github.com/Valikahn/rtexe">GitHub</a>.<br/>" >> $ixhtml
+echo " " >> $ixhtml
+echo "<p><em>Thank you for using rtexe.</em></p>" >> $ixhtml
+echo "</body>" >> $ixhtml
+echo "</html>" >> $ixhtml
 echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #---------------------------------------------------------------------------------------------------------#
 
 
-####################################
-##  Housekeeping of var/www/html  ##
-####################################
-echo -n 'Output File'
-sleep 3
-
-cd /var/www/html/
-echo "<html>" >> outputUserDetails.html
-echo "<title>Output User Details</title>" >> outputUserDetails.html
-echo "<style>" >> outputUserDetails.html
-echo "    body {" >> outputUserDetails.html
-echo "        width: 35em;" >> outputUserDetails.html
-echo "        margin: 0 auto;" >> outputUserDetails.html
-echo "        font-family: Tahoma, Verdana, Arial, sans-serif;" >> outputUserDetails.html
-echo "    }" >> outputUserDetails.html
-echo "</style>" >> outputUserDetails.html
-echo "</head>" >> outputUserDetails.html
-echo "<body>" >> outputUserDetails.html
-echo "<h1>Output User Details</h1>" >> outputUserDetails.html
-echo "<p>SSH Configured  " >> outputUserDetails.html
-echo "   SSH port set to $sshport" >> outputUserDetails.html
-echo "   root login directly from SSH disabled" >> outputUserDetails.html
-echo "   login with $user and switch to root using: sudo su</p>" >> outputUserDetails.html
-echo " " >> outputUserDetails.html
-echo "<p>FTP Server  " >> outputUserDetails.html
-echo "   vsftpd $ftp_current installed" >> outputUserDetails.html
-echo "   ftp port set to $ftpport" >> outputUserDetails.html
-echo "   ftp client should be set to explicit ftp over tls using port $ftpport</p>" >> outputUserDetails.html
-echo " " >> outputUserDetails.html
-echo "<p>rtorrent torrent client  " >> outputUserDetails.html
-echo "   rtorrent $rt_current installed" >> outputUserDetails.html
-echo "   crontab entries made. rtorrent and irssi will start on boot for $user" >> outputUserDetails.html
-echo " " >> outputUserDetails.html
-echo "<p>RuTorrent Web GUI  " >> outputUserDetails.html
-echo "   rutorrent can be accessed at https://$serverip/rutorrent" >> outputUserDetails.html
-echo "   RuTorrent $ru_current installed" >> outputUserDetails.html
-echo "   rutorrent password set to $webpass" >> outputUserDetails.html
-echo " " >> outputUserDetails.html
-echo "<p>Webmin Web GUI  " >> outputUserDetails.html
-echo "   Webmin can be accessed at https://$serverip:10000" >> outputUserDetails.html
-echo " " >> outputUserDetails.html
+#################################
+##  Current Version Variables  ##
+#################################
+cd $HOME/rtexe
+ftp_cur_ver=$(apt-cache policy vsftpd | grep -o Installed.* | cut -d ' ' -f2)
+rt_cur_ver=$(rtorrent -h | grep -om 1 "[0-9]\{1,2\}\.[0-9]\{1,2\}\.[0-9]\{1,2\}")
+ru_cur_ver=$(grep -m 1 version: /var/www/rutorrent/js/webui.js | cut -d \" -f2)
 #---------------------------------------------------------------------------------------------------------#
-echo "Please ensure you can login BEFORE closing this session" >> outputUserDetails.html
-echo " " >> outputUserDetails.html
-echo "The above information is stored in rtinst.info in your home directory." >> outputUserDetails.html
-echo "To see contents enter: cat $home/rtinst.info" >> outputUserDetails.html
-echo " " >> outputUserDetails.html
-echo "To install webmin enter: sudo rtwebmin" >> outputUserDetails.html
-echo " " >> outputUserDetails.html
-echo "SCROLL UP IF NEEDED TO READ ALL THE SUMMARY INFO" >> outputUserDetails.html
-echo "PLEASE REBOOT YOUR SYSTEM ONCE YOU HAVE NOTED THE ABOVE INFORMATION" >> outputUserDetails.html
-echo "Thank You for choosing rtexe" >> outputUserDetails.html
-echo " " >> outputUserDetails.html
+
+
+###############################
+##  Summary of Installation  ##
+###############################
+echo -n 'Generating User Output File'
+sleep 5
+echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
+sleep 7
+clear
+echo "Summary of Installation (Important Information, please read)" | tee $outcred
+
+echo test | tee $outcred
+
+echo "SSH Configured" | tee -a $outcred
+echo "   SSH port set to $sshport" | tee -a $outcred
+echo "   root login directly from SSH disabled"
+echo "   login with $user and switch to root using: sudo su"
+
+echo | tee -a $outcred
+
+echo "FTP Server"  | tee -a $outcred
+echo "   vsftpd $ftp_cur_ver installed" | tee -a $outcred
+echo "   ftp port set to $vsftpd_port" | tee -a $outcred
+echo "   ftp client should be set to explicit ftp over tls using port $vsftpd_port" | tee -a $outcred
+
+echo | tee -a $outcred
+
+echo "rtorrent torrent client" | tee -a $outcred
+echo "   rtorrent $rt_current installed" | tee -a $outcred
+echo "   crontab entries made. rtorrent and irssi will start on boot for $user" | tee -a $outcred
+
+echo | tee -a $outcred
+
+echo "RuTorrent Web GUI" | tee -a $outcred
+echo "   RuTorrent $ru_current installed" | tee -a $outcred
+echo "   rutorrent can be accessed at https://$ip/rutorrent" | tee -a $outcred
+echo "   rutorrent password set to $webpass" | tee -a $outcred
+echo "   rutorrent password as set by user" | tee -a $outcred
+
+echo | tee -a $outcred
+
+echo "IMPORTANT: SSH Port set to $sshport" | tee -a $outcred
+echo
+echo "Please ensure you can login BEFORE closing this session"
+echo
+echo "The above information is stored in rtinst.info in your home directory."
+echo "To see contents enter: cat $outcred"
+echo
+echo "PLEASE REBOOT YOUR SYSTEM ONCE YOU HAVE NOTED THE ABOVE INFORMATION"
+echo | tee -a $outcred
+echo "Thank You for choosing rtexe by valikahn" | tee -a $outcred
+echo
+chown $user $outcred
+echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #---------------------------------------------------------------------------------------------------------#
 
 
 #######################################
 ##  Return to User Interation Shell  ##
 #######################################
-cd $HOME/rtexe
+cd $HOME
+rm -rf rtexe
+#---------------------------------------------------------------------------------------------------------#
+
+
+#######################################
+##  Return to User Interation Shell  ##
+#######################################
+cd $HOME
 #---------------------------------------------------------------------------------------------------------#

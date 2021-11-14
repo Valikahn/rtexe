@@ -1,7 +1,7 @@
 #!/bin/bash
 #---------------------------------------------------------------------------------------------------------#
+cp -r $HOME/rtexe /etc
 
-sleep 3
 clear
 source code/scripts/variables.sh
 source $discl
