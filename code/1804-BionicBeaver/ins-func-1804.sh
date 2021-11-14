@@ -53,7 +53,7 @@ echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 ########################
 ##  Install rTorrent  ##
 ########################
-echo -n 'Installing rTorrent'
+echo 'Installing rTorrent'
 mkdir -p "$HOME"/$dirrTorrent
 cd "$HOME"/rtexe/temp/rTorrent
 curl -sL $rTorrent_dl -o rtorrent.tar.gz > /dev/null
@@ -76,24 +76,6 @@ if [ -d /var/www/html/rutorrent/conf/users ]; then
     fi
   done
   echo
-fi
-echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
-#---------------------------------------------------------------------------------------------------------#
-
-
-#########################
-##  Install ruTorrent  ##
-#########################
-echo -n 'Installing ruTorrent'
-echo -n "RuTorrent: ";up_or_down $ru_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; }
-mkdir -p "$HOME"/$dirruTorrent
-cd "$HOME"/rtexe/temp/ruTorrent
-curl -sL $ruTorrent_dl -o ruTorrent-master.tar.gz > /dev/null
-tar -zxvf ruTorrent-master.tar.gz > /dev/null
-rm ruTorrent-master.tar.gz
-
-if [ -d /var/www/html/rutorrent ]; then
-		rm -r /var/www/html/rutorrent
 fi
 
 echo -n 'Configuring rTorrent'
@@ -119,19 +101,20 @@ cd "$HOME"/rtexe/temp/ruTorrent
 curl -sL $ruTorrent_dl -o ruTorrent-master.tar.gz > /dev/null
 tar -zxvf ruTorrent-master.tar.gz > /dev/null
 rm ruTorrent-master.tar.gz
+mv ruTorrent-master rutorrent
 
 if [ -d /var/www/html/rutorrent ]; then
 		rm -r /var/www/html/rutorrent
 fi
 
-mv ruTorrent-master rutorrent
+echo -n 'Configuring ruTorrent'
 cp -r rutorrent /var/www/html/
 cd /var/www/html/
 rm rutorrent/conf/config.php
 cp -f $HOME/rtexe/config/ruTorrent.config /var/www/html/rutorrent/conf/config.php
+
 mkdir -p /var/www/html/rutorrent/conf/users/$user/plugins
 cd /var/www/html/rutorrent/conf/users/$user/plugins
-
 echo "<?php" > config.php
 echo >> config.php
 echo "\$homeDirectory = \"$HOME\";" >> config.php
