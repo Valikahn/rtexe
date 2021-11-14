@@ -1,6 +1,8 @@
 #!/bin/bash
+
 #---------------------------------------------------------------------------------------------------------#
 
+# Various Variables
 HOME=$(eval echo "~$user")
 export logfile="/dev/null"
 cn=$(date +%b)
@@ -14,23 +16,10 @@ ip=$(ip addr | grep 'inet ' | awk '{print $2}' | cut -d/ -f1 | grep -v "127." | 
 OS=$(awk '/DISTRIB_ID=/' /etc/*-release | sed 's/DISTRIB_ID=//' | tr '[:upper:]' '[:lower:]')
 ARCH=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 VERSION=$(awk '/DISTRIB_RELEASE=/' /etc/*-release | sed 's/DISTRIB_RELEASE=//' | sed 's/[.]0/./')
-
-if [ -z "$OS" ]; then
-OS=$(awk '{print $1}' /etc/*-release | tr '[:upper:]' '[:lower:]')
-fi
-
-if [ -z "$VERSION" ]; then
-VERSION=$(awk '{print $3}' /etc/*-release)
-fi
-
-
-#####################
-##--SET VARIABLES--##
-#####################
-
+#---------------------------------------------------------------------------------------------------------#
 
 # Version Control
-SCRIPTVERSION="v1.14.11"
+SCRIPTVERSION="v1.14.12"
 REVDATE="14 November 2021"
 GITHUB="https://github.com/Valikahn/rtexe"
 #---------------------------------------------------------------------------------------------------------#
@@ -112,6 +101,8 @@ discl='code/notices/disclaimer.sh'
 #---------------------------------------------------------------------------------------------------------#
 
 # Pack Variables
+sshport=''
+sshd='sshd_config'
 vsftpd_conf='config/vsftpd.conf'
 apache2_conf='config/apache2.conf'
 rt_rc='rtexe/config/rtorrent.rc'
@@ -125,6 +116,7 @@ FILE="$HOME/rtorrent/.session/rtorrent.lock"
 # Comp Variables
 ixhtml='index.html'
 phpinfo='phpinfo.php'
+outcred='$HOME/rtorrent/OutputUserDetails.txt'
 #---------------------------------------------------------------------------------------------------------#
 
 # Check/Download URL's Variables

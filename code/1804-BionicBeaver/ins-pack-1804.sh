@@ -78,13 +78,17 @@ echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 ##  Installing vsftpd  ##
 #########################
 echo -n 'Installing vsftpd'
+vsftpd_port=$(random 41005 48995)
 sudo apt-get -yqq install vsftpd > /dev/null
 sudo systemctl start -qq vsftpd
 sudo systemctl enable -qq vsftpd
 sudo mv /etc/vsftpd.conf /etc/vsftpd.conf.orig
 sudo cp $vsftpd_conf /etc/vsftpd.conf
+grep ^listen_port /etc/vsftpd.conf > /dev/null || echo "listen_port=$vsftpd_port" >> /etc/vsftpd.conf
 sudo systemctl restart -qq vsftpd
-echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
+vsftpd_port=$(grep 'listen_port=' /etc/vsftpd.conf | sed 's/[^0-9]*//g')
+echo -n "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
+echo "   FTP port set to $vsftpd_port"
 #---------------------------------------------------------------------------------------------------------#
 
 
@@ -104,15 +108,6 @@ sudo apt-get -yqqf install nano php php-curl php-cli tmux > /dev/null 2>&1
 echo -n '.'
 sudo apt-get -yqqf install rar unrar zip unzip mc sox ffmpeg sed libapache2-mod-scgi > /dev/null 2>&1
 echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
-#---------------------------------------------------------------------------------------------------------#
-
-
-##############################################
-##  Required Pacakge Installation Complete  ##
-##############################################
-echo
-echo 'Mandatory Updates and Installations Complete...  Moving on to Program Installation and Configuration'
-echo
 #---------------------------------------------------------------------------------------------------------#
 
 
