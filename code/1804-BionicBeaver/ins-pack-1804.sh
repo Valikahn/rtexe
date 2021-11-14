@@ -49,52 +49,6 @@ echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #---------------------------------------------------------------------------------------------------------#
 
 
-####################
-##  Cofigure SSH  ##
-####################
-echo -n 'Configuring SSH'
-defaultssh=$(grep -P '^[#\s]*Port ' /etc/ssh/sshd_config | sed 's/[^0-9]*//g')
-
-if [ "$portdefault" = "0" ]; then
-  sshport=22
-elif [ "$oldsshport" = "22" ] && [ "$portdefault" = "1" ]; then
-  sshport=$(random 21000 29000)
-else
-  sshport=$oldsshport
-fi
-
-cd /etc/ssh
-sed -i "/^\(\s\|#\)*Port / c\Port $sshport" $sshd
-sed -i "/^\(\s\|#\)*X11Forwarding /c\X11Forwarding no" $sshd
-sed -i '/^\s*PermitRootLogin/ c\PermitRootLogin no' $sshd
-sed -i '/^\s*PasswordAuthentication no/ c\#PasswordAuthentication no' $sshd
-
-echo >> /etc/ssh/sshd_config
-grep -Pq "^[#\s]*UsePAM" $sshd && sed -i '/^\(\s\|#\)*UsePAM/ c\UsePAM yes' $sshd || echo "UsePAM yes" >> $sshd
-grep -Pq "^[#\s]*UseDNS" $sshd && sed -i '/^\(\s\|#\)*UseDNS/ c\UseDNS no' $sshd || echo "UseDNS no" >> $sshd
-
-if [ -z "$(grep sshuser /etc/group)" ]; then
-groupadd sshuser
-fi
-
-allowlist=$(grep ^AllowUsers $sshd)
-if ! [ -z "$allowlist" ]; then
-  for ssh_user in $allowlist
-    do
-      if   [ ! "$ssh_user" = "AllowUsers" ] && [ "$(groups $ssh_user 2> /dev/null | grep -E ' sudo(\s|$)')" = "" ]; then
-        adduser $ssh_user sshuser
-      fi
-    done
-  sed -i "/$allowlist/ d" $sshd
-fi
-grep "AllowGroups sudo sshuser" $sshd > /dev/null || echo "AllowGroups sudo sshuser" >> $sshd
-
-
-
-echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
-#---------------------------------------------------------------------------------------------------------#
-
-
 ########################
 ##  SSL Certificates  ##
 ########################

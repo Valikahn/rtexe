@@ -118,6 +118,8 @@ done
 sed  -i "s/\/debian\s/\/debian\/ /g" /etc/apt/sources.list
 
 echo
+echo "Operating system detected as $OS $ARCH $VERSION"
+echo
 echo  "Checking $OS mirrors"
 sleep 3
 for i in $(cat /etc/apt/sources.list | grep "^deb http" | cut -d' ' -f2 | uniq ); do
@@ -186,8 +188,10 @@ if [ "$val" == "" ]; then
 elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 
 	clear
+	echo echo "${BOLD}Operating system detected as $OS $ARCH $VERSION${NORMAL}"
 	echo -n "${BOLD}Please pick your Operating System version: ${NORMAL}"
 	echo
+		echo
 		echo "${BOLD}$bb_1804${NORMAL}"
 		echo "${BOLD}$ff_2004${NORMAL}"
 		echo "${BOLD}$hh_2104${NORMAL}"

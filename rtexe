@@ -29,6 +29,8 @@ echo "${GREEN}Remember to run as root or with sudo.${NORMAL}"
 echo
 echo "${BOLD}Bugs, feature requests? Visit $GITHUB${NORMAL}"
 echo
+echo "Operating system detected as $OS $ARCH $VERSION"
+echo
 echo "-------------------------------------------------------------------------------------------"
 
 source $func
