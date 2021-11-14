@@ -3,27 +3,6 @@
 ###########################################################################################################
 
 
-########################
-##  Install rTorrent  ##
-########################
-echo 'Installing rTorrent'
-mkdir -p "$HOME"/$dirrTorrent
-cd "$HOME"/rtexe/temp/rTorrent
-sudo apt-get -yqqf install rtorrent libtorrent19 libxmlrpc-core-c3
-curl -sL $rTorrent_dl -o rtorrent.tar.gz > /dev/null
-tar -zxvf rtorrent.tar.gz > /dev/null
-rm rtorrent.tar.gz
-cd rtorrent-0.9.8
-./autogen.sh > /dev/null 2>&1
-./configure --with-xmlrpc-c > /dev/null 2>&1
-make > /dev/null 2>&1
-make install > /dev/null 2>&1
-ldconfig > /dev/null 2>&1
-
-cd $HOME
-#---------------------------------------------------------------------------------------------------------#
-
-
 #########################
 ##  Install ruTorrent  ##
 #########################

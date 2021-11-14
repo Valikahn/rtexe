@@ -1,5 +1,5 @@
 #!/bin/bash
-sleep 3
+#---------------------------------------------------------------------------------------------------------#
 
 ################################
 ##  Checking if user is root  ##
@@ -28,7 +28,7 @@ echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 ##################################
 ##  Installing Apache2 and PHP  ##
 ##################################
-echo 'Installing Apache and PHP'
+echo -n 'Installing Apache and PHP'
 sudo apt-get -yqq install apache2 apache2-utils > /dev/null
 sudo apt-get -yqq install php php-cgi libapache2-mod-php > /dev/null
 sudo apt-get -yqq install php-mysql php-gd > /dev/null
@@ -44,13 +44,14 @@ fi
 
 chown www-data:www-data $passfile
 chmod 640 $passfile
+echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #---------------------------------------------------------------------------------------------------------#
 
 
 ########################
 ##  SSL Certificates  ##
 ########################
-echo 'Installing SSL Certificate'
+echo -n 'Installing SSL Certificate'
 sudo apt-get -yqqf install openssl ca-certificates > /dev/null 2>&1
 sudo a2enmod ssl > /dev/null
 sudo systemctl restart apache2 > /dev/null
@@ -68,30 +69,33 @@ sudo chmod 600 /etc/apache2/apache.pem > /dev/null 2>&1
 
 sudo a2ensite default-ssl > /dev/null
 sudo systemctl reload apache2 > /dev/null
+echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #---------------------------------------------------------------------------------------------------------#
 
 
 #########################
 ##  Installing vsftpd  ##
 #########################
-echo 'Installing vsftpd'
+echo -n 'Installing vsftpd'
 sudo apt-get -yqq install vsftpd > /dev/null
 sudo systemctl start -qq vsftpd
 sudo systemctl enable -qq vsftpd
 sudo mv /etc/vsftpd.conf /etc/vsftpd.conf.orig
 sudo cp $vsftpd_conf /etc/vsftpd.conf
 sudo systemctl restart -qq vsftpd
+echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #---------------------------------------------------------------------------------------------------------#
 
 
 ###############################
 ##  Installing Dependencies  ##
 ###############################
-echo 'Installing Dependencies'
+echo -n 'Installing Dependencies'
 sudo apt-get -yqqf install aptitude build-essential libsigc++-2.0-dev libcurl4-openssl-dev automake cmake wget > /dev/null 2>&1
 sudo apt-get -yqqf install libcppunit-dev libncurses5-dev libssl-dev autoconf mediainfo mediainfo-gui libfcgi-perl > /dev/null 2>&1
 sudo apt-get -yqqf install libtool libwandio-dev python-libtorrent zlib1g zlib1g-dev > /dev/null 2>&1
 sudo apt-get -yqqf install rar unrar zip unzip curl mc nano php php-curl php-cli tmux sox ffmpeg sed > /dev/null 2>&1
+echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #---------------------------------------------------------------------------------------------------------#
 
 

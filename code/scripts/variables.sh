@@ -1,5 +1,6 @@
 #!/bin/bash
-sleep 3
+#---------------------------------------------------------------------------------------------------------#
+
 export logfile="/dev/null"
 #homedir=$(cat /etc/passwd | grep "$user": | cut -d: -f6)
 HOME=$(eval echo "~$user")
@@ -30,8 +31,8 @@ fi
 
 
 # Version Control
-SCRIPTVERSION="v1.13.6-Seth"
-REVDATE="13 November 2021"
+SCRIPTVERSION="v1.14.1-Seth"
+REVDATE="14 November 2021"
 GITHUB="https://github.com/Valikahn/rtexe"
 #---------------------------------------------------------------------------------------------------------#
 
@@ -114,6 +115,7 @@ phpinfo='phpinfo.php'
 rt_url="https://rakshasa.github.io/rtorrent/"
 xmlrpc_url="https://svn.code.sf.net/p/xmlrpc-c/code/advanced/"
 ru_url="https://github.com/Novik/ruTorrent/"
+lib_url="https://rakshasa.github.io/rtorrent/"
 adl_url="https://github.com/autodl-community/"
 xmlrpcc_dl="http://svn.code.sf.net/p/xmlrpc-c/code/stable"
 libtorrent_dl="https://github.com/rakshasa/rtorrent-archive/raw/master/libtorrent-0.13.8.tar.gz"
