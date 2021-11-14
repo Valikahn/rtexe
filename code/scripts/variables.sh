@@ -30,7 +30,7 @@ fi
 
 
 # Version Control
-SCRIPTVERSION="v1.14.9"
+SCRIPTVERSION="v1.14.10"
 REVDATE="14 November 2021"
 GITHUB="https://github.com/Valikahn/rtexe"
 #---------------------------------------------------------------------------------------------------------#
@@ -133,8 +133,10 @@ xmlrpc_url="https://svn.code.sf.net/p/xmlrpc-c/code/advanced/"
 ru_url="https://github.com/Novik/ruTorrent/"
 lib_url="https://rakshasa.github.io/rtorrent/"
 adl_url="https://github.com/autodl-community/"
+wbmin_url="https://www.webmin.com/"
 xmlrpcc_dl="http://svn.code.sf.net/p/xmlrpc-c/code/stable"
 libtorrent_dl="https://github.com/rakshasa/rtorrent-archive/raw/master/libtorrent-0.13.8.tar.gz"
 rTorrent_dl="https://github.com/rakshasa/rtorrent-archive/raw/master/rtorrent-0.9.8.tar.gz"
 ruTorrent_dl="https://github.com/Novik/ruTorrent/archive/master.tar.gz"
+webmin_dl="https://prdownloads.sourceforge.net/webadmin/webmin-1.981.tar.gz"
 #---------------------------------------------------------------------------------------------------------#
