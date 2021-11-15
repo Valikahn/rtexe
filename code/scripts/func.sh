@@ -2,6 +2,17 @@
 
 #---------------------------------------------------------------------------------------------------------#
 
+# Copy files to where they need to be
+cd ~
+cd $HOME/rtorrent
+touch $outcred
+cd ~
+cp -r $HOME/rtexe /etc
+cp -r $rtstart /usr/local/bin/
+chmod +x /usr/local/bin
+cd $HOME
+#---------------------------------------------------------------------------------------------------------#
+
 # Are the sites up or down where we get our packages from?
 up_or_down() {
   if [[ `wget -S -T 3 --spider $1  2>&1 | grep 'HTTP/1.1 200 OK'` ]]; then return 0; else return 1; fi

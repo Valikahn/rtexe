@@ -170,7 +170,6 @@ echo -n "Starting $SERVICE"
 service apache2 restart
 systemctl reload apache2
 screen -d -m -S $SERVICE $SERVICE
-
 echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #---------------------------------------------------------------------------------------------------------#
 
@@ -195,6 +194,27 @@ sudo apt-get -yqq update > /dev/null 2>&1
 sudo apt-get -yqq install webmin > /dev/null 2>&1
 cd $HOME
 echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
+#---------------------------------------------------------------------------------------------------------#
+
+
+###########################
+##  Startups / Cronjobs  ##
+###########################
+echo -n 'Setting rTorrent Cronjob'
+# rtorrent Cronjob
+if [ -z "$(crontab -u $user -l | grep "$cronjob1")" ]; then
+    (crontab -u $user -l; echo "$cronjob1" ) | crontab -u $user - >> /dev/null 2>&1
+fi
+sleep 5
+echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
+
+#echo -n 'Setting irssi Cronjob'
+# irssi Cronjob
+#if [ -z  "$(crontab -u $user -l | grep "\*/10 \* \* \* \* /usr/local/bin/rtcheck irssi rtorrent")" ]; then
+#    (crontab -u $user -l; echo "$cronline2" ) | crontab -u $user - >> $logfile 2>&1
+#fi
+#sleep 5
+#echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #---------------------------------------------------------------------------------------------------------#
 
 

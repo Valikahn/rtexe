@@ -20,8 +20,8 @@ VERSION=$(awk '/DISTRIB_RELEASE=/' /etc/*-release | sed 's/DISTRIB_RELEASE=//' |
 #---------------------------------------------------------------------------------------------------------#
 
 # Version Control
-SCRIPTVERSION="v1.15.1"
-REVDATE="14 November 2021"
+SCRIPTVERSION="v1.15.2"
+REVDATE="15 November 2021"
 GITHUB="https://github.com/Valikahn/rtexe"
 #---------------------------------------------------------------------------------------------------------#
 
@@ -110,8 +110,12 @@ rt_rc='rtexe/config/rtorrent.rc'
 #---------------------------------------------------------------------------------------------------------#
 
 # Function Variables
+PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/bin:/sbin
 SERVICE='rtorrent'
 FILE="$HOME/rtorrent/.session/rtorrent.lock"
+rtstart='/etc/rtexe/code/scripts/bin/rtstart.sh'
+cronjob1="@reboot sleep 5; /usr/local/bin/rtstart rtorrent"
+#cronjob2="*/10 * * * * /usr/local/bin/rtcheck irssi rtorrent"
 #---------------------------------------------------------------------------------------------------------#
 
 # Comp Variables

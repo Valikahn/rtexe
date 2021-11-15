@@ -72,17 +72,12 @@ ru_cur_ver=$(grep -m 1 version: /var/www/html/rutorrent/js/webui.js | cut -d \" 
 ##  Summary of Installation  ##
 ###############################
 echo -n 'Generating User Output File'
-cd $HOME/rtrorrent
-cat > $outcred
 sleep 5
-echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
-sleep 7
-
 echo
 echo
 echo "Summary of Installation (Important Information, please read)" | tee $outcred
 
-echo test | tee $outcred
+echo | tee $outcred
 
 echo "SSH Configured" | tee -a $outcred
 echo "   SSH port set to $sshport" | tee -a $outcred
@@ -124,7 +119,7 @@ echo | tee -a $outcred
 echo "Thank You for choosing rtexe by valikahn" | tee -a $outcred
 echo
 chown $user $outcred
-echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
+#echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #---------------------------------------------------------------------------------------------------------#
 
 
