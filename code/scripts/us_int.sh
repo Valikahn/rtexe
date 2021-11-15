@@ -194,9 +194,9 @@ elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 	echo
 		echo
 		echo "${BOLD}$bb_1804${NORMAL}"
-		echo "${BOLD}$ff_2004${NORMAL}"
-		echo "${BOLD}$hh_2104${NORMAL}"
-		echo "${BOLD}$ii_2110${NORMAL}"
+		#echo "${BOLD}$ff_2004${NORMAL}"
+		#echo "${BOLD}$hh_2104${NORMAL}"
+		#echo "${BOLD}$ii_2110${NORMAL}"
 		echo "${BOLD}$osnot_listed${NORMAL}"
 		echo
 	read OSVERSION
@@ -215,30 +215,30 @@ elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 
 	  2)
 		echo -n "You have chosen your Operating System version as Ubuntu 20.04 (Focal Fossa)"
-		source $intermess
-		source $ff_pack_2004
-		source $ff_func_2004
-		source $ff_comp_2004
+		#source $intermess
+		#source $ff_pack_2004
+		#source $ff_func_2004
+		#source $ff_comp_2004
 		echo
 		rm -rf rtexe
 		;;
 
 	  3)
 		echo -n "You have chosen your Operating System version as Ubuntu 21.04 (Hirsute Hippo)"
-		source $intermess
-		source $hh_pack_2104
-		source $hh_func_2104
-		source $hh_comp_2104
+		#source $intermess
+		#source $hh_pack_2104
+		#source $hh_func_2104
+		#source $hh_comp_2104
 		echo
 		rm -rf rtexe
 		;;
 		
 	  4)
 		echo -n "You have chosen your Operating System version as Ubuntu 21.10 (Impish Indri)"
-		source $intermess
-		source $ii_pack_2110
-		source $ii_func_2110
-		source $ii_comp_2110
+		#source $intermess
+		#source $ii_pack_2110
+		#source $ii_func_2110
+		#source $ii_comp_2110
 		echo
 		rm -rf rtexe
 		;;

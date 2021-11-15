@@ -18,6 +18,7 @@ ARCH=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 VERSION=$(awk '/DISTRIB_RELEASE=/' /etc/*-release | sed 's/DISTRIB_RELEASE=//' | sed 's/[.]0/./')
 
 # Version Control
+# v1.15.8-Nephthys
 SCRIPTVERSION="v1.15.8"
 REVDATE="15 November 2021"
 GITHUB="https://github.com/Valikahn/rtexe"
