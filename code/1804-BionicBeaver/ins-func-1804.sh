@@ -171,7 +171,7 @@ echo -n "   Starting $SERVICE"
 service apache2 restart
 systemctl reload apache2
 screen -d -m -S $SERVICE $SERVICE
-sleep3
+sleep 3
 echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #---------------------------------------------------------------------------------------------------------#
 

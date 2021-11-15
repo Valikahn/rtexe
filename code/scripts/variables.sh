@@ -18,7 +18,7 @@ ARCH=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 VERSION=$(awk '/DISTRIB_RELEASE=/' /etc/*-release | sed 's/DISTRIB_RELEASE=//' | sed 's/[.]0/./')
 
 # Version Control
-SCRIPTVERSION="v1.15.6"
+SCRIPTVERSION="v1.15.7"
 REVDATE="15 November 2021"
 GITHUB="https://github.com/Valikahn/rtexe"
 #---------------------------------------------------------------------------------------------------------#
@@ -111,6 +111,7 @@ unknown='code/notices/unknown.sh'
 
 # Pack Variables
 sshport=''
+sshportdefault=1
 sshd='sshd_config'
 vsftpd_conf='config/vsftpd.conf'
 apache2_conf='config/apache2.conf'
