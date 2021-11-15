@@ -7,7 +7,7 @@ echo
 ###########################
 echo
 echo "Your job here is now done, the script requires no more user input."
-echo "This process can take as long as 30 minutes for the script to complete."
+echo "Installing, this may take a few minutes..."
 echo
 echo "${YELLOW}DO NOT!${NORMAL}  Close the window or interrupt the process."
 echo

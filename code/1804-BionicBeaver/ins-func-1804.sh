@@ -17,7 +17,7 @@ fi
 ########################
 ##  Install xmlrpc-c  ##
 ########################
-echo -n 'Installing xmlrpc-c'
+echo -n '   Installing xmlrpc-c'
 mkdir -p "$HOME"/$dirxmlrpcc
 cd "$HOME"/rtexe/temp/xmlrpc-c
 sudo apt-get -yqq install subversion > /dev/null
@@ -30,14 +30,14 @@ make > /dev/null 2>&1
 echo -n '.'
 make install > /dev/null 2>&1
 cd ../..
-echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
+echo "${GREEN}   [ Complete ]${NORMAL}"
 #---------------------------------------------------------------------------------------------------------#
 
 
 ##########################
 ##  Install libtorrent  ##
 ##########################
-echo -n 'Installing libtorrent'
+echo -n '   Installing libtorrent'
 mkdir -p "$HOME"/$dirlibtorrent
 cd "$HOME"/rtexe/temp/libtorrent
 curl -sL $libtorrent_dl -o libtorrent.tar.gz > /dev/null
@@ -53,14 +53,14 @@ make > /dev/null 2>&1
 echo -n '.'
 make install > /dev/null 2>&1
 cd ../..
-echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
+echo "${GREEN}   [ Complete ]${NORMAL}"
 #---------------------------------------------------------------------------------------------------------#
 
 
 ########################
 ##  Install rTorrent  ##
 ########################
-echo -n 'Installing rTorrent'
+echo -n '   Installing rTorrent'
 mkdir -p "$HOME"/$dirrTorrent
 cd "$HOME"/rtexe/temp/rTorrent
 curl -sL $rTorrent_dl -o rtorrent.tar.gz > /dev/null
@@ -83,7 +83,7 @@ if [ -d /var/www/html/rutorrent/conf/users ]; then
   user_list=*
   for user in $user_list; do
     if [ ! "$user" = '*' ]; then
-      echo "Restarting rtorrent for $user"
+      echo "   Restarting rtorrent for $user"
 	  screen -d -m -S $SERVICE $SERVICE
     fi
   done
@@ -93,9 +93,9 @@ fi
 if [ ! -h /etc/apache2/mods-enabled/scgi.load ]; then
 	ln -s /etc/apache2/mods-available/scgi.load /etc/apache2/mods-enabled/scgi.load
 fi
-echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
+echo "${GREEN}   [ Complete ]${NORMAL}"
 
-echo -n 'Configuring rTorrent'
+echo -n '   Configuring rTorrent'
 cd $HOME
 mkdir -p rtorrent/.session
 chown -R "$user"."$user" "$HOME"/rtorrent/.session
@@ -110,14 +110,14 @@ cp -f $HOME/rtexe/config/rt.rc $HOME/.rtorrent.rc
 sed -i "s|<user home>|${HOME}|g" $HOME/.rtorrent.rc
 sed -i "s/<user name>/$user/g" $HOME/.rtorrent.rc
 
-echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
+echo "${GREEN}   [ Complete ]${NORMAL}"
 #---------------------------------------------------------------------------------------------------------#
 
 
 #########################
 ##  Install ruTorrent  ##
 #########################
-echo -n 'Installing ruTorrent'
+echo -n '   Installing ruTorrent'
 mkdir -p "$HOME"/$dirruTorrent
 cd "$HOME"/rtexe/temp/ruTorrent
 curl -sL $ruTorrent_dl -o ruTorrent-master.tar.gz > /dev/null
@@ -128,9 +128,9 @@ mv ruTorrent-master rutorrent
 if [ -d /var/www/html/rutorrent ]; then
 		rm -r /var/www/html/rutorrent
 fi
-echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
+echo "${GREEN}   [ Complete ]${NORMAL}"
 
-echo -n 'Configuring ruTorrent'
+echo -n '   Configuring ruTorrent'
 cp -r rutorrent /var/www/html/
 cd /var/www/html/
 rm rutorrent/conf/config.php
@@ -151,19 +151,19 @@ cd /var/www/html/rutorrent/conf
 sudo mv plugins.ini plugins.ini.orig
 sudo cp -f $HOME/rtexe/config/ruTorrent.ini /var/www/html/rutorrent/conf/plugins.ini
 
-echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
+echo "${GREEN}   [ Complete ]${NORMAL}"
 #---------------------------------------------------------------------------------------------------------#
 
 
 ##########################
 ## Setting Permissions  ##
 ##########################
-echo -n 'Setting permissions'
+echo -n '   Setting permissions'
 chown -R www-data:www-data /var/www/html
 chown -R $user:$user $HOME
 sleep 3
 mv -f $passfile $passrufile
-echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
+echo "${GREEN}   [ Complete ]${NORMAL}"
 
 cd $HOME
 
@@ -171,15 +171,15 @@ echo -n "   Starting $SERVICE"
 service apache2 restart
 systemctl reload apache2
 screen -d -m -S $SERVICE $SERVICE
-sleep3
-echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
+sleep 3
+echo "${GREEN}   [ Complete ]${NORMAL}"
 #---------------------------------------------------------------------------------------------------------#
 
 
 ########################
 ## Installing Webmin  ##
 ########################
-echo -n 'Installing Webmin'
+echo -n '   Installing Webmin'
 mkdir -p /home/$user/$dirwebm
 cd "$HOME"/rtexe/temp/webmin
 sudo apt-get -yqq update > /dev/null 2>&1
@@ -195,28 +195,28 @@ wget -q -O- http://www.webmin.com/jcameron-key.asc | sudo apt-key add > /dev/nul
 sudo apt-get -yqq update > /dev/null 2>&1
 sudo apt-get -yqq install webmin > /dev/null 2>&1
 cd $HOME
-echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
+echo "${GREEN}   [ Complete ]${NORMAL}"
 #---------------------------------------------------------------------------------------------------------#
 
 
 ###########################
 ##  Startups / Cronjobs  ##
 ###########################
-echo -n 'Setting rTorrent Cronjob'
+echo -n '   Setting rTorrent Cronjob'
+echo "${GREEN}   [ Complete ]${NORMAL}"
 # rtorrent Cronjob
 if [ -z "$(crontab -u $user -l | grep "$cronjob1")" ]; then
     (crontab -u $user -l; echo "$cronjob1" ) | crontab -u $user - >> $logfile 2>&1
 fi
-sleep 5
-echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
+sleep 3
 
-#echo -n 'Setting irssi Cronjob'
+#echo -n '   Setting irssi Cronjob'
 # irssi Cronjob
 #if [ -z  "$(crontab -u $user -l | grep "\*/10 \* \* \* \* /usr/local/bin/rtcheck irssi rtorrent")" ]; then
 #    (crontab -u $user -l; echo "$cronline2" ) | crontab -u $user - >> $logfile 2>&1
 #fi
 #sleep 5
-#echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
+#echo "${GREEN}   [ Complete ]${NORMAL}"
 #---------------------------------------------------------------------------------------------------------#
 
 

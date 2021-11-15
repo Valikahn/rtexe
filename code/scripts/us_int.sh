@@ -130,12 +130,12 @@ done
 echo
 echo "Checking major 3rd party components"
 sleep 3
-echo -n "Rtorrent: "; up_or_down $rt_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
-echo -n "libtorrent: "; up_or_down $lib_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
-echo -n "xmlrpc-c: ";up_or_down $xmlrpc_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
-echo -n "Webmin: ";up_or_down $wbmin_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
-echo -n "RuTorrent: ";up_or_down $ru_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
-#echo -n "Autodl-irssi: "; up_or_down $adl_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
+echo -n "Rtorrent: "; up_or_down $rt_url && echo "${GREEN}[  PASS  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
+echo -n "libtorrent: "; up_or_down $lib_url && echo "${GREEN}[  PASS  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
+echo -n "xmlrpc-c: ";up_or_down $xmlrpc_url && echo "${GREEN}[  PASS  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
+echo -n "Webmin: ";up_or_down $wbmin_url && echo "${GREEN}[  PASS  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
+echo -n "RuTorrent: ";up_or_down $ru_url && echo "${GREEN}[  PASS  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
+#echo -n "Autodl-irssi: "; up_or_down $adl_url && echo "${GREEN}[  PASS  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
 
 if [ $os_prereq = 1 ]; then
   echo "Some of the $OS mirrors are down, try again later"

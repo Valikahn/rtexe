@@ -17,7 +17,7 @@ fi
 ####################################
 ##  Housekeeping of var/www/html  ##
 ####################################
-echo -n 'Housekeeping'
+echo -n '   Housekeeping'
 sleep 3
 
 cd /var/www/html/
@@ -71,13 +71,15 @@ ru_cur_ver=$(grep -m 1 version: /var/www/html/rutorrent/js/webui.js | cut -d \" 
 ###############################
 ##  Summary of Installation  ##
 ###############################
-echo -n 'Generating User Output File'
+echo -n '   Generating User Output File'
 cd $HOME/rtorrent
 touch $outcred
+sleep 10
 echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
-
-sleep 7
-#clear
+echo
+read -n 1 -s -r -p "Press any key to continue (the screen will clear/blank)"
+clear
+echo
 echo
 echo "Summary of Installation (Important Information, please read)" | tee $outcred
 
