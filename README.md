@@ -33,7 +33,7 @@ Also note the [Roadmap | Testing](#roadmap--testing) section for what is planned
 | XmlRpc-c                      | Revision 3138
 | libtorrent                    | 0.13.8
 | SSL                           | OpenSSL/1.1.1
-| FTP server (vsftpd)           | 3.0.5
+| FTP server (vsftpd)           | 3.0.3-9
 
 ## Install Commands
 #### Install Git, clone and execute "rtexe" package
@@ -66,7 +66,7 @@ We actively encourage recommendations, suggestions, ideas, please let us know.
 
 ## Licence | Copyright
 Copyright (C) 2020 - 2021 Valikahn<br />
-Program v1.15.4 - Version Name: Nephthys<br />
+Program v1.15.5.1 - Version Name: Nephthys<br />
 
 Licensed under the GPLv3 License.
 

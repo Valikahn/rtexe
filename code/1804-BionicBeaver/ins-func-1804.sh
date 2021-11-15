@@ -130,7 +130,7 @@ if [ -d /var/www/html/rutorrent ]; then
 fi
 echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 
-echo -n 'Configuring ruTorrent'
+echo -n '   Configuring ruTorrent'
 cp -r rutorrent /var/www/html/
 cd /var/www/html/
 rm rutorrent/conf/config.php

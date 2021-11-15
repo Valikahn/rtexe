@@ -79,12 +79,12 @@ echo
 echo
 echo "Summary of Installation (Important Information, please read)" | tee $outcred
 
-echo | tee $outcred
+#echo | tee $outcred
 
-echo "SSH Configured" | tee -a $outcred
-echo "   SSH port set to $sshport" | tee -a $outcred
-echo "   root login directly from SSH disabled"
-echo "   login with $user and switch to root using: sudo su"
+#echo "SSH Configured" | tee -a $outcred
+#echo "   SSH port set to $sshport" | tee -a $outcred
+#echo "   root login directly from SSH disabled"
+#echo "   if root access required, login with $user and switch to root using: sudo -i"
 
 echo | tee -a $outcred
 
@@ -96,27 +96,29 @@ echo "   ftp client should be set to explicit ftp over tls using port $vsftpd_po
 echo | tee -a $outcred
 
 echo "rtorrent torrent client" | tee -a $outcred
-echo "   rtorrent $rt_current installed" | tee -a $outcred
-echo "   crontab entries made. rtorrent and irssi will start on boot for $user" | tee -a $outcred
+echo "   rtorrent $rt_cur_ver installed" | tee -a $outcred
+echo "   crontab entries made. rtorrent will auto start on boot for $user" | tee -a $outcred
 
 echo | tee -a $outcred
 
 echo "RuTorrent Web GUI" | tee -a $outcred
-echo "   RuTorrent $ru_current installed" | tee -a $outcred
+echo "   RuTorrent $ru_cur_ver installed" | tee -a $outcred
 echo "   rutorrent can be accessed at https://$ip/rutorrent" | tee -a $outcred
 #echo "   rutorrent password set to $webpass" | tee -a $outcred
 echo "   rutorrent password as set by user" | tee -a $outcred
 
 echo | tee -a $outcred
 
-echo "IMPORTANT: SSH Port set to $sshport" | tee -a $outcred
-echo
+#echo "IMPORTANT: SSH Port set to $sshport" | tee -a $outcred
+#echo "IMPORTANT: SSH Port set to $sshport" | tee -a $outcred
+#echo "IMPORTANT: SSH Port set to $sshport" | tee -a $outcred
+#echo
 echo "Please ensure you can login BEFORE closing this session"
 echo
-echo "The above information is stored in rtinst.info in your home directory."
-echo "To see contents enter: cat $outcred"
+echo "The above information is stored in $outcred in your rtorrent directory located at $HOME."
+echo "To see contents enter in a terminal window by: cat $outcred"
 echo
-echo "PLEASE REBOOT YOUR SYSTEM ONCE YOU HAVE NOTED THE ABOVE INFORMATION"
+echo "PLEASE REBOOT YOUR SYSTEM ONCE YOU HAVE NOTED THE ABOVE INFORMATION FOR UPDATED TO TAKE EFFECT"
 echo | tee -a $outcred
 echo "Thank You for choosing rtexe by valikahn" | tee -a $outcred
 echo
@@ -128,5 +130,5 @@ chown $user $outcred
 ##############
 ##  Return  ##
 ##############
-cd $HOME/rtexe
+cd $HOME
 #---------------------------------------------------------------------------------------------------------#
