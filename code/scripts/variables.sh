@@ -18,7 +18,7 @@ ARCH=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 VERSION=$(awk '/DISTRIB_RELEASE=/' /etc/*-release | sed 's/DISTRIB_RELEASE=//' | sed 's/[.]0/./')
 
 # Version Control
-SCRIPTVERSION="v1.15.4"
+SCRIPTVERSION="v1.15.5"
 REVDATE="15 November 2021"
 GITHUB="https://github.com/Valikahn/rtexe"
 #---------------------------------------------------------------------------------------------------------#
@@ -119,15 +119,15 @@ rt_rc='rtexe/config/rtorrent.rc'
 PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/bin:/sbin
 SERVICE='rtorrent'
 FILE="$HOME/rtorrent/.session/rtorrent.lock"
-rtstart='/etc/rtexe/code/scripts/rtstart.sh'
-cronjob1="@reboot sleep 5; /usr/local/bin/rtstart rtorrent"
+rtstart='/etc/rtexe/code/scripts/rtstart'
+cronjob1="@reboot sleep 5; /usr/local/bin/rtstart"
 #cronjob2="*/10 * * * * /usr/local/bin/rtcheck irssi rtorrent"
 #---------------------------------------------------------------------------------------------------------#
 
 # Comp Variables
 ixhtml='index.html'
 phpinfo='phpinfo.php'
-outcred='OutputUserDetails.txt'
+outcred='UserInfo.txt'
 #---------------------------------------------------------------------------------------------------------#
 
 # Check/Download URL's Variables

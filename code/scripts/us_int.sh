@@ -135,7 +135,7 @@ echo -n "libtorrent: "; up_or_down $lib_url && echo "${GREEN}[  OK  ]${NORMAL}" 
 echo -n "xmlrpc-c: ";up_or_down $xmlrpc_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
 echo -n "Webmin: ";up_or_down $wbmin_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
 echo -n "RuTorrent: ";up_or_down $ru_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
-echo -n "Autodl-irssi: "; up_or_down $adl_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
+#echo -n "Autodl-irssi: "; up_or_down $adl_url && echo "${GREEN}[  OK  ]${NORMAL}" || { echo "${RED}[  FAIL  ]${NORMAL}"; prereq=1; }
 
 if [ $os_prereq = 1 ]; then
   echo "Some of the $OS mirrors are down, try again later"
@@ -220,7 +220,7 @@ elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 		source $ff_func_2004
 		source $ff_comp_2004
 		echo
-		echo "DONE!"
+		rm -rf rtexe
 		;;
 
 	  3)
@@ -230,7 +230,7 @@ elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 		source $hh_func_2104
 		source $hh_comp_2104
 		echo
-		echo "DONE!"
+		rm -rf rtexe
 		;;
 		
 	  4)
@@ -240,22 +240,23 @@ elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 		source $ii_func_2110
 		source $ii_comp_2110
 		echo
-		echo "DONE!"
+		rm -rf rtexe
 		;;
 
 	  5)
 		echo -n "Operating System Version Not Listed"
-		echo
-		exit 1
+		source $os_not_listed
+		cd $HOME
+		rm -rf rtexe
 		;;
 		
 	  *)
 		echo -n "Unknown Operating System"
-		echo
-		exit 1
+		source $unknown
+		cd $HOME
+		rm -rf rtexe
 		;;
 	esac
-	
 fi
 #---------------------------------------------------------------------------------------------------------#
 
