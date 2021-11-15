@@ -214,7 +214,7 @@ elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 		;;
 
 	  2)
-		echo -n "You have chosen your Operating System version as Ubuntu 20.04 (Focal Fossa)"
+		#echo -n "You have chosen your Operating System version as Ubuntu 20.04 (Focal Fossa)"
 		source $intermess
 		source $ff_pack_2004
 		source $ff_func_2004
@@ -224,7 +224,7 @@ elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 		;;
 
 	  3)
-		echo -n "You have chosen your Operating System version as Ubuntu 21.04 (Hirsute Hippo)"
+		#echo -n "You have chosen your Operating System version as Ubuntu 21.04 (Hirsute Hippo)"
 		source $intermess
 		source $hh_pack_2104
 		source $hh_func_2104
@@ -234,7 +234,7 @@ elif [[ "$val" == "y" ]] || [[ "$val" == "yes" ]]; then
 		;;
 		
 	  4)
-		echo -n "You have chosen your Operating System version as Ubuntu 21.10 (Impish Indri)"
+		#echo -n "You have chosen your Operating System version as Ubuntu 21.10 (Impish Indri)"
 		source $intermess
 		source $ii_pack_2110
 		source $ii_func_2110
