@@ -7,7 +7,8 @@
 
 ## Script Description
 During this installation process you have to choose a system user to run rtorrent.  The script will install a total of 46 plugins for ruTorrent to function.  The script will include a init script that makes rtorrent start, at a possible reboot, in the given username's screen/tmux session.<br /><br />
-This script is for the installation of Apache, PHP, OpenSSL, ruTorrent and Webmin.  There is minimal sections that require human input, please continue reading to ensure you understand what is entailed in this program.
+This script is for the installation of Apache, PHP, OpenSSL, rTorrent, ruTorrent and Webmin.  There is minimal sections that require human input, please continue reading to ensure you understand what is included in this program.<br /><br />
+Also note the [Roadmap | Testing](#roadmap--testing) section for what is planned to be introduced in later versions.
 
 * [Supported Operating Systems](#supported-operating-systems)
 * [Installed Software Module Versions](#installed-software-module-versions)
@@ -31,7 +32,6 @@ This script is for the installation of Apache, PHP, OpenSSL, ruTorrent and Webmi
 | ruTorrent                     | 3.10
 | XmlRpc-c                      | Revision 3138
 | libtorrent                    | 0.13.8
-| autodl-irssi                  | 0.0.0
 | SSL                           | OpenSSL/1.1.1
 | FTP server (vsftpd)           | 3.0.5
 
@@ -46,12 +46,13 @@ sudo ./rtexe
 ```
 
 ## Roadmap | Testing
-#### Scripting Improvements and Upcoming Features
+#### Script Improvements and Upcoming Features
 * Incorporate Encrypt SSL Certificates
 * Improve install time
 * Limited dependency lists
+* Include autodl-irssi
 
-#### Additional Operating System Support
+#### Operating System Support
 * Ubuntu 20.04.x (Focal Fossa)
 * Ubuntu 20.10.x (Groovy Gorilla)
 * Ubuntu 21.04.x (Hirsute Hippo)
@@ -65,7 +66,7 @@ We actively encourage recommendations, suggestions, ideas, please let us know.
 
 ## Licence | Copyright
 Copyright (C) 2020 - 2021 Valikahn<br />
-Program v1.15.3.1 - Version Name: Nephthys<br />
+Program v1.15.4 - Version Name: Nephthys<br />
 
 Licensed under the GPLv3 License.
 

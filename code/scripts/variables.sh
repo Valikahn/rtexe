@@ -6,7 +6,6 @@
 HOME=$(eval echo "~$user")
 export logfile="/dev/null"
 cn=$(date +%b)
-version_statement=$(lsb_release -d)
 
 # Server IP Address - Ipv4 only
 # grep 'inet6' instead of 'inet ' for ipv6
@@ -19,7 +18,7 @@ ARCH=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 VERSION=$(awk '/DISTRIB_RELEASE=/' /etc/*-release | sed 's/DISTRIB_RELEASE=//' | sed 's/[.]0/./')
 
 # Version Control
-SCRIPTVERSION="v1.15.3.2"
+SCRIPTVERSION="v1.15.4"
 REVDATE="15 November 2021"
 GITHUB="https://github.com/Valikahn/rtexe"
 #---------------------------------------------------------------------------------------------------------#
@@ -54,6 +53,7 @@ WHITE=$(tput setaf 7)
 #---------------------------------------------------------------------------------------------------------#
 
 # rtexe source Variables
+discl='code/notices/disclaimer.sh'
 func='code/scripts/func.sh'
 us_int='code/scripts/us_int.sh'
 #---------------------------------------------------------------------------------------------------------#
@@ -83,6 +83,8 @@ ff_2004='2)  Ubuntu 20.04 (Focal Fossa)'
 hh_2104='3)  Ubuntu 21.04 (Hirsute Hippo)'
 ii_2110='4)  Ubuntu 21.10 (Impish Indri)'
 osnot_listed='5)  Operating System Version Not Listed'
+
+# 1804-BionicBeaver
 bb_pack_1804='code/1804-BionicBeaver/ins-pack-1804.sh'
 bb_func_1804='code/1804-BionicBeaver/ins-func-1804.sh'
 bb_comp_1804='code/1804-BionicBeaver/ins-comp-1804.sh'
@@ -90,17 +92,19 @@ bb_comp_1804='code/1804-BionicBeaver/ins-comp-1804.sh'
 #ff_pack_2004='code/2004-FocalFossa/ins-pack-2004.sh'
 #ff_func_2004='code/2004-FocalFossa/ins-func-2004.sh'
 #ff_comp_2004='code/2004-FocalFossa/ins-comp-2004.sh'
+
+# 2004-FocalFossa
 #hh_pack_2104='code/2104-HirsuteHippo/ins-pack-2104.sh'
 #hh_func_2104='code/2104-HirsuteHippo/ins-func-2104.sh'
 #hh_comp_2104='code/2104-HirsuteHippo/ins-comp-2104.sh'
+
+# 2110-ImpishIndri
 #ii_pack_2110='code/2110-ImpishIndri/ins-pack-2110.sh'
 #ii_func_2110='code/2110-ImpishIndri/ins-func-2110.sh'
 #ii_comp_2110='code/2110-ImpishIndri/ins-comp-2110.sh'
-#---------------------------------------------------------------------------------------------------------#
 
 # Message Variables
 intermess='code/notices/intermess.sh'
-discl='code/notices/disclaimer.sh'
 #---------------------------------------------------------------------------------------------------------#
 
 # Pack Variables
@@ -138,4 +142,11 @@ libtorrent_dl="https://github.com/rakshasa/rtorrent-archive/raw/master/libtorren
 rTorrent_dl="https://github.com/rakshasa/rtorrent-archive/raw/master/rtorrent-0.9.8.tar.gz"
 ruTorrent_dl="https://github.com/Novik/ruTorrent/archive/master.tar.gz"
 webmin_dl="https://prdownloads.sourceforge.net/webadmin/webmin-1.981.tar.gz"
+#---------------------------------------------------------------------------------------------------------#
+
+
+##############
+##  Return  ##
+##############
+cd $HOME/rtexe
 #---------------------------------------------------------------------------------------------------------#
