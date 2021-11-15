@@ -20,6 +20,8 @@ echo "${PURPLE}Valikahn's rtexe script${NORMAL}"
 echo "Version: $SCRIPTVERSION-$Nov"
 echo "Released: $REVDATE"
 echo
+echo "${RED}Branch:  2004-FocalFossa-v1.15.8-Nephthys${NORMAL}"
+echo 
 echo "This script is for the installation of Apache, PHP, OpenSSL, rtorrent, ruTorrent and Webmin."
 echo "There is minimal sections that require user input, if you're here now - you must have read the GitHub readme, lets get this show on the road, shall we?"
 echo
