@@ -44,13 +44,6 @@ cd rtexe
 chmod +x rtexe
 sudo ./rtexe
 ```
-You can use the following commands respectively to start and stop the service.
-```
-service rtorrent-init start
-```
-```
-service rtorrent-init stop
-```
 
 ## Roadmap | Testing
 #### Scripting Improvements and Upcoming Features
@@ -72,7 +65,7 @@ We actively encourage recommendations, suggestions, ideas, please let us know.
 
 ## Licence | Copyright
 Copyright (C) 2020 - 2021 Valikahn<br />
-Program v1.15.2 - Version Name: Nephthys<br />
+Program v1.15.3.1 - Version Name: Nephthys<br />
 
 Licensed under the GPLv3 License.
 

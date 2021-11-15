@@ -72,6 +72,8 @@ ru_cur_ver=$(grep -m 1 version: /var/www/html/rutorrent/js/webui.js | cut -d \" 
 ##  Summary of Installation  ##
 ###############################
 echo -n 'Generating User Output File'
+cd $HOME/rtorrent
+touch $outcred
 sleep 5
 echo
 echo

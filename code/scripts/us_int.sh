@@ -165,6 +165,7 @@ fi
 # Including user to SUDO group of users
 if groups $user | grep -q -E ' sudo(\s|$)'; then
   echo "${PURPLE}$user${NORMAL} already has sudo privileges"
+  echo "${RED}WARNING:  With great power comes great responsibility${NORMAL}"
 else
   adduser $user sudo
   echo

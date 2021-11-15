@@ -4,9 +4,6 @@
 
 # Copy files to where they need to be
 cd ~
-cd $HOME/rtorrent
-touch $outcred
-cd ~
 cp -r $HOME/rtexe /etc
 cp -r $rtstart /usr/local/bin/
 chmod +x /usr/local/bin
