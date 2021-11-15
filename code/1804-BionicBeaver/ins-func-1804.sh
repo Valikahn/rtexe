@@ -130,7 +130,7 @@ if [ -d /var/www/html/rutorrent ]; then
 fi
 echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 
-echo -n '   Configuring ruTorrent'
+echo -n 'Configuring ruTorrent'
 cp -r rutorrent /var/www/html/
 cd /var/www/html/
 rm rutorrent/conf/config.php
@@ -161,15 +161,17 @@ echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 echo -n 'Setting permissions'
 chown -R www-data:www-data /var/www/html
 chown -R $user:$user $HOME
-
+sleep 3
 mv -f $passfile $passrufile
+echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 
 cd $HOME
 
-echo -n "Starting $SERVICE"
+echo -n "   Starting $SERVICE"
 service apache2 restart
 systemctl reload apache2
 screen -d -m -S $SERVICE $SERVICE
+sleep3
 echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 #---------------------------------------------------------------------------------------------------------#
 
@@ -203,7 +205,7 @@ echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT
 echo -n 'Setting rTorrent Cronjob'
 # rtorrent Cronjob
 if [ -z "$(crontab -u $user -l | grep "$cronjob1")" ]; then
-    (crontab -u $user -l; echo "$cronjob1" ) | crontab -u $user - >> /dev/null 2>&1
+    (crontab -u $user -l; echo "$cronjob1" ) | crontab -u $user - >> $logfile 2>&1
 fi
 sleep 5
 echo "${GREEN}   [ Complete ]${NORMAL}"  ##  THIS IS AN EXPERIMENT

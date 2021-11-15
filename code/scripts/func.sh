@@ -6,7 +6,7 @@
 cd ~
 cp -r $HOME/rtexe /etc
 cp -r $rtstart /usr/local/bin/
-chmod +x /usr/local/bin
+chmod +x /usr/local/bin/rtstart
 #---------------------------------------------------------------------------------------------------------#
 
 # Are the sites up or down where we get our packages from?
