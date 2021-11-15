@@ -6,7 +6,6 @@
 ###  USER INTERACTION  ###
 ##########################
 
-
 # Set and prepare user
 if [ -z "$user" ]; then
   if [ "$SUDO_USER" = "root" ] || [ -z "$SUDO_USER" ]; then

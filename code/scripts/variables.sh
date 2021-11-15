@@ -19,7 +19,7 @@ ARCH=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 VERSION=$(awk '/DISTRIB_RELEASE=/' /etc/*-release | sed 's/DISTRIB_RELEASE=//' | sed 's/[.]0/./')
 
 # Version Control
-SCRIPTVERSION="v1.15.3.1"
+SCRIPTVERSION="v1.15.3.2"
 REVDATE="15 November 2021"
 GITHUB="https://github.com/Valikahn/rtexe"
 #---------------------------------------------------------------------------------------------------------#
@@ -53,6 +53,11 @@ CYAN=$(tput setaf 6)
 WHITE=$(tput setaf 7)
 #---------------------------------------------------------------------------------------------------------#
 
+# rtexe source Variables
+func='code/scripts/func.sh'
+us_int='code/scripts/us_int.sh'
+#---------------------------------------------------------------------------------------------------------#
+
 # Folder Variables
 dirxmlrpcc='rtexe/temp/xmlrpc-c'
 dirlibtorrent='rtexe/temp/libtorrent'
@@ -78,8 +83,6 @@ ff_2004='2)  Ubuntu 20.04 (Focal Fossa)'
 hh_2104='3)  Ubuntu 21.04 (Hirsute Hippo)'
 ii_2110='4)  Ubuntu 21.10 (Impish Indri)'
 osnot_listed='5)  Operating System Version Not Listed'
-func='code/scripts/func.sh'
-us_int='code/scripts/us_int.sh'
 bb_pack_1804='code/1804-BionicBeaver/ins-pack-1804.sh'
 bb_func_1804='code/1804-BionicBeaver/ins-func-1804.sh'
 bb_comp_1804='code/1804-BionicBeaver/ins-comp-1804.sh'
@@ -112,7 +115,7 @@ rt_rc='rtexe/config/rtorrent.rc'
 PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/bin:/sbin
 SERVICE='rtorrent'
 FILE="$HOME/rtorrent/.session/rtorrent.lock"
-rtstart='/etc/rtexe/code/scripts/bin/rtstart.sh'
+rtstart='/etc/rtexe/code/scripts/rtstart.sh'
 cronjob1="@reboot sleep 5; /usr/local/bin/rtstart rtorrent"
 #cronjob2="*/10 * * * * /usr/local/bin/rtcheck irssi rtorrent"
 #---------------------------------------------------------------------------------------------------------#
